@@ -65,5 +65,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
 
     Route::resource('brand', 'Admin\BrandController');
 
+    Route::resource('order', 'Admin\OrderController');
+
 });
 

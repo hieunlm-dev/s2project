@@ -19,6 +19,7 @@ class HomeController extends Controller
         $latestProducts = Product::orderBy('updated_at','desc')->limit(8)->get();
 
         return view('frontend.home', compact('featuredProducts','latestProducts'));
+        
     }
 
     public function about(){

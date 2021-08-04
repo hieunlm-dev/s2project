@@ -42,6 +42,7 @@
                 <th>Order ID</th>
                 <th>Order Date</th>
                 <th>Customer Name</th>
+                <th>Status</th>
                 <th>Actions</th>
               </tr>
           </thead>
@@ -59,7 +60,9 @@
                 @endif
               </td>
               <td>
-                <a href="{{ route('admin.order.show', $item->id) }}" class="btn btn-primary">Detail</a>
+                <a href="{{ route('admin.order.show', $item->id) }}" class="btn btn-info">Detail</a>
+                <a href="#" class="btn btn-primary">Update</a>
+                <a href="#" class="btn btn-danger">Delete</a>
                 
               </td>
             </tr>

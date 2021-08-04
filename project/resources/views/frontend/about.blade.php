@@ -76,7 +76,7 @@
                         <input type="radio" class="hidden" name="showup" id="shoup1" value="shoup1" checked="checked">
                         <span class="check-box"></span>
                         <span class='function-name'>Support 24/7</span>
-                        <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                        <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>                      
                     </label>
                     <label>
                         <input type="radio" class="hidden" name="showup" id="shoup2" value="shoup2">

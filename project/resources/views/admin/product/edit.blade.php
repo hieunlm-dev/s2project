@@ -51,9 +51,9 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="brand">Brand </label> <br>
-                    <select class="form-control" name="brand_id" id="brand_id" >        
-                      @foreach ( $brands -> $item )
-                        <option value="{{ $item->id}}"> {{ $item->name }} </option>
+                    <select class="form-control" name="brand_id" id="brand_id" >         
+                      @foreach ( $brands as $item )
+                        <option value="{{ $item->id}}"> {{ $item->name}} </option>
                       @endforeach
                     </select>     
                   </div>

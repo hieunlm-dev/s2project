@@ -29,7 +29,6 @@ class CreateProductsTable extends Migration
             $table->string('storage')->nullable();
             $table->string('ram')->nullable();
             $table->string('battery')->nullable();
-            $table->integer('featured')->nullable();
 
             
             $table->timestamps();

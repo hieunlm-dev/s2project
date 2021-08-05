@@ -59,7 +59,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('admin.customer.detail',compact('customer'));
     }
 
     /**
@@ -82,6 +82,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->route('admin.customer.index');   
     }
 }

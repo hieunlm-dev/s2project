@@ -223,8 +223,8 @@
 
 @endsection
 
-{{-- @section('my-scripts')
-
+@if(isset($item))
+@section('my-scripts')
 <script>
 	// setup csrf-token cho post method
     $.ajaxSetup({
@@ -233,26 +233,26 @@
         }
     });
 
-    // $('.add-to-cart').click(function(e) {
-    //     e.preventDefault();     // hủy chức năng chuyển trang của thẻ a
-    //     quantity = $('#product-quantity').val();
-	// 	pid={{$item->id}}
-    //     //alert(quantity);
+    $('.add-to-cart').click(function(e) {
+        e.preventDefault();     // hủy chức năng chuyển trang của thẻ a
+        quantity = $('#product-quantity').val();
+		pid={{$item->id}}
+        //alert(quantity);
 
-    //     $.ajax({
-    //         type:'GET',
-    //         url:'{{ route('add-cart') }}',
-    //         data:{pid:pid, quantity:quantity},
-    //         success:function(data){
-    //             swal({
-	// 				title: "Adding successfully",
-	// 				text: "This product has been successfully added to your cart",
-	// 				icon: "success",
-	// 				button: "Aww yiss!",
-	// 			});
-    //         }
-    //     });	
-	// })
+        $.ajax({
+            type:'GET',
+            url:'{{ route('add-cart') }}',
+            data:{pid:pid, quantity:quantity},
+            success:function(data){
+                swal({
+					title: "Adding successfully",
+					text: "This product has been successfully added to your cart",
+					icon: "success",
+					button: "Aww yiss!",
+				});
+            }
+        });	
+	})
 </script>
-
-@endsection --}}
+@endsection
+@endif

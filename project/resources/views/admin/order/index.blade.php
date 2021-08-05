@@ -25,7 +25,6 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Order List</h3>
-
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
@@ -42,6 +41,7 @@
                 <th>Order ID</th>
                 <th>Order Date</th>
                 <th>Customer Name</th>
+                <th>Status</th>
                 <th>Actions</th>
               </tr>
           </thead>
@@ -59,8 +59,9 @@
                 @endif
               </td>
               <td>
-                <a href="{{ route('admin.order.show', $item->id) }}" class="btn btn-primary">Detail</a>
-                
+                <a href="{{ route('admin.order.show', $item->id) }}" class="btn btn-info">Detail</a>
+                <a href="#" class="btn btn-primary">Update</a>
+                <a href="#" class="btn btn-danger">Delete</a>
               </td>
             </tr>
             @endforeach

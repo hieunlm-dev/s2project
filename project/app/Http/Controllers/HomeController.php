@@ -9,6 +9,7 @@ use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 Use Alert;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -162,4 +163,36 @@ class HomeController extends Controller
         session()->forget('cart');
         return redirect()->route('home');
     }   
+
+    public function register(){
+        return view('frontend.register');
+    }
+
+    public function login(){
+        return view('frontend.login');
+    }
+
+    public function processLogin(Request $request){
+        $u = $request->email;
+        $p = md5($request->password);
+
+        $customer = Customer::where('email', $u)->first();
+        // dd($account);
+        if (!$customer) {
+            return redirect()->route('login');
+        }
+        if ($p !== $customer->password) {
+            return redirect()->route('login');
+        }
+        // lưu thông tin đăng nhập vào session
+        $request->session()->put('user', $customer);
+        return redirect()->route('home');
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home');
+    }
 }

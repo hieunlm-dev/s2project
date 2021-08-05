@@ -139,10 +139,9 @@
 						<h2 class="widget-title">Brand</h2>
 						<div class="widget-content">
 							<ul class="list-style vertical-list list-limited" data-show="6">
-								@foreach($products as $item)
-								<li class="list-item"><a class="filter-link " href="#">{{$item->brand}}</a></li>
-								@endforeach
-								<!-- <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li> -->
+								{{-- Nhờ Ân làm phần này bằng nút bấm --}}
+								<li class="list-item"><a class="filter-link " href="#">Brand</a></li> 
+							
 							</ul>
 						</div>
 					</div><!-- brand widget-->

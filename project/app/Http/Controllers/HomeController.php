@@ -210,7 +210,7 @@ class HomeController extends Controller
             return redirect()->route('login');
         }
         // lưu thông tin đăng nhập vào session
-        $request->session()->put('user', $customer);
+        $request->session()->put('customer', $customer);
         return redirect()->route('home');
     }
 

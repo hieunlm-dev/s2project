@@ -17,29 +17,29 @@
 <!-- <div class="main-content-area"> -->
     <div class="aboutus-info style-center">
         <b class="box-title">Interesting Facts</b>
-        <p class="txt-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s, when an unknown printer took a galley of type</p>
+        <p class="txt-content">This is just a project done by 4 students of a college within 1-2 months</p>
     </div>
 
     <div class="row equal-container">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="aboutus-box-score equal-elem ">
-                <b class="box-score-title">10000</b>
-                <span class="sub-title">Items in Store</span>
+                <b class="box-score-title">variety</b>
+                <span class="sub-title">Items in Store are VARIETY</span>
                 <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s...</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="aboutus-box-score equal-elem ">
-                <b class="box-score-title">90%</b>
-                <span class="sub-title">Our Customers comeback</span>
-                <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s...</p>
+                <b class="box-score-title">100%</b>
+                <span class="sub-title">genuine</span>
+                <p class="desc">Our products are 100% genuine from the Internet and Photoshop</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="aboutus-box-score equal-elem ">
                 <b class="box-score-title">2 million</b>
                 <span class="sub-title">User of the site</span>
-                <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s...</p>
+                <p class="desc">That is our goal when we have a complete website later on!</p>
             </div>
         </div>
     </div>
@@ -48,23 +48,23 @@
 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="aboutus-info style-small-left">
-                <b class="box-title">What we really do?</b>
-                <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                <b class="box-title">What we are doing here?</b>
+                <p class="txt-content">Actually, we are practicing to make a sales website in the most complete way, we are learning and developing ourselves better in this internship.</p>
             </div>
             <div class="aboutus-info style-small-left">
-                <b class="box-title">History of the Company</b>
-                <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                <b class="box-title">development time of the site</b>
+                <p class="txt-content">We started planning and looking for sample sites, the process didn't take too long, we quickly divided the work and got to work but the first step of this site and now it's complete.</p>
             </div>
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="aboutus-info style-small-left">
                 <b class="box-title">Our Vision</b>
-                <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                <p class="txt-content">We aim for a modern and minimalist website that is accessible to customers.</p>
             </div>
             <div class="aboutus-info style-small-left">
-                <b class="box-title">Cooperate with Us!</b>
-                <p class="txt-content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                <b class="box-title">Please support us!</b>
+                <p class="txt-content">This is just the beginning of us, although there will be many mistakes, but we hope you will accept it in a civilized way. We will develop more and more to bring you a better quality product. Thanks everyone!</p>
             </div>
         </div>
 
@@ -120,7 +120,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">leona</b>
+                        <b class="name">An Huynh</b>
                         <span class="title">Director</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>
@@ -133,7 +133,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">LUCIA</b>
+                        <b class="name">Hieu Nguyen</b>
                         <span class="title">Manager</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>
@@ -146,7 +146,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">NANA</b>
+                        <b class="name">Hien Nguyen</b>
                         <span class="title">Marketer</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>
@@ -159,7 +159,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">BRAUM</b>
+                        <b class="name">Tuan Huynh</b>
                         <span class="title">Member</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>
@@ -172,7 +172,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">LUCIA</b>
+                        <b class="name">Hieu Nguyen</b>
                         <span class="title">Manager</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>
@@ -185,7 +185,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">NANA</b>
+                        <b class="name">An Huynh</b>
                         <span class="title">Marketer</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>

@@ -58,10 +58,10 @@
                                     <a href="{{ route('admin.customer.edit', $item->id) }}"
                                         class="btn btn-primary">Details</a>
                                     <form style="display:inline-block"
-                                        action="{{ route('admin.customer.destroy', $item->id) }}" method="POST">
+                                        action="{{ route('admin.customer.destroy', $item->id) }}" method="POST" onsubmit="return confirmDelete();">
                                         @method("DELETE")
                                         @csrf
-                                        <button class="btn btn-danger " type="submit" onsubmit="return confirmDelete();">Delete</button>
+                                        <button class="btn btn-danger " type="submit" >Delete</button>
                                     </form>
                                 </td>
                             </tr>

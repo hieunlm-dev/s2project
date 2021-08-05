@@ -144,8 +144,6 @@ class HomeController extends Controller
                 $detail-> quantity=$item->quantity;
                 $detail-> price=$item->price;
                 $detail-> save();
-
-
             }
         }
 

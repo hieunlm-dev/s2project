@@ -60,7 +60,7 @@
 
 					<div class="row">
 						<ul class="product-list grid-products equal-container" id="id01">
-							@foreach($products as $item)
+							{{-- @forelse($products as $item)
 							<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
 								<div class="product product-style-3 equal-elem ">
 									<div class="product-thumnail">
@@ -75,7 +75,31 @@
 									</div>
 								</div>
 							</li>
-							@endforeach
+							@empty
+							 <div class="product product-style-3  equal-elem">
+                                <h3 align="center">Cannot find your product </h3>
+                            </div>
+							@endforelse --}}
+							@forelse ($products as $item)
+								<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+								<div class="product product-style-3 equal-elem ">
+									<div class="product-thumnail">
+										<a href="{{route('product-details',$item->id)}}" title="{{$item->name}}">
+											<figure><img src="{{asset('images/'.$item->image)}}" style="width: 250px; height:166px;" alt="img"></figure>
+										</a>
+									</div>
+									<div class="product-info">
+										<a href="{{route('product-details',$item->id)}}" class="product-name"><span>{{$item->name}}</span></a>
+										<div class="wrap-price"><span class="product-price">{{ number_format($item->price,0,'','.')}} ₫</span></div>
+										<a href="#" class="btn add-to-cart">Add To Cart</a>
+									</div>
+								</div>
+							</li>
+							@empty
+								 <div class="product product-style-3  equal-elem">
+                                <h3 align="center">Cannot find your product </h3>
+                            </div>
+							@endforelse
 						</ul>
 					</div>
 
@@ -199,7 +223,7 @@
 
 @endsection
 
-@section('my-scripts')
+{{-- @section('my-scripts')
 
 <script>
 	// setup csrf-token cho post method
@@ -209,26 +233,26 @@
         }
     });
 
-    $('.add-to-cart').click(function(e) {
-        e.preventDefault();     // hủy chức năng chuyển trang của thẻ a
-        quantity = $('#product-quantity').val();
-		pid={{$item->id}}
-        //alert(quantity);
+    // $('.add-to-cart').click(function(e) {
+    //     e.preventDefault();     // hủy chức năng chuyển trang của thẻ a
+    //     quantity = $('#product-quantity').val();
+	// 	pid={{$item->id}}
+    //     //alert(quantity);
 
-        $.ajax({
-            type:'GET',
-            url:'{{ route('add-cart') }}',
-            data:{pid:pid, quantity:quantity},
-            success:function(data){
-                swal({
-					title: "Adding successfully",
-					text: "This product has been successfully added to your cart",
-					icon: "success",
-					button: "Aww yiss!",
-				});
-            }
-        });	
-	})
+    //     $.ajax({
+    //         type:'GET',
+    //         url:'{{ route('add-cart') }}',
+    //         data:{pid:pid, quantity:quantity},
+    //         success:function(data){
+    //             swal({
+	// 				title: "Adding successfully",
+	// 				text: "This product has been successfully added to your cart",
+	// 				icon: "success",
+	// 				button: "Aww yiss!",
+	// 			});
+    //         }
+    //     });	
+	// })
 </script>
 
-@endsection
+@endsection --}}

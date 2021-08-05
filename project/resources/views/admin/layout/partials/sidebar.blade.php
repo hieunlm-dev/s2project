@@ -88,6 +88,15 @@
         </li>
 
         <li class="nav-item">
+          <a href="{{route('admin.customer.index')}}" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Customer Management
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>

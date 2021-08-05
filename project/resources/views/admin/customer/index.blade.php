@@ -55,7 +55,7 @@
                 <td>{{ $item->address }}</td>
                 <td>{{ $item->email }}</td>
                 <td>
-                  <a href="#" class="btn btn-primary">View More Details</a>
+                  <a href="#" class="btn btn-primary">Details</a>
                   <form style="display:inline-block" action="#" method="POST">
                     @method("DELETE")
                     @csrf

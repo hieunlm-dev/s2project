@@ -17,7 +17,7 @@
                 <div class="topbar-menu right-menu">
                     <ul>
                         @if (session()->has('user'))
-                        <li class="menu-item" ><a title="User" href="#">{{Session::get('user')->email}}</a></li>
+                        <li class="menu-item" ><a title="User" href="#">{{Session::get('user')->username}}</a></li>
                         <li class="menu-item" ><a title="Logout" href="{{route('logout')}}">Sign out</a></li>
                         @else 
                         <li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>

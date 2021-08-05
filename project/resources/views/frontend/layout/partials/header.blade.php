@@ -17,35 +17,12 @@
                 <div class="topbar-menu right-menu">
                     <ul>
                         @if (session()->has('user'))
-                        <li class="menu-item" ><a title="User" href="#">{{Session::get('user')->username}}</a></li>
+                        <li class="menu-item" ><a title="User" href="#"> Welcome <i><b>{{Session::get('user')->username}}</b></i></a></li>
                         <li class="menu-item" ><a title="Logout" href="{{route('logout')}}">Sign out</a></li>
                         @else 
                         <li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
                         <li class="menu-item" ><a title="Register or Login" href="{{route('register')}}">Register</a></li>
                         @endif
-                        {{-- <li class="menu-item lang-menu menu-item-has-children parent">
-                            <a title="English" href="#"><span class="img label-before"><img src="assets/images/lang-en.png" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                            <ul class="submenu lang" >
-                                <li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="assets/images/lang-hun.png" alt="lang-hun"></span>Hungary</a></li>
-                                <li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="assets/images/lang-ger.png" alt="lang-ger" ></span>German</a></li>
-                                <li class="menu-item" ><a title="french" href="#"><span class="img label-before"><img src="assets/images/lang-fra.png" alt="lang-fre"></span>French</a></li>
-                                <li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="assets/images/lang-can.png" alt="lang-can"></span>Canada</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item menu-item-has-children parent" >
-                            <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                            <ul class="submenu curency" >
-                                <li class="menu-item" >
-                                    <a title="Pound (GBP)" href="#">Pound (GBP)</a>
-                                </li>
-                                <li class="menu-item" >
-                                    <a title="Euro (EUR)" href="#">Euro (EUR)</a>
-                                </li>
-                                <li class="menu-item" >
-                                    <a title="Dollar (USD)" href="#">Dollar (USD)</a>
-                                </li>
-                            </ul>
-                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -59,11 +36,11 @@
                 </div>
 
                 <div class="wrap-search center-section">
-                    <div class="wrap-search-form" style="border-color: #ff523b">
+                    <div class="wrap-search-form" >
                         <form action="{{ route('search') }}" id="form-search-top" name="form-search-top" method="GET">
                             
                             <input id="search" name="search" type="text" placeholder="Search here..." />
-                            <button form="form-search-top" type="submit" style="background: #ff523b"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                            <button form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true" ></i></button>
                             <!-- <div class="wrap-list-cate">
                                 <input type="hidden" name="product-cate" value="0" id="product-cate">
                                 <a href="#" class="link-control">All Category</a>

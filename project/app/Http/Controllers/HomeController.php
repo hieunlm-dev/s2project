@@ -182,8 +182,13 @@ class HomeController extends Controller
         $customerAccount->username = $request->username;
         $customerAccount->password = md5($request->password);
         $customerAccount->save();
-        return redirect()->route('login');
+        return redirect()->route('register-success');
 
+    }
+
+    public function registerSuccess()
+    {
+        return view('frontend.register-success');
     }
 
     public function login()

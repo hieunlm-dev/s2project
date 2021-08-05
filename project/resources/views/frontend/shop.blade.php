@@ -235,7 +235,7 @@
 
     $('.add-to-cart').click(function(e) {
         e.preventDefault();     // hủy chức năng chuyển trang của thẻ a
-        quantity = $('#product-quantity').val();
+        quantity = 1;
 		pid={{$item->id}}
         //alert(quantity);
 
@@ -249,6 +249,8 @@
 					text: "This product has been successfully added to your cart",
 					icon: "success",
 					button: "Aww yiss!",
+				}).then(function(){
+					window.location.reload();
 				});
             }
         });	

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('desc')->nullable();
             $table->integer('quantity')->nullable();
+            $table->integer('featured')->nullable();
             $table->integer('price')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();

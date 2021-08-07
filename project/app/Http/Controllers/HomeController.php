@@ -180,7 +180,6 @@ class HomeController extends Controller
         $customerAccount->phone = $request->phone;
         $customerAccount->address = $request->address;
         $customerAccount->email = $request->email;
-        $customerAccount->username = $request->username;
         $customerAccount->password = md5($request->password);
         $customerAccount->save();
        

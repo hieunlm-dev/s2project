@@ -91,7 +91,8 @@
 									<div class="product-info">
 										<a href="{{route('product-details',$item->id)}}" class="product-name"><span>{{$item->name}}</span></a>
 										<div class="wrap-price"><span class="product-price">{{ number_format($item->price,0,'','.')}} ₫</span></div>
-										<a href="#" class="btn add-to-cart">Add To Cart</a>
+										<input type="hidden" id="pid" value="{{$item->id}}">
+										<a href="#" class="btn add-to-cart" data-id="{{$item->id}}">Add To Cart</a>
 									</div>
 								</div>
 							</li>
@@ -236,7 +237,8 @@
     $('.add-to-cart').click(function(e) {
         e.preventDefault();     // hủy chức năng chuyển trang của thẻ a
         quantity = 1;
-		pid={{$item->id}}
+		pid = $(this).data('id');
+        // pid= $('#pid').val();
         //alert(quantity);
 
         $.ajax({

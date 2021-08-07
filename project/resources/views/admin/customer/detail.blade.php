@@ -44,10 +44,6 @@
                     <input type="text" id="username" name="username" value="{{ $customer->lastname }}" class="form-control" readonly/>
                 </div>
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" value="{{ $customer->username }}" class="form-control" readonly/>
-                </div>
-                <div class="form-group">
                     <label for="confirm">Email</label>
                     <input type="text" id="confirm" name="confirm" class="form-control" value="{{ $customer->email }}" readonly/>
                 </div>

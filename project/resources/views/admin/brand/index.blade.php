@@ -50,7 +50,6 @@
               <td>{{ $item->id }}</td>
               <td>{{ $item->name }}</td>
               <td>
-                <a href="{{ route('admin.brand.edit', $item->id) }}" class="btn btn-primary">Update</a>
                 <form style="display:inline-block" action="{{ route('admin.brand.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf

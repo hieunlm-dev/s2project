@@ -9,6 +9,7 @@ use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Validator, Input, Redirect; 
 
 class HomeController extends Controller
 {
@@ -182,6 +183,7 @@ class HomeController extends Controller
         $customerAccount->username = $request->username;
         $customerAccount->password = md5($request->password);
         $customerAccount->save();
+       
         return redirect()->route('register-success');
 
     }

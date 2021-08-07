@@ -21,11 +21,7 @@
                             <fieldset class="wrap-title">
                                 <h3 class="form-title">Create an account</h3>
                                 <h4 class="form-subtitle">Personal infomation</h4>
-                            </fieldset>			
-                            <fieldset class="wrap-input">
-                                <label for="frm-reg-lname">User name*</label>
-                                <input type="text" id="frm-reg-lname" name="username" placeholder="Enter user name">
-                            </fieldset>			
+                            </fieldset>					
                             <fieldset class="wrap-input">
                                 <label for="frm-reg-email">Email Address*</label>
                                 <input type="email" id="frm-reg-email" name="email" placeholder="Email address">

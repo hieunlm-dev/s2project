@@ -15,6 +15,18 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">							
             <div class=" main-content-area">
                 <div class="wrap-login-item ">
+                    @if ($errors->any()) 
+                        <!--hiển thị thông báo lỗi-->  
+                        <div class="card">
+                            <div class="wrap-login-item">
+                                <ul class='error'>
+                                    @foreach($errors->all() as $err)
+                                        <li>{{ $err }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
                     <div class="register-form form-item ">
                         <form class="form-stl" action="{{route('process-register')}}" name="frm-login" method="get" >
                             @csrf
@@ -35,12 +47,14 @@
                             </fieldset>
                             <fieldset class="wrap-input item-width-in-half ">
                                 <label for="frm-reg-cfpass">Confirm Password *</label>
-                                <input type="text" id="frm-reg-cfpass" name="confirm-password" placeholder="Confirm Password">
-                            </fieldset>
+                                <input type="text" id="frm-reg-cfpass" name="password_confirmation" placeholder="Confirm Password">
+                            </fieldset> <br> <br>
                             <input type="submit" class="btn btn-sign" value="Register" name="register">
                         </form>
-                    </div>											
+                        
+                    </div> 
                 </div>
+                
             </div><!--end main products area-->		
         </div>
     </div><!--end row-->

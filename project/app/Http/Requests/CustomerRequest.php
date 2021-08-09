@@ -13,7 +13,7 @@ class CustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,20 +25,16 @@ class CustomerRequest extends FormRequest
     {
         return [
             'email' => 'required|unique:customers,email',
-            'password'=>'required',
-            'confirm' => 'required_with:password|same:password',
+            'password'=>'required|confirmed',
         ];
     }
 
     public function messages() {
         return [
 
-            'email.required' => 'Bạn chưa nhập email',
-            'email.unique' => 'Email này đã tồn tại',
-            'password.required' => 'Bạn chưa nhập mật khẩu',
-            'confirm.required_with' => 'Bạn chưa nhập xác nhận mật khẩu',
-            'confirm.same' => 'Xác nhận mật khẩu không giống mật khẩu',
-          
+            'email.required' => 'Email is required.',
+            'email.unique' => 'This email is existed.',
+            'password.required' => 'Password is required.',
         ];
     }
 }

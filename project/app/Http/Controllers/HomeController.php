@@ -184,6 +184,7 @@ class HomeController extends Controller
     public function processRegister(CustomerRequest $request)
     {
         $customer = $request->all();
+        // dd($customer);
         $customer['password'] = md5($customer['password']);
         Customer::create($customer);
         return redirect()->route('register-success');

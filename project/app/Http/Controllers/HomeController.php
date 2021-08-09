@@ -170,26 +170,20 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-    public function register()
-    {
-        return view('frontend.register');
-    }
+    // public function register()
+    // {
+    //     return view('frontend.register');
+    // }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function processRegister(CustomerRequest $request)
-    {
-        $customer = $request->all();
-        // dd($customer);
-        $customer['password'] = md5($customer['password']);
-        Customer::create($customer);
-        return redirect()->route('register-success');
+    // public function processRegister(CustomerRequest $request)
+    // {
+    //     $customer = $request->all();
+    //     // dd($customer);
+    //     $customer['password'] = md5($customer['password']);
+    //     Customer::create($customer);
+    //     return redirect()->route('register-success');
 
-    }
+    // }
 
     public function registerSuccess()
     {
@@ -227,16 +221,17 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-    public function customerProfile(Customer $customer){
-        return view('frontend.customer-profile',compact('customer'));
-    }
+    // public function customerProfile(Customer $customer){
+    //     return view('frontend.customer-profile',compact('customer'));
+    // }
 
-    public function customerUpdate(Request $request, Customer $customer){
-        $id = $request->input('id');
-        $input = $request->all();
-        $customer['password'] = md5($customer['password']);
-        $customer->update($input);
+    // public function customerUpdate(Customer $customer, Request $request){
+    //     // $customer = Customer::findOrFail($id);
+    //     $input = $request->all();
+    //     $customer = $request->all();
+    //     $customer['password'] = md5($customer['password']);
+    //     $customer->update($input);
     
-        return redirect()->route('home');
-    }
+    //     return redirect()->route('home');
+    // }
 }

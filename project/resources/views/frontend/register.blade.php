@@ -26,29 +26,6 @@
                                 <label for="frm-reg-email">Email Address*</label>
                                 <input type="email" id="frm-reg-email" name="email" placeholder="Email address">
                             </fieldset>			
-                            <fieldset class="wrap-input">
-                                <label for="frm-reg-lname">First name</label>
-                                <input type="text" id="frm-reg-lname" name="firstname" placeholder="Enter your first name">
-                            </fieldset>
-                            <fieldset class="wrap-input">
-                                <label for="frm-reg-lname">Last name</label>
-                                <input type="text" id="frm-reg-lname" name="lastname" placeholder="Enter your last name">
-                            </fieldset>
-                            
-                            <fieldset class="wrap-input">
-                                <label for="frm-reg-lname">Phone</label>
-                                <input type="text" id="frm-reg-lname" name="phone" placeholder="Phone">
-                            </fieldset>
-                            <fieldset class="wrap-input">
-                                <label for="frm-reg-lname">Address</label>
-                                <input type="text" id="frm-reg-lname" name="address" placeholder="Address">
-                            </fieldset>
-                            
-                            <fieldset class="wrap-functions ">
-                                <label class="remember-field">
-                                    <input name="newletter" id="new-letter" value="forever" type="checkbox"><span>Sign Up for Newsletter</span>
-                                </label>
-                            </fieldset>
                             <fieldset class="wrap-title">
                                 <h3 class="form-title">Login Information</h3>
                             </fieldset>

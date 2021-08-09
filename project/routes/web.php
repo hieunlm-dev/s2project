@@ -30,6 +30,9 @@ Route::get('/','HomeController@index')->name('home');
 Route::get('/shop','ShopController@index')->name('shop');
 Route::get('/product/{id}','HomeController@productDetails')->name('product-details');
 
+
+
+////////////////////////////////////////////
 Route::get('/register','HomeController@register')->name('register');
 Route::get('/process-register','HomeController@processRegister')->name('process-register');
 Route::get('/register-success','HomeController@registerSuccess')->name('register-success');

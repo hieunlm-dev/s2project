@@ -105,60 +105,20 @@
 					</div>
 
 					<div class="wrap-pagination-info">
-						<ul class="page-numbers">
+						{{-- <ul class="page-numbers">
 							<li><span class="page-number-item current" >1</span></li>
 							<li><a class="page-number-item" href="#" >2</a></li>
 							<li><a class="page-number-item" href="#" >3</a></li>
 							<li><a class="page-number-item next-link" href="#" >Next</a></li>
 						</ul>
-						<p class="result-count">Showing 1-8 of 12 result</p>
+						<p class="result-count">Showing 1-8 of 12 result</p> --}}
+						<div class="d-flex justify-content-center">
+							{!! $products->links() !!}
+						</div>
 					</div>
 				</div><!--end main products area-->
 
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
-					<!-- <div class="widget mercado-widget categories-widget">
-						<h2 class="widget-title">All Categories</h2>
-						<div class="widget-content">
-							<ul class="list-category">
-								<li class="category-item has-child-cate">
-									<a href="#" class="cate-link">Fashion & Accessories</a>
-									<span class="toggle-control">+</span>
-									<ul class="sub-cate">
-										<li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-									</ul>
-								</li>
-								<li class="category-item has-child-cate">
-									<a href="#" class="cate-link">Furnitures & Home Decors</a>
-									<span class="toggle-control">+</span>
-									<ul class="sub-cate">
-										<li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-									</ul>
-								</li>
-								<li class="category-item has-child-cate">
-									<a href="#" class="cate-link">Digital & Electronics</a>
-									<span class="toggle-control">+</span>
-									<ul class="sub-cate">
-										<li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-									</ul>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Tools & Equipments</a>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Kid’s Toys</a>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Organics & Spa</a>
-								</li>
-							</ul>
-						</div>
-					</div>Categories widget -->
 
 					<div class="widget mercado-widget filter-widget brand-widget">
 						<h2 class="widget-title">Brand</h2>
@@ -182,39 +142,6 @@
 							</p>
 						</div>
 					</div><!-- Price-->
-
-					<!-- <div class="widget mercado-widget filter-widget">
-						<h2 class="widget-title">Color</h2>
-						<div class="widget-content">
-							<ul class="list-style vertical-list has-count-index">
-								<li class="list-item"><a class="filter-link " href="#">Red <span>(217)</span></a></li>
-								<li class="list-item"><a class="filter-link " href="#">Yellow <span>(179)</span></a></li>
-								<li class="list-item"><a class="filter-link " href="#">Black <span>(79)</span></a></li>
-								<li class="list-item"><a class="filter-link " href="#">Blue <span>(283)</span></a></li>
-								<li class="list-item"><a class="filter-link " href="#">Grey <span>(116)</span></a></li>
-								<li class="list-item"><a class="filter-link " href="#">Pink <span>(29)</span></a></li>
-							</ul>
-						</div>
-					</div> -->
-					<!-- Color -->
-
-					<!-- <div class="widget mercado-widget filter-widget">
-						<h2 class="widget-title">Size</h2>
-						<div class="widget-content">
-							<ul class="list-style inline-round ">
-								<li class="list-item"><a class="filter-link active" href="#">s</a></li>
-								<li class="list-item"><a class="filter-link " href="#">M</a></li>
-								<li class="list-item"><a class="filter-link " href="#">l</a></li>
-								<li class="list-item"><a class="filter-link " href="#">xl</a></li>
-							</ul>
-							<div class="widget-banner">
-								<figure><img src="assets/images/size-banner-widget.jpg" width="270" height="331" alt=""></figure>
-							</div>
-						</div>
-					</div> -->
-					<!-- Size -->
-
-					
 
 				</div><!--end sitebar-->
 

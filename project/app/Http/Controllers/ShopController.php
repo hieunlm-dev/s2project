@@ -10,8 +10,9 @@ class ShopController extends Controller
     public function index(Request $request)
     {
         $products = Product::orderBy('created_at', 'desc')->get();
+        $products= Product::paginate(6);
         return view('frontend.shop', compact('products'));
-
+        
     }
 
     public function sortAsc($id, Request $request)

@@ -10,6 +10,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator, Input, Redirect; 
+use App\Http\Requests\CustomerRequest;
+
 
 class HomeController extends Controller
 {
@@ -172,17 +174,18 @@ class HomeController extends Controller
     {
         return view('frontend.register');
     }
-    public function processRegister(Request $request)
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function processRegister(CustomerRequest $request)
     {
-        $customerAccount = new Customer();
-        $customerAccount->firstname = $request->firstname;
-        $customerAccount->lastname = $request->lastname;
-        $customerAccount->phone = $request->phone;
-        $customerAccount->address = $request->address;
-        $customerAccount->email = $request->email;
-        $customerAccount->password = md5($request->password);
-        $customerAccount->save();
-       
+        $customer = $request->all();
+        $customer['password'] = md5($customer['password']);
+        Customer::create($customer);
         return redirect()->route('register-success');
 
     }

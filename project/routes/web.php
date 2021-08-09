@@ -37,14 +37,12 @@ Route::get('/register','HomeController@register')->name('register');
 Route::get('/process-register','HomeController@processRegister')->name('process-register');
 Route::get('/register-success','HomeController@registerSuccess')->name('register-success');
 
-
 Route::get('/login','HomeController@login')->name('login');
 Route::get('/process-login','HomeController@processLogin')->name('process-login');
 Route::get('/logout', 'HomeController@logout')->name('logout');
 
 
 ////////////////////////////////////////////
-
 Route::get('/view-cart', 'HomeController@viewCart')->name('view-cart');
 Route::get('/add-cart', 'HomeController@addCart')->name('add-cart');
 Route::get('/delete-cart-item', 'HomeController@deleteCartItem')->name('delete-cart-item');
@@ -52,6 +50,9 @@ Route::get('/change-cart-quantity', 'HomeController@changeCartQuantity')->name('
 
 Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 Route::post('/do-checkout', 'HomeController@doCheckout')->name('do-checkout');
+Route::get('/customer-profile', 'HomeController@customerProfile')->name('customer-profile');
+Route::post('/customer-update', 'HomeController@customerUpdate')->name('customer-update');
+
 
 
 ////////////////////////////////////////////

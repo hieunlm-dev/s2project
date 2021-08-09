@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Create Account</h1>
+          <h1>Update Admin Account</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item active">Account</li>
+            <li class="breadcrumb-item active">Admin Account</li>
           </ol>
         </div>
       </div>
@@ -36,7 +36,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Create Account</h3>
+        <h3 class="card-title">Update Admin Account</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -48,9 +48,10 @@
         </div>
       </div>
         <div class="card-body">
-            <form action="{{ route('admin.account.update',$account->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.account.update',$account->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+                
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" value="{{ $account->username }}" class="form-control"/>

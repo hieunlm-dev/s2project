@@ -226,4 +226,17 @@ class HomeController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('home');
     }
+
+    public function customerProfile(Customer $customer){
+        return view('frontend.customer-profile',compact('customer'));
+    }
+
+    public function customerUpdate(Request $request, Customer $customer){
+        $id = $request->input('id');
+        $input = $request->all();
+        $customer['password'] = md5($customer['password']);
+        $customer->update($input);
+    
+        return redirect()->route('home');
+    }
 }

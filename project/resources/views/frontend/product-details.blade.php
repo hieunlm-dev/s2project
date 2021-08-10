@@ -87,13 +87,16 @@
 									<table class="shop_attributes">
 										<tbody>
 											<tr>
-												<th>Weight</th><td class="product_weight">1 kg</td>
+												<th>System</th><td class="product_weight">{{$product->system}}</td>
 											</tr>
 											<tr>
-												<th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
+												<th>Storage</th><td class="product_dimensions">{{$product->storage}}</td>
 											</tr>
 											<tr>
-												<th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
+												<th>RAM</th><td class="product_dimensions">{{$product->ram}}</td>
+											</tr>
+											<tr>
+												<th>Battery</th><td class="product_weight">{{$product->battery}}</td>
 											</tr>
 										</tbody>
 									</table>

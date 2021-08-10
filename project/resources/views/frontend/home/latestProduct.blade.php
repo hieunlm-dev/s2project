@@ -13,7 +13,7 @@
 					<div class="product product-style-2 equal-elem ">
 						<div class="product-thumnail">
 							<a href="{{route('product-details',$product->id)}}" title="{{$product->name}}">
-								<figure><img src="{{asset('images/' .$product->image)}}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+								<figure><img src="{{asset('images/' .$product->image)}}" style="height: 148px;width:auto"  alt="{{$product->name}}"></figure>
 							</a>
 							<div class="group-flash">
 								<span class="flash-item new-label">new</span>

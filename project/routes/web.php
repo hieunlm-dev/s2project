@@ -33,9 +33,9 @@ Route::get('/product/{id}','HomeController@productDetails')->name('product-detai
 
 
 ////////////////////////////////////////////
-Route::get('/register','HomeController@register')->name('register');
-Route::get('/process-register','HomeController@processRegister')->name('process-register');
-Route::get('/register-success','HomeController@registerSuccess')->name('register-success');
+// Route::get('/register','HomeController@register')->name('register');
+// Route::get('/process-register','HomeController@processRegister')->name('process-register');
+// Route::get('/register-success','HomeController@registerSuccess')->name('register-success');
 
 Route::get('/login','HomeController@login')->name('login');
 Route::get('/process-login','HomeController@processLogin')->name('process-login');
@@ -50,13 +50,16 @@ Route::get('/change-cart-quantity', 'HomeController@changeCartQuantity')->name('
 
 Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 Route::post('/do-checkout', 'HomeController@doCheckout')->name('do-checkout');
-Route::get('/customer-profile', 'HomeController@customerProfile')->name('customer-profile');
-Route::post('/customer-update', 'HomeController@customerUpdate')->name('customer-update');
+// Route::get('/customer-profile', 'HomeController@customerProfile')->name('customer-profile');
+// Route::put('/customer-update', 'HomeController@customerUpdate')->name('customer-update');
 
 
 
 ////////////////////////////////////////////
 Route::get('/about','HomeController@about')->name('about');
+Route::get('/policy','HomeController@policy')->name('policy');
+Route::get('/contactus','HomeController@contactus')->name('contactus');
+
 
 ////////////////////////////////////////////
 // Route::get('/search', 'SearchController@search')->name('search');
@@ -86,4 +89,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
     Route::resource('customer', 'Admin\CustomerController');
 
 });
+
+Route::resource('customer','Customer\CustomerController');
+Route::get('customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
+
+////////////////////////////////////////////////////
+Route::get('/contact','Contact\ContactController@index')->name('contact');
+Route::get('/policy','HomeController@policy')->name('policy');
 

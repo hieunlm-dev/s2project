@@ -28,8 +28,9 @@
                         </div>
                     @endif
                     <div class="register-form form-item ">
-                        <form class="form-stl" action="{{route('process-register')}}" name="frm-login" method="get" >
+                        <form class="form-stl" action="{{route('customer.store')}}" name="frm-login" method="POST" >
                             @csrf
+                            
                             <fieldset class="wrap-title">
                                 <h3 class="form-title">Create an account</h3>
                                 <h4 class="form-subtitle">Personal infomation</h4>

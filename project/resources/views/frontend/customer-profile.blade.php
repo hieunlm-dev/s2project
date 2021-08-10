@@ -30,8 +30,7 @@
                     <div class="register-form form-item ">
                         <form class="form-stl" action="{{route('customer-update',$customer->id)}}" name="frm-login" method="post" >
                             @csrf
-                            {{-- @method('PUT') --}}
-                            <input type="hidden" value="{{$customer->id}}" name="id">
+                            @method('put')
                             <fieldset class="wrap-title">
                                 <h3 class="form-title">Update Profile</h3>
                                 <h4 class="form-subtitle">Personal infomation</h4>

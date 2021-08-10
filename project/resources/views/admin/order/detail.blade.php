@@ -73,8 +73,13 @@
               <td>{{$orders->grand_total}}</td>
               <td>{{ $orders->phone_number }}</td>
               <td>{{ $orders->status }}</td>
-              <td><a onclick="return confirm('Are you sure to accept order?')" href="{{ route('admin.order.edit', $orders->id) }}" class="btn btn-primary">Accept</a></td>
+              @if ($orders->status == 'pending')
+                  <td><a onclick="return confirm('Are you sure to accept order?')" href="{{ route('admin.order.edit', $orders->id) }}" class="btn btn-primary">Accept</a></td>
+              @elseif($orders->status == 'processing')
               <td><a onclick="return confirm('Are you sure to complete order?')" href="{{ route('admin.order.edit', $orders->id) }}" class="btn btn-primary">Completed</a></td>
+              @endif
+              
+              
             </tr>
             {{-- @endforeach --}}
           </tbody>

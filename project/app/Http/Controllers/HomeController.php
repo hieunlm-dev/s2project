@@ -24,11 +24,10 @@ class HomeController extends Controller
 
     }
 
-    public function about()
+    public function contactus()
     {
-        return view('frontend.about');
+        return view('frontend.contactus');
     }
-
     public function productDetails($id)
     {
         $product = Product::find($id);
@@ -234,4 +233,14 @@ class HomeController extends Controller
     
     //     return redirect()->route('home');
     // }
+
+    public function about()
+    {
+        return view('frontend.about');
+    }
+
+    public function policy()
+    {
+        return view('frontend.policy');
+    }
 }

@@ -25,7 +25,7 @@
             <div class="aboutus-box-score equal-elem ">
                 <b class="box-score-title">variety</b>
                 <span class="sub-title">Items in Store are VARIETY</span>
-                <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since the 1500s...</p>
+                <p class="desc">The products at 2HAT are completely imported from major countries such as the United States, Korea, ...</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -76,25 +76,25 @@
                         <input type="radio" class="hidden" name="showup" id="shoup1" value="shoup1" checked="checked">
                         <span class="check-box"></span>
                         <span class='function-name'>Support 24/7</span>
-                        <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>                      
+                        <span class="desc">Support staff at 2HAT will work 24/7 to best support customers who have or have not purchased at 2HAT</span>                      
                     </label>
                     <label>
                         <input type="radio" class="hidden" name="showup" id="shoup2" value="shoup2">
                         <span class="check-box"></span>
                         <span class='function-name'>Best Quanlity</span>
-                        <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                        <span class="desc">The best quality from services and products from 2HATStore</span>
                     </label>
                     <label>
                         <input type="radio" class="hidden" name="showup" id="shoup3" value="shoup3">
                         <span class="check-box"></span>
                         <span class='function-name'>Fastest Delivery</span>
-                        <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                        <span class="desc">fast delivery from 3-5 days for customers ordering in other provinces in the country</span>
                     </label>
                     <label>
                         <input type="radio" class="hidden" name="showup" id="shoup4" value="shoup4">
                         <span class="check-box"></span>
                         <span class='function-name'>Customer Care</span>
-                        <span class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                        <span class="desc">Customer care services from 2HAT always put the interests of customers first to bring customers the best quality.</span>
                     </label>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">An Huynh</b>
+                        <b class="name">An Nguyen</b>
                         <span class="title">Director</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>
@@ -185,7 +185,7 @@
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">An Huynh</b>
+                        <b class="name">An Nguyen</b>
                         <span class="title">Marketer</span>
                         <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                     </div>

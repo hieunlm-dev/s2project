@@ -60,9 +60,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Account $account)
+    public function edit(Customer $customer)
     {
-        // $customer = Customer::find($id);
+        
         return view('frontend.customer-profile',compact('customer'));
     }
 
@@ -77,7 +77,7 @@ class CustomerController extends Controller
     {
         $input = $request->all();
         $customer['password'] = md5($customer['password']);
-        $customer->update($customer);
+        $customer->update($input);
     
         return redirect()->route('home');
     }

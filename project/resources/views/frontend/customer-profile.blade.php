@@ -28,7 +28,7 @@
                         </div>
                     @endif
                     <div class="register-form form-item ">
-                        <form class="form-stl" action="{{route('customer-update',$customer->id)}}" name="frm-login" method="post" >
+                        <form class="form-stl" action="{{route('customer.update',$customer->id)}}" name="frm-login" method="post" >
                             @csrf
                             @method('put')
                             <fieldset class="wrap-title">

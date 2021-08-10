@@ -35,7 +35,7 @@ Route::get('/product/{id}','HomeController@productDetails')->name('product-detai
 ////////////////////////////////////////////
 // Route::get('/register','HomeController@register')->name('register');
 // Route::get('/process-register','HomeController@processRegister')->name('process-register');
-// Route::get('/register-success','HomeController@registerSuccess')->name('register-success');
+Route::get('/register-success','HomeController@registerSuccess')->name('register-success');
 
 Route::get('/login','HomeController@login')->name('login');
 Route::get('/process-login','HomeController@processLogin')->name('process-login');
@@ -91,7 +91,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
 });
 
 Route::resource('customer','Customer\CustomerController');
-Route::get('customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
+// Route::get('/customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
 
 ////////////////////////////////////////////////////
 Route::get('/contact','Contact\ContactController@index')->name('contact');

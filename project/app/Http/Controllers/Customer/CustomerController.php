@@ -76,8 +76,6 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         $input = $request->all();
-
-      
         $customer['password'] = md5($customer['password']);
         $customer->update($customer);
     

@@ -52,13 +52,14 @@
                 <p>Admin</p>
               </a>
             </li>
+            @if (session()->get('user')->role=='admin')
             <li class="nav-item">
               <a href="{{ route('admin.account.create') }}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Create Admin</p>
               </a>
             </li>
-
+            @endif
           </ul>
         </li>
         <li class="nav-item">

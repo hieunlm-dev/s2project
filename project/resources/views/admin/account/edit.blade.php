@@ -51,40 +51,45 @@
             <form action="{{ route('admin.account.update',$account->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                
+                @if (session()->get('user')->role == 'admin'&&$account->role == 'user')
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" value="{{ $account->username }}" class="form-control"/>
+                  <select name="role" id="" class="form-control">
+                    <option value="user" selected="selected">User</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+                @else
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" name="username" value="{{ $account->username }}" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" value="{{ $account->password }}" class="form-control"/>
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" value="{{ $account->password }}" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="confirm">Confirm</label>
-                    <input type="password" id="confirm" name="confirm" class="form-control"/>
+                  <label for="confirm">Confirm</label>
+                  <input type="password" id="confirm" name="confirm" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" value="{{ $account->email }}" class="form-control"/>
+                  <label for="email">Email</label>
+                  <input type="text" id="email" name="email" value="{{ $account->email }}" class="form-control"/>
                 </div>
-                
-
                 <div style="max-width: 30%">
                   <div id="msg"></div>
-                    <input type="file" name="image" class="file" value="{{ $account->image }}">
-                    <div class="input-group my-3">
-                      <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
-                      <div class="input-group-append">
-                        <button type="button" class="browse btn btn-primary">Upload Image</button>
-                      </div>
+                  <input type="file" name="image" class="file" value="{{ $account->image }}">
+                  <div class="input-group my-3">
+                    <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
+                    <div class="input-group-append">
+                      <button type="button" class="browse btn btn-primary">Upload Image</button>
                     </div>
+                  </div>
                 </div>
-
+                
                 <div style="max-width: 30%">
                   <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" >
                 </div>
-
+                @endif
                 <div class="form-group">
                     <input type="submit" name="btnCreate" value="Update" class="btn btn-primary float-right"/>
                 </div> <br>

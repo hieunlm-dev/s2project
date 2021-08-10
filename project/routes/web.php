@@ -70,6 +70,8 @@ Route::get('/shop/{id}', 'ShopController@sortAsc');
 
 Route::get('/admin/login', 'Admin\AdminController@login')->name('admin.login');
 Route::get('/admin/logout', 'Admin\AdminController@logout')->name('admin.logout');
+// Route::get('/admin/mail', 'Admin\AdminController@mail')->name('admin.mail');
+
 
 
 Route::post('/admin/process-login', 'Admin\AdminController@processLogin')->name('admin.process-login');
@@ -90,10 +92,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
 
 });
 
+////////////////////////////////////////////////////
 Route::resource('customer','Customer\CustomerController');
-// Route::get('/customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
 
 ////////////////////////////////////////////////////
 Route::get('/contact','Contact\ContactController@index')->name('contact');
+Route::post('/save-contact', 'Contact\ContactController@saveContact')->name('save-contact');
+
+////////////////////////////////////////////////////
 Route::get('/policy','HomeController@policy')->name('policy');
 

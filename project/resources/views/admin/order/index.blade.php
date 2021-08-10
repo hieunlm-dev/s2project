@@ -50,18 +50,13 @@
             <tr>
               <td>{{ $item->id }}</td>
               <td>{{ $item->order_date }}</td>
-              <td>{{ $item->firstname }}</td>
-              <td>
-                @if( $item->status ==1)
-                Completed
-                @else
-                Pending
-                @endif
-              </td>
+              <td>{{ $item->first_name}} {{ $item->last_name}}</td>
+              
+              <td>{{ $item->status}}</td>
               <td>
                 <a href="{{ route('admin.order.show', $item->id) }}" class="btn btn-info">Detail</a>
-                <a href="#" class="btn btn-primary">Update</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                {{-- <a href="#" class="btn btn-primary">Accept</a> --}}
+                
               </td>
             </tr>
             @endforeach

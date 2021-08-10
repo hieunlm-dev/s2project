@@ -9,6 +9,8 @@
             <li class="item-link"><span>check-out</span></li>
         </ul>
     </div>
+    {{-- @if( !Session::has('cart') || empty(Session::get('cart')) --}}
+    @if(Session::has('cart') || !empty(Session::get('cart')))
     <div class=" main-content-area">
         <form action="{{route('do-checkout')}}" method="post" name="frm-billing">
             @csrf 
@@ -89,7 +91,14 @@
                 </div>
             </div>
         </form>
-    </div><!--end main content area-->
+    </div><!--end main content area-->    
+    @else
+       <div class="text-center" style="padding:30px 0;">
+            <h1>Your cart is empty</h1>
+            <p>Add items to it now</p>
+            <a href="{{route('shop')}}" class="btn btn-success">Shop Now</a>
+    </div> 
+    @endif
 </div><!--end container-->
 
 @endsection

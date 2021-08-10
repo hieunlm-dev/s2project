@@ -70,7 +70,7 @@ Route::get('/shop/{id}', 'ShopController@sortAsc');
 
 Route::get('/admin/login', 'Admin\AdminController@login')->name('admin.login');
 Route::get('/admin/logout', 'Admin\AdminController@logout')->name('admin.logout');
-// Route::get('/admin/mail', 'Admin\AdminController@mail')->name('admin.mail');
+
 
 
 
@@ -94,6 +94,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
 
 ////////////////////////////////////////////////////
 Route::resource('customer','Customer\CustomerController');
+<<<<<<< HEAD
+=======
+// Route::get('/customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
+Route::get('history','OrderHistoryController@orderHistory')->name('order-history');
+Route::get('history/{{$id}}','OrderHistoryController@orderDetailHistory');
+>>>>>>> 016d3d5522a40e6c23ac30ef15bb407d1f6ed88f
 
 ////////////////////////////////////////////////////
 Route::get('/contact','Contact\ContactController@index')->name('contact');

@@ -104,6 +104,7 @@
                                 <div class="wrap-vertical-nav">
                                     <ul>
                                         <li class="menu-item"><a href="#" class="link-term">My Account</a></li>
+                                        <li class="menu-item"><a href="{{route('order-history')}}" class="link-term">Order Histotry</a></li>
                                         {{-- <li class="menu-item"><a href="#" class="link-term">Brands</a></li>
                                         <li class="menu-item"><a href="#" class="link-term">Gift Certificates</a></li>
                                         <li class="menu-item"><a href="#" class="link-term">Affiliates</a></li> --}}

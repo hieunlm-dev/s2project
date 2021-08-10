@@ -51,19 +51,32 @@
               </tr>
           </thead>
           <tbody>
-            @foreach($orders as $item)
-            <tr>
+            {{-- @foreach($orders as $item) --}}
+            {{-- <tr>
               <td>{{ $item->id }}</td>
               <td>{{ $item->order_date }}</td>
               <td>{{ $item->address }}</td>
-              <td>{{ $item->firstname }} {{ $item->lastname }}</td>
+              <td>{{ $item->first_name }} {{ $item->last_name }}</td>
               <td>product</td>
               <td>quantity</td>
               <td>money</td>
               <td>{{ $item->phone }}</td>
               <td>{{ $item->status }}</td>
+            </tr> --}}
+            <tr>
+              <td>{{ $orders->id }}</td>
+              <td>{{ $orders->order_date }}</td>
+              <td>{{ $orders->address }}</td>
+              <td>{{ $orders->first_name }} {{ $orders->last_name }}</td>
+              <td>{{$orders->product_id}}</td>
+              <td>{{$orders->item_count}}</td>
+              <td>{{$orders->grand_total}}</td>
+              <td>{{ $orders->phone_number }}</td>
+              <td>{{ $orders->status }}</td>
+              <td><a onclick="return confirm('Are you sure to accept order?')" href="{{ route('admin.order.edit', $orders->id) }}" class="btn btn-primary">Accept</a></td>
+              <td><a onclick="return confirm('Are you sure to complete order?')" href="{{ route('admin.order.edit', $orders->id) }}" class="btn btn-primary">Completed</a></td>
             </tr>
-            @endforeach
+            {{-- @endforeach --}}
           </tbody>
       </table>
       </div>

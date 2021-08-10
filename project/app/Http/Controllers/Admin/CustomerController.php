@@ -85,4 +85,5 @@ class CustomerController extends Controller
         $customer->delete();
         return redirect()->route('admin.customer.index');   
     }
+    
 }

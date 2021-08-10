@@ -131,19 +131,19 @@ class HomeController extends Controller
         $phone = $request->phone;
         $add = $request->add;
         $cart_test = $request->session()->get('cart');
+        $total =0;
+        $quantity=0;
         foreach($cart_test as $item){
-            $total = $item->quantity * $item->price;
-            $quantity=$item->quantity;
+            $total += $item->quantity * $item->price;
+            $quantity+=$item->quantity;
         }
-        
-        
-        
 
         if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
             //tao order
             $ord = new Order();
             $ord->order_number= 'ORD-'.strtoupper(uniqid());
+            $ord->customer_id = Auth::id();
             $ord->grand_total = $total;
             $ord->item_count = $quantity;
             $ord->first_name = $fname;
@@ -254,4 +254,6 @@ class HomeController extends Controller
     {
         return view('frontend.policy');
     }
+    
+    
 }

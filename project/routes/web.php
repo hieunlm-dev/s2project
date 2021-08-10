@@ -92,6 +92,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
 
 Route::resource('customer','Customer\CustomerController');
 // Route::get('/customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
+Route::get('history','OrderHistoryController@orderHistory')->name('order-history');
+Route::get('history/{{$id}}','OrderHistoryController@orderDetailHistory');
 
 ////////////////////////////////////////////////////
 Route::get('/contact','Contact\ContactController@index')->name('contact');

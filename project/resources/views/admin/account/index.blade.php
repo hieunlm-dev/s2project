@@ -67,7 +67,7 @@
                                     </td>
                                 @endif
                                 {{-- Tài khoản admin chỉ được xóa hoặc update role cho tài khoản user , --}}
-                                @if (session()->get('user')->role == 'admin' && session()->get('user')->username != $item->username)
+                                @if (session()->get('user')->role == 'admin' && session()->get('user')->username != $item->username &&$item->role == 'user')
 
                                     <td>
                                         <a href="{{ route('admin.account.edit', $item->id) }}"

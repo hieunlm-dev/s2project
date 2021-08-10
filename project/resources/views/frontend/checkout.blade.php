@@ -64,7 +64,15 @@
                             <span class="payment-desc">card if you don't have a paypal account</span>
                         </label>
                     </div>
-                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
+                     @php
+                        $total = 0;
+                    @endphp
+                    @foreach (Session::get('cart') as $item)
+                        @php
+                            $total += $item->quantity * $item->price;
+                        @endphp
+                    @endforeach
+                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">{{number_format($total,0,'','.')}}₫</span></p>
                     <!-- <a href="thankyou.html" class="btn btn-medium">Place order now</a> -->
                     <button type="submit" class="btn btn-medium">Place order now</button>
                 </div>

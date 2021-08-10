@@ -149,7 +149,7 @@
                             <a href="{{route('checkout')}}" class="link-term mercado-item-title" >Checkout</a>
                         </li>
                         <li class="menu-item">
-                            <a href="contact-us.html" class="link-term mercado-item-title" >Contact Us</a>
+                            <a href="{{route('contact')}}" class="link-term mercado-item-title" >Contact Us</a>
                         </li>																	
                     </ul>
                 </div>

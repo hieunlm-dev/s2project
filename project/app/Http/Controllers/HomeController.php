@@ -24,16 +24,6 @@ class HomeController extends Controller
 
     }
 
-    public function about()
-    {
-        return view('frontend.about');
-    }
-
-    public function policy()
-    {
-        return view('frontend.policy');
-    }
-
     public function contactus()
     {
         return view('frontend.contactus');
@@ -243,4 +233,14 @@ class HomeController extends Controller
     
     //     return redirect()->route('home');
     // }
+
+    public function about()
+    {
+        return view('frontend.about');
+    }
+
+    public function policy()
+    {
+        return view('frontend.policy');
+    }
 }

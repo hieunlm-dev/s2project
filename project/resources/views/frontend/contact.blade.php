@@ -42,8 +42,8 @@
                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                     <div class="contact-box contact-info">
                         <div class="wrap-map">
-                            <div class="mercado-google-maps"
-                                 id="az-google-maps57341d9e51968"
+                            <div class="mercado-google-maps">
+                                {{-- id="az-google-maps57341d9e51968"
                                  data-hue=""
                                  data-lightness="1"
                                  data-map-style="2"
@@ -58,7 +58,9 @@
                                  data-pin-icon=""
                                  data-zoom="16"
                                  data-map-type="ROADMAP"
-                                 data-map-height="263">
+                                 data-map-height="263" --}}
+                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15677.2773997461!2d106.6662743!3d10.7868348!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd2ecb62e0d050fe9!2sFPT-Aptech%20Computer%20Education%20HCM!5e0!3m2!1sen!2shk!4v1628579062314!5m2!1sen!2shk" 
+                                 width="524" height="263" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                         </div>
                         <h2 class="box-title">Contact Detail</h2>

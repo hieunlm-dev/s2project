@@ -93,4 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
 Route::resource('customer','Customer\CustomerController');
 Route::get('customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
 
-Route::get('/contactus','Contact\ContactController')->name('contactus');
+////////////////////////////////////////////////////
+Route::get('/contact','Contact\ContactController@index')->name('contact');
+Route::get('/policy','HomeController@policy')->name('policy');
+

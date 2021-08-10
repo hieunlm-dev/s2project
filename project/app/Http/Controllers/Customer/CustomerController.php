@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Models\Customer;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\CustomerRequest;
+use App\Models\Customer;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -16,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -41,7 +41,6 @@ class CustomerController extends Controller
         Customer::create($customer);
         return redirect()->route('register-success');
     }
-    
 
     /**
      * Display the specified resource.
@@ -62,8 +61,8 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        
-        return view('frontend.customer-profile',compact('customer'));
+
+        return view('frontend.customer-profile', compact('customer'));
     }
 
     /**
@@ -75,10 +74,20 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        $input = $request->all();
-        $customer['password'] = md5($customer['password']);
-        $customer->update($input);
-    
+        $customer->firstname = $request->firstname;
+        $customer->lastname = $request->lastname;
+        if (isset($request->password)) {
+            $customer->password = md5($request->password);
+        }
+        $customer->phone = $request->phone;
+        $customer->address = $request->address;
+        $customer->save();
+        // $input = $request->all();
+        // if (isset($request->password)) {
+        //     $customer['password'] = md5($customer['password']);
+        // }
+        // $customer->update($input);
+
         return redirect()->route('home');
     }
 

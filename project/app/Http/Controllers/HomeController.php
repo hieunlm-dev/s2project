@@ -29,6 +29,15 @@ class HomeController extends Controller
         return view('frontend.about');
     }
 
+    public function policy()
+    {
+        return view('frontend.policy');
+    }
+
+    public function contactus()
+    {
+        return view('frontend.contactus');
+    }
     public function productDetails($id)
     {
         $product = Product::find($id);

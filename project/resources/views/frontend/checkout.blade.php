@@ -9,6 +9,8 @@
             <li class="item-link"><span>check-out</span></li>
         </ul>
     </div>
+    {{-- @if( !Session::has('cart') || empty(Session::get('cart')) --}}
+    @if(Session::has('cart') || !empty(Session::get('cart')))
     <div class=" main-content-area">
         <form action="{{route('do-checkout')}}" method="post" name="frm-billing">
             @csrf 
@@ -64,7 +66,12 @@
                             <span class="payment-desc">card if you don't have a paypal account</span>
                         </label>
                     </div>
-                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
+                    
+                    @foreach(Session::get('cart') as $item)
+                    protected $grand_total = 0;
+                    $grand_total+=$item->quantity * $item->price;
+                    @endforeach
+                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price" id="grand_total" name="grand_total">{{number_format($grand_total,0,'','.')}}  ₫</span></p>
                     <!-- <a href="thankyou.html" class="btn btn-medium">Place order now</a> -->
                     <button type="submit" class="btn btn-medium">Place order now</button>
                 </div>
@@ -81,7 +88,14 @@
                 </div>
             </div>
         </form>
-    </div><!--end main content area-->
+    </div><!--end main content area-->    
+    @else
+       <div class="text-center" style="padding:30px 0;">
+            <h1>Your cart is empty</h1>
+            <p>Add items to it now</p>
+            <a href="{{route('shop')}}" class="btn btn-success">Shop Now</a>
+    </div> 
+    @endif
 </div><!--end container-->
 
 @endsection

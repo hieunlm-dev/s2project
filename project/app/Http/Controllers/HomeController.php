@@ -131,15 +131,26 @@ class HomeController extends Controller
         $email = $request->email;
         $phone = $request->phone;
         $add = $request->add;
+        $cart_test = $request->session()->get('cart');
+        foreach($cart_test as $item){
+            $total = $item->quantity * $item->price;
+            $quantity=$item->quantity;
+        }
+        
+        
+        
 
         if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
             //tao order
             $ord = new Order();
-            $ord->firstname = $fname;
-            $ord->lastname = $lname;
-            $ord->email = $email;
-            $ord->phone = $phone;
+            $ord->order_number= 'ORD-'.strtoupper(uniqid());
+            $ord->grand_total = $total;
+            $ord->item_count = $quantity;
+            $ord->first_name = $fname;
+            $ord->last_name = $lname;
+            // $ord->email = $email;
+            $ord->phone_number = $phone;
             $ord->address = $add;
             $ord->order_date = \Carbon\Carbon::now();
             //luu order

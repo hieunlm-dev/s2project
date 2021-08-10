@@ -66,7 +66,13 @@
                     <label for="email">Email</label>
                     <input type="text" id="email" name="email" class="form-control"/>
                 </div>
-
+                <div class="form-group">
+                  <label for="role">Role</label>
+                  <select name="role" id="" class="form-control">
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                  </select>
+                </div>
                 <div style="max-width: 30%">
                   <div id="msg"></div>
                     <input type="file" name="image" class="file" >

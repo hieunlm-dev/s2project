@@ -59,39 +59,27 @@
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->role }}</td>
-                                {{-- @if (session()->get('user')->username == $item->username)
-                <td>
-                  <a href="{{ route('admin.account.edit', $item->id) }}" class="btn btn-primary">Update</a>
-                  @if (session()->get('user')->role == 'admin')
-                   @if ($item->role == 'user')
-                   @if (session()->get('user')->role != $item->role)
-                  <form style="display:inline-block" action="{{ route('admin.account.destroy', $item->id) }}" method="POST">
-                    @method("DELETE")
-                    @csrf
-                    <button class="btn btn-danger">Delete</button>
-                  </form> 
-                  @endif
-                  @endif
-                  @endif
-                </td> --}}
+                                {{-- Nếu đang đăng nhập vào account admin nào thì chỉ chỉnh sửa được account của admin đó --}}
                                 @if (session()->get('user')->username == $item->username)
                                     <td>
                                         <a href="{{ route('admin.account.edit', $item->id) }}"
                                             class="btn btn-primary">Update</a>
                                     </td>
-                                    @if (session()->get('user')->role == 'admin')
-                                        @if (session()->get('user')->username != $item->username)
-                                            <td>
-                                                <form style="display:inline-block"
-                                                    action="{{ route('admin.account.destroy', $item->id) }}"
-                                                    method="POST">
-                                                    @method("DELETE")
-                                                    @csrf
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </form>
-                                            </td>
-                                        @endif
-                                    @endif
+                                @endif
+                                {{-- Tài khoản admin chỉ được xóa hoặc update role cho tài khoản user , --}}
+                                @if (session()->get('user')->role == 'admin' && session()->get('user')->username != $item->username &&$item->role == 'user')
+
+                                    <td>
+                                        <a href="{{ route('admin.account.edit', $item->id) }}"
+                                            class="btn btn-primary">Update Role</a>
+                                        <form style="display:inline-block"
+                                            action="{{ route('admin.account.destroy', $item->id) }}" method="POST">
+                                            @method("DELETE")
+                                            @csrf
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+
                                 @endif
                             </tr>
                         @endforeach

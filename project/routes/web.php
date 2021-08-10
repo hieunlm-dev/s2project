@@ -70,7 +70,7 @@ Route::get('/shop/{id}', 'ShopController@sortAsc');
 
 Route::get('/admin/login', 'Admin\AdminController@login')->name('admin.login');
 Route::get('/admin/logout', 'Admin\AdminController@logout')->name('admin.logout');
-
+// Route::get('/admin/mail', 'Admin\AdminController@mail')->name('admin.mail');
 
 
 

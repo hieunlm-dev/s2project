@@ -14,27 +14,27 @@
     <div class=" main-content-area">
         <form action="{{route('do-checkout')}}" method="post" name="frm-billing">
             @csrf 
-            <div class="wrap-address-billing" style="width: 100%">
+            <div class="wrap-address-billing" style="width: 100%" >
                 <h3 class="box-title">Billing Address</h3>   
                 <p class="row-in-form">
                     <label for="fname">first name<span>*</span></label>
-                    <input id="fname" type="text" name="fname" value="" placeholder="Your name">
+                    <input id="fname" type="text" name="fname"  placeholder="Your name" @if(Session::has('customer') ) value="{{session()->get('customer')->firstname}}"@endif>
                 </p>
                 <p class="row-in-form">
                     <label for="lname">last name<span>*</span></label>
-                    <input id="lname" type="text" name="lname" value="" placeholder="Your last name">
+                    <input id="lname" type="text" name="lname"  placeholder="Your last name"  @if(Session::has('customer') ) value="{{session()->get('customer')->lastname}}"@endif>
                 </p>
                 <p class="row-in-form">
                     <label for="email">Email Addreess:</label>
-                    <input id="email" type="email" name="email" value="" placeholder="Type your email">
+                    <input id="email" type="email" name="email"  placeholder="Type your email" @if(Session::has('customer') ) value="{{session()->get('customer')->email}}"@endif>
                 </p>
                 <p class="row-in-form">
                     <label for="phone">Phone number<span>*</span></label>
-                    <input id="phone" type="number" name="phone" value="" placeholder="10 digits format">
+                    <input id="phone" type="number" name="phone" placeholder="10 digits format"  @if(Session::has('customer') ) value="{{session()->get('customer')->phone}}"@endif>
                 </p>
                 <p class="row-in-form">
                     <label for="add">Address:</label>
-                    <input id="add" type="text" name="add" value="" placeholder="Street at apartment number">
+                    <input id="add" type="text" name="add"  placeholder="Street at apartment number"  @if(Session::has('customer') ) value="{{session()->get('customer')->address}}"@endif>
                 </p>
 
                 @if (!session()->has('customer'))

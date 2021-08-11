@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Account;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AccountRequest;
+use App\Models\Account;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
@@ -40,37 +40,37 @@ class AccountController extends Controller
     {
         /*
         $this->validate($request,
-            [
-                'username'=>'required|unique:accounts,username',
-                'password'=>'required',
-                'confirm' => 'required_with:password|same:password',
-                'email'=>'required|unique:accounts,email',
-                'image' => 'file|image|mimes:jpeg,png,jpg|max:10240',
-            ],
-            [
-                'username.required' => 'Bạn chưa nhập tài khoản',
-                'username.unique' => 'Tài khoản này đã tồn tại',
-                'password.required' => 'Bạn chưa nhập mật khẩu',
-                'confirm.required_with' => 'Bạn chưa nhập xác nhận mật khẩu',
-                'confirm.same' => 'Xác nhận mật khẩu không giống mật khẩu',
-                'email.required' => 'Bạn chưa nhập email',
-                'email.unique' => 'Email này đã tồn tại',
-                'image.image' => 'Bạn phải upload tập tin hình ảnh',
-                'image.mimes' => 'Bạn chỉ có thể upload tập tin có đuôi jpg, jpeg, png',
-                'image.max' => 'Kích thước tối đa của tập tin hình ảnh là 10Mb',
-            ]);
-            */
+        [
+        'username'=>'required|unique:accounts,username',
+        'password'=>'required',
+        'confirm' => 'required_with:password|same:password',
+        'email'=>'required|unique:accounts,email',
+        'image' => 'file|image|mimes:jpeg,png,jpg|max:10240',
+        ],
+        [
+        'username.required' => 'Bạn chưa nhập tài khoản',
+        'username.unique' => 'Tài khoản này đã tồn tại',
+        'password.required' => 'Bạn chưa nhập mật khẩu',
+        'confirm.required_with' => 'Bạn chưa nhập xác nhận mật khẩu',
+        'confirm.same' => 'Xác nhận mật khẩu không giống mật khẩu',
+        'email.required' => 'Bạn chưa nhập email',
+        'email.unique' => 'Email này đã tồn tại',
+        'image.image' => 'Bạn phải upload tập tin hình ảnh',
+        'image.mimes' => 'Bạn chỉ có thể upload tập tin có đuôi jpg, jpeg, png',
+        'image.max' => 'Kích thước tối đa của tập tin hình ảnh là 10Mb',
+        ]);
+         */
         $account = $request->all();
         // kiểm tra file có tồn tại hay không?
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            // lấy phần mở rộng (extension) của file để kiểm tra xem 
+            // lấy phần mở rộng (extension) của file để kiểm tra xem
             // đây có phải là file hình
-            $extension = $file->getClientOriginalExtension();            
+            $extension = $file->getClientOriginalExtension();
             if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
                 return redirect()->route('admin.account.create');
             }
-            
+
             $imgName = $file->getClientOriginalName();
             // copy file vào thư mục public/images
             $file->move('images', $imgName);
@@ -104,7 +104,7 @@ class AccountController extends Controller
      */
     public function edit(Account $account)
     {
-        return view('admin.account.edit',compact('account'));
+        return view('admin.account.edit', compact('account'));
     }
 
     /**
@@ -123,14 +123,17 @@ class AccountController extends Controller
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
-        }else{
+        } else {
             unset($input['image']);
         }
-        $account['password'] = md5($input['password']);
+        if (isset($input['password'])) {
+
+            $account['password'] = md5($input['password']);
+        }
         $account->update($input);
-    
+
         return redirect()->route('admin.account.index');
-            // ->with('success','Product updated successfully');
+        // ->with('success','Product updated successfully');
     }
 
     /**

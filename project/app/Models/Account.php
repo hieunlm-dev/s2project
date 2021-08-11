@@ -11,5 +11,5 @@ class Account extends Model
     // xác định table trong db tương ứng với model Account
     protected $table = 'accounts';
 
-    protected $fillable = ['username', 'password', 'email', 'image'];
+    protected $fillable = ['username', 'password', 'email', 'image','role'];
 }

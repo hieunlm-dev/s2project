@@ -1,7 +1,7 @@
 <h3 class="title-box">Featured Product</h3>
 <div class="wrap-top-banner">
 	<a href="#" class="link-banner banner-effect-2">
-		<figure><img src="{{asset('assets/images/featured.jpg')}}" width="1170" height="200" alt=""></figure>
+		<figure><img src="{{asset('assets/images/samsung-pre.jpg')}}" width="1170" height="200" alt=""></figure>
 	</a>
 </div>
 <div class="wrap-products">
@@ -16,7 +16,7 @@
 								<figure><img src="{{asset('images/'. $item->image)}}" style="height: 148px;width:auto" alt="{{$item->name}}"></figure>
 							</a>
 							<div class="group-flash">
-								<span class="flash-item sale-label">sale</span>
+								<span class="flash-item sale-label">hot</span>
 							</div>
 							<div class="wrap-btn">
 								<a href="#" class="function-link">quick view</a>

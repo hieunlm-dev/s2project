@@ -27,7 +27,9 @@
                 <h3 class="card-title">Admin Accounts</h3>
 
                 <div class="card-tools">
+                    @if(session()->get('user')->role=='admin')
                     <a href="{{ route('admin.account.create') }}"><i class="fas fa-user-plus"></i></a>
+                    @endif
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
                     </button>
@@ -60,16 +62,16 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->role }}</td>
                                 {{-- Nếu đang đăng nhập vào account admin nào thì chỉ chỉnh sửa được account của admin đó --}}
-                                @if (session()->get('user')->username == $item->username)
+                                @if (session()->get('user')->id == $item->id)
                                     <td>
                                         <a href="{{ route('admin.account.edit', $item->id) }}"
                                             class="btn btn-primary">Update</a>
                                     </td>
                                 @endif
                                 {{-- Tài khoản admin chỉ được xóa hoặc update role cho tài khoản user , --}}
-                                @if (session()->get('user')->role == 'admin' && session()->get('user')->username != $item->username &&$item->role == 'user')
+                                <td>
+                                    @if (session()->get('user')->role == 'admin' && session()->get('user')->username != $item->username &&$item->role == 'user')
 
-                                    <td>
                                         <a href="{{ route('admin.account.edit', $item->id) }}"
                                             class="btn btn-primary">Update Role</a>
                                         <form style="display:inline-block"
@@ -78,9 +80,8 @@
                                             @csrf
                                             <button class="btn btn-danger">Delete</button>
                                         </form>
-                                    </td>
-
-                                @endif
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

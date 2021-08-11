@@ -1,6 +1,6 @@
 <div class="slide-carousel owl-carousel style-nav-1" data-items="1" data-loop="1" data-nav="true" data-dots="false">
     <div class="item-slide">
-        <img src="{{asset('assets/images/slider1.jpg')}}" alt="" class="img-slide">
+        <img src="{{asset('assets/images/preview.jpg')}}" alt="" class="img-slide">
         {{-- <div class="slide-info slide-1">
             <h2 class="f-title">Kid Smart <b>Watches</b></h2>
             <span class="subtitle">Compra todos tus productos Smart por internet.</span>

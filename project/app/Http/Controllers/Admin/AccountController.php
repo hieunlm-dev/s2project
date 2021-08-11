@@ -126,8 +126,8 @@ class AccountController extends Controller
         }else{
             unset($input['image']);
         }
-        $account['password'] = md5($account['password']);
-       $account->update($input);
+        $account['password'] = md5($input['password']);
+        $account->update($input);
     
         return redirect()->route('admin.account.index');
             // ->with('success','Product updated successfully');

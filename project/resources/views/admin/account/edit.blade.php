@@ -72,6 +72,12 @@
                   <input type="password" id="confirm" name="confirm" class="form-control"/>
                 </div>
                 <div class="form-group">
+                  <label for="role">Role</label>
+                  <select name="role" class="form-control" id="role">
+                    <option value="{{$account->role}}" selected>{{$account->role}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
                   <label for="email">Email</label>
                   <input type="text" id="email" name="email" value="{{ $account->email }}" class="form-control"/>
                 </div>

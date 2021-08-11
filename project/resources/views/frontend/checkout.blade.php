@@ -14,7 +14,7 @@
     <div class=" main-content-area">
         <form action="{{route('do-checkout')}}" method="post" name="frm-billing">
             @csrf 
-            <div class="wrap-address-billing">
+            <div class="wrap-address-billing" style="width: 100%">
                 <h3 class="box-title">Billing Address</h3>   
                 <p class="row-in-form">
                     <label for="fname">first name<span>*</span></label>
@@ -36,12 +36,16 @@
                     <label for="add">Address:</label>
                     <input id="add" type="text" name="add" value="" placeholder="Street at apartment number">
                 </p>
+
+                @if (!session()->has('customer'))
                 <p class="row-in-form fill-wife">
                     <label class="checkbox-field">
                         <input name="createAccount" id="create-account" value="1" type="checkbox">
                         <span>Create an account?</span>
                     </label>
                 </p>
+                @endif
+                
             </div>
             <div class="summary summary-checkout">
                 <div class="summary-item payment-method">

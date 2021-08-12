@@ -201,7 +201,7 @@ class HomeController extends Controller
             $cust->save();
         }
         session()->forget('cart');
-        return redirect()->route('home');
+        return redirect()->route('payment');
     }
 
     public function registerSuccess()

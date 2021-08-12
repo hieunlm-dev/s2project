@@ -106,4 +106,11 @@ Route::post('/save-contact', 'Contact\ContactController@saveContact')->name('sav
 
 ////////////////////////////////////////////////////
 Route::get('/policy','HomeController@policy')->name('policy');
+//paypal
+Route::get('/payment', 'PaypalController@index')->name('payment');
 
+Route::get('/pay/status', 'PaypalController@status');
+
+Route::get('/pay/list', 'PaypalController@paymentList');
+
+Route::get('/pay/{id}/details', 'PaypalController@paymentDetail');

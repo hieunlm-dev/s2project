@@ -36,7 +36,6 @@
           <td>{{ $item->quantity }}</td>
           <td>{{number_format($item->price * $item->quantity,0,'','.')}}₫</td>
           <td>{{ $item->address }}</td>
-          <td>{{ $item->grand_total }}</td>
           <td>{{ $item->status }}</td>
           <td>
             <a onclick="return confirm('Are you sure to cancel order?')" href="{{ route('history.edit', $item->order_id) }}"

@@ -16,4 +16,7 @@ class Customer extends Model
     public function orders(){
         return $this->hasMany(Order::class);
     }
+    public function wishList(){
+        return $this->hasMany(WishList::class);
+    }
 }

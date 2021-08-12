@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
+use App\Models\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator, Input, Redirect; 
@@ -19,8 +20,8 @@ class HomeController extends Controller
     {
         $featuredProducts = Product::where('featured', '1')->orderBy('updated_at', 'desc')->get();
         $latestProducts = Product::orderBy('updated_at', 'desc')->limit(8)->get();
-
-        return view('frontend.home', compact('featuredProducts', 'latestProducts'));
+        $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+        return view('frontend.home', compact('featuredProducts', 'latestProducts','lists'));
 
     }
 
@@ -32,9 +33,11 @@ class HomeController extends Controller
     {
         $product = Product::find($id);
         $relatedProducts = Product::where('id', '!=', $id)->orderBy('updated_at', 'desc')->limit(8)->get();
+        $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
         return view('frontend.product-details', compact(
             'product',
-            'relatedProducts'
+            'relatedProducts' ,
+            'lists'
         ));
     }
 
@@ -46,8 +49,9 @@ class HomeController extends Controller
     }
 
     public function viewCart()
-    {
-        return view('frontend.viewcart');
+    {  
+        $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+        return view('frontend.viewcart', compact('lists'));
     }
 
     public function addCart(Request $request)
@@ -119,8 +123,9 @@ class HomeController extends Controller
     }
 
     public function checkout()
-    {
-        return view('frontend.checkout');
+    { 
+        $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+        return view('frontend.checkout', compact('lists'));
     }
 
     public function doCheckout(Request $request)
@@ -218,12 +223,14 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+        return view('frontend.about', compact('lists'));
     }
 
     public function policy()
     {
-        return view('frontend.policy');
+        $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+        return view('frontend.policy', compact('lists'));
     }
     
     

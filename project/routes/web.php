@@ -94,6 +94,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
 
 ////////////////////////////////////////////////////
 Route::resource('customer','Customer\CustomerController');
+Route::resource('wish-list','WishListController');
 
 // Route::get('/customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
 Route::get('history','OrderHistoryController@orderHistory')->name('order-history');

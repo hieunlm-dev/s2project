@@ -70,10 +70,28 @@
 
                 <div class="wrap-icon right-section">
                     <div class="wrap-icon-section wishlist">
-                        <a href="{{ route('view-cart')}}" class="link-direction">
+                        <a href="@if(Session::has('customer')){{ route('wish-list.index')}}@else{{ route('login')}} @endif" class="link-direction">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                             <div class="left-info">
-                                <span class="index">0 item</span>
+                                @if(isset($lists))
+                                @php
+                                    $count =0;
+                                @endphp
+                                @foreach ($lists as $item)
+                                    @if (isset($item))
+                                        @php
+                                            $count++;
+                                        @endphp
+                                    @endif
+                                @endforeach
+                                @endif
+                                <span class="index">
+                                    @if(isset($lists))
+                                    {{$count}} items
+                                    @else 
+                                    0 items
+                                    @endif
+                                </span>
                                 <span class="title">Wishlist</span>
                             </div>
                         </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -11,7 +12,8 @@ class ShopController extends Controller
     {
         $products = Product::orderBy('created_at', 'desc')->get();
         $products= Product::paginate(6);
-        return view('frontend.shop', compact('products'));
+        $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+        return view('frontend.shop', compact('products','lists'));
         
     }
 

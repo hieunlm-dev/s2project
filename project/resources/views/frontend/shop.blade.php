@@ -94,6 +94,14 @@
 										<input type="hidden" id="pid" value="{{$item->id}}">
 										<a href="#" class="btn add-to-cart" data-id="{{$item->id}}">Add To Cart</a>
 									</div>
+									<div class="product-info">
+
+										<form action="{{route('wish-list.store')}}" method="post">
+											@csrf
+											<input type="hidden" value="{{$item->id}}" name="product_id" >
+											<input type="submit" class="btn btn-add-to-cart" class="form-control" value="wish list">
+										</form>
+									</div>
 								</div>
 							</li>
 							@empty

@@ -85,6 +85,9 @@ class WishListController extends Controller
      */
     public function destroy(WishList $wishList)
     {
-        //
+        $wishList->delete();
+     
+        return redirect()->route('wish-list.index')
+                        ->with('success','Product has been removed successfully from your wishlist');
     }
 }

@@ -93,10 +93,13 @@
 										<div class="wrap-price"><span class="product-price">{{ number_format($item->price,0,'','.')}} ₫</span></div>
 										<input type="hidden" id="pid" value="{{$item->id}}">
 										<a href="#" class="btn add-to-cart" data-id="{{$item->id}}">Add To Cart</a>
+									</div>
+									<div class="product-info">
+
 										<form action="{{route('wish-list.store')}}" method="post">
 											@csrf
 											<input type="hidden" value="{{$item->id}}" name="product_id" >
-											<input type="submit" class="btn btn-link" class="form-control" 
+											<input type="submit" class="btn btn-add-to-cart" class="form-control"
 											style="display: inline-block;
 											width: 100%;
 											font-size: 14px;
@@ -111,6 +114,7 @@
 											-webkit-transition: all 0.3s ease 0s;
 											-o-transition: all 0.3s ease 0s;
 											-moz-transition: all 0.3s ease 0s;
+											transition: all 0.3s ease 0s;
 											margin-top: 14px;"
 											value="Add To Wishlist">
 										</form>

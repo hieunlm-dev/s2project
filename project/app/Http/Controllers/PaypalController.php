@@ -38,7 +38,7 @@ class PaypalController extends Controller
                 'sku' => '3'
             ]
         ];
-        $transactionDescription = "Tobaco";
+        $transactionDescription = "Payment 2HATStore";
 
         $paypalCheckoutUrl = $this->paypalSvc
             // ->setCurrency('eur')

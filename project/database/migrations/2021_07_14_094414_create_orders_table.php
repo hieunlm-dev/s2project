@@ -17,11 +17,14 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->timestamp('order_date')->nullable();
-            $table->string('firstname')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->enum('status',['pending','processing','completed','decline'])->default('pending');
+            $table->decimal('grand_total', 20, 0)->nullable();
+            $table->unsignedInteger('item_count')->nullable();
             $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

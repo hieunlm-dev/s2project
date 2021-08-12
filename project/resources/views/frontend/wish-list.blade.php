@@ -25,7 +25,7 @@
   
           <td>{{ $item->product['name'] }}</td>
           <td><img src="{{asset('/images/'.$item->product['image'])}}" alt="" style="width: auto; height:80px;"></td>
-          <td>{{$item->product['price']}}</td>
+          <td>{{number_format($item->product['price'],0,'','.')}}₫</td>
           <td>
             @if ($item->product['quantity']>0)
             Available

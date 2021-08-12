@@ -36,11 +36,18 @@ class WishListController extends Controller
      */
     public function store(Request $request)
     {
+        // $alreadyList = WishList::where('customer_id','=',session()->get('customer')->id)->where
+     
+        $alreadyList = WishList::where('customer_id','=',session()->get('customer')->id)->where('product_id','=',$request->product_id)->first();
         $list = new WishList();
         $list->customer_id = session()->get('customer')->id;
         $list->product_id = $request->product_id;
-        $list->save();
-        return redirect()->route('wish-list.index');
+        if (!$alreadyList){           
+            $list->save();
+            return redirect()->route('wish-list.index')->with('success', 'Your item was successfully moved to your wish-list');;
+        } else {
+            return redirect()->route('shop')->with('error','This item has been already stored in your wish lists');
+        }
     }
 
     /**

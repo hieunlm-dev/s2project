@@ -14,6 +14,7 @@ class ContactController extends Controller
     public function index(){
         if (session()->get('customer')){
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+            return view('frontend.contact',compact('lists'));
         } else {
             return view('frontend.contact');
         }

@@ -26,10 +26,16 @@
           <td>{{ $item->product['name'] }}</td>
           <td><img src="{{asset('/images/'.$item->product['image'])}}" alt="" style="width: auto; height:80px;"></td>
           <td>{{$item->product['price']}}</td>
-          <td>Status</td>
+          <td>
+            @if ($item->product['quantity']>0)
+            Available
+            @else
+            Not Available
+            @endif
+          </td>
          <td>
           <a href="#"
-            class="btn btn-primary">Add To Cart</a>
+            class="btn btn-primary add-to-cart" data-id="{{ $item->product['id']}}">Add To Cart</a>
         <form style="display:inline-block"
             action="{{ route('wish-list.destroy', $item->id) }}" method="POST">
             @method("DELETE")
@@ -46,3 +52,39 @@
 </div><!--end container-->
 
 @endsection
+@if(isset($item))
+@section('my-scripts')
+<script>
+	// setup csrf-token cho post method
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $('.add-to-cart').click(function(e) {
+        e.preventDefault();     // hủy chức năng chuyển trang của thẻ a
+        quantity = 1;
+		    pid = $(this).data('id');
+        // pid= $('#pid').val();
+        //alert(quantity);
+
+        $.ajax({
+            type:'GET',
+            url:'{{ route('add-cart') }}',
+            data:{pid:pid, quantity:quantity},
+            success:function(data){
+                swal({
+					title: "Adding successfully",
+					text: "This product has been successfully added to your cart",
+					icon: "success",
+					button: "Aww yiss!",
+				}).then(function(){
+					window.location.reload();
+				});
+            }
+        });	
+	})
+</script>
+@endsection
+@endif

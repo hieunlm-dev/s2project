@@ -96,7 +96,23 @@
 										<form action="{{route('wish-list.store')}}" method="post">
 											@csrf
 											<input type="hidden" value="{{$item->id}}" name="product_id" >
-											<input type="submit" class="btn btn-link" class="form-control" value="wish list">
+											<input type="submit" class="btn add-to-cart" class="form-control" 
+											style="display: inline-block;
+											width: 100%;
+											font-size: 14px;
+											line-height: 34px;
+											color: #888888;
+											background: #f5f5f5;
+											border: 1px solid #e6e6e6;
+											text-align: center;
+											font-weight: 600;
+											border-radius: 0;
+											padding: 2px 10px;
+											-webkit-transition: all 0.3s ease 0s;
+											-o-transition: all 0.3s ease 0s;
+											-moz-transition: all 0.3s ease 0s;
+											margin-top: 14px;"
+											value="Add To Wishlist">
 										</form>
 									</div>
 								</div>

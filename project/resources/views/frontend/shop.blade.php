@@ -96,7 +96,7 @@
 										<form action="{{route('wish-list.store')}}" method="post">
 											@csrf
 											<input type="hidden" value="{{$item->id}}" name="product_id" >
-											<input type="submit" class="btn add-to-cart" class="form-control" 
+											<input type="submit" class="btn btn-link" class="form-control" 
 											style="display: inline-block;
 											width: 100%;
 											font-size: 14px;

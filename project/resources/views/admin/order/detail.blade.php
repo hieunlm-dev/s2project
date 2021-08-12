@@ -35,6 +35,7 @@
           </button>
         </div>
       </div>
+      
       <div class="card-body p-0">
         <table class="table table-striped projects">
           <thead>
@@ -51,18 +52,6 @@
               </tr>
           </thead>
           <tbody>
-            {{-- @foreach($orders as $item) --}}
-            {{-- <tr>
-              <td>{{ $item->id }}</td>
-              <td>{{ $item->order_date }}</td>
-              <td>{{ $item->address }}</td>
-              <td>{{ $item->first_name }} {{ $item->last_name }}</td>
-              <td>product</td>
-              <td>quantity</td>
-              <td>money</td>
-              <td>{{ $item->phone }}</td>
-              <td>{{ $item->status }}</td>
-            </tr> --}}
             @foreach($orderDetail as $orders)
             <tr>
               <td>{{ $orders->order_id }}</td>

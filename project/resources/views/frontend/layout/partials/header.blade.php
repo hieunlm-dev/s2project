@@ -32,7 +32,7 @@
             <div class="mid-section main-info-area">
 
                 <div class="wrap-logo-top left-section">
-                    <a href="index.html" class="link-to-home"><img src="{{asset('images/logo.jpg')}}" alt="mercado"></a>
+                    <a href="{{route('home')}}" class="link-to-home"><img src="{{asset('images/logo.jpg')}}" alt="mercado"></a>
                 </div>
 
                 <div class="wrap-search center-section">

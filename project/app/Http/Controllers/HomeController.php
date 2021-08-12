@@ -183,6 +183,9 @@ class HomeController extends Controller
                 $detail->price = $item->price;
                 $detail->customer_id = session()->get('customer')->id;
                 $detail->save();
+                //decrease quantity in product table
+                $product = Product::find($item->id);
+                $product->decrement('quantity', $item->quantity);
             }
         }
 

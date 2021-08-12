@@ -97,8 +97,8 @@ Route::resource('customer','Customer\CustomerController');
 Route::resource('wish-list','WishListController');
 
 // Route::get('/customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
-Route::get('history','OrderHistoryController@orderHistory')->name('order-history');
-Route::get('history/{{$id}}','OrderHistoryController@orderDetailHistory');
+Route::resource('history','OrderHistoryController');
+
 
 ////////////////////////////////////////////////////
 Route::get('/contact','Contact\ContactController@index')->name('contact');

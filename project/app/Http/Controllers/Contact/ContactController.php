@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Contact;
 
 use App\Models\Contact;
+use App\Models\WishList;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Contact\ContactController;
@@ -11,7 +12,11 @@ use Mail;
 class ContactController extends Controller
 {
     public function index(){
-        return view('frontend.contact');
+        if (session()->get('customer')){
+            $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
+        } else {
+            return view('frontend.contact');
+        }
     }
 
     public function saveContact(Request $request) { 

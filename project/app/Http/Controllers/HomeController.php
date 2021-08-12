@@ -147,8 +147,7 @@ class HomeController extends Controller
             $cart = $request->session()->get('cart');
             //tao order
             $ord = new Order();
-            $ord->order_number= 'ORD-'.strtoupper(uniqid());
-            $ord->customer_id = Auth::id();
+            $ord->customer_id = session()->get('customer')->id;
             $ord->grand_total = $total;
             $ord->item_count = $quantity;
             $ord->first_name = $fname;
@@ -166,6 +165,7 @@ class HomeController extends Controller
                 $detail->product_id = $item->id;
                 $detail->quantity = $item->quantity;
                 $detail->price = $item->price;
+                $detail->customer_id = session()->get('customer')->id;
                 $detail->save();
             }
         }

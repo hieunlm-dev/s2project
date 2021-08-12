@@ -27,8 +27,9 @@
           <td>{{ $item->address }}</td>
           <td>money</td>
           <td>{{ $item->status }}</td>
-          <a href="{{ route('admin.customer.edit', $item->id) }}"
+          <td><a onclick="return confirm('Are you sure to accept order?')" href="{{ route('admin.order.edit', $item->id) }}"
             class="btn btn-danger">Cancle</a>
+          </td>
         </tr>
         @endforeach
       </tbody>

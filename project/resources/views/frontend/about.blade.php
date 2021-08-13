@@ -122,7 +122,7 @@
                     <div class="info">
                         <b class="name">An Nguyen</b>
                         <span class="title">Director</span>
-                        <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                        <p class="desc">Managing director of all branches of the company.</p>
                     </div>
                 </div>
 

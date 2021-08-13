@@ -100,6 +100,9 @@
 @endsection
 
 @section('admin-scripts')
+    
+    
+    
     <script>
       $(document).on("click", ".browse", function() {
         var file = $(this).parents().find(".file");

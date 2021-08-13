@@ -89,6 +89,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
     Route::resource('order', 'Admin\OrderController');
 
     Route::resource('customer', 'Admin\CustomerController');
+    Route::resource('post-category', 'Admin\PostCategoryController');
+    Route::resource('post', 'Admin\PostController');
+
+
 
 });
 
@@ -114,3 +118,5 @@ Route::get('/pay/status', 'PaypalController@status');
 Route::get('/pay/list', 'PaypalController@paymentList');
 
 Route::get('/pay/{id}/details', 'PaypalController@paymentDetail');
+
+/////////

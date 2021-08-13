@@ -168,7 +168,8 @@
                         </li>
                         <li class="menu-item">
                             <a href="{{route('contact')}}" class="link-term mercado-item-title" >Contact Us</a>
-                        </li>																	
+                        </li>
+                        																	
                     </ul>
                 </div>
             </div>

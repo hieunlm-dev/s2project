@@ -263,4 +263,13 @@ class HomeController extends Controller
 
     }
 
+    public function faq()
+    {
+            return view('frontend.FAQ');
+    }
+
+    public function warranty()
+    {
+            return view('frontend.warranty');
+    }
 }

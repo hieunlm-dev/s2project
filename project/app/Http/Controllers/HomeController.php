@@ -163,7 +163,7 @@ class HomeController extends Controller
             $cart = $request->session()->get('cart');
             //tao order
             $ord = new Order();
-            $ord->customer_id = session()->get('customer')->id;
+            $ord->customer_id = session()->get('customer')->id;  
             $ord->grand_total = $total;
             $ord->item_count = $quantity;
             $ord->first_name = $fname;

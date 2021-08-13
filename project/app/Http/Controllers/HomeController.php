@@ -158,17 +158,27 @@ class HomeController extends Controller
             $total += $item->quantity * $item->price;
             $quantity += $item->quantity;
         }
-
+        $ocust = Customer::select('id')->get();
+        $countCus = 0;
+        foreach($ocust as $it){
+            $countCus++;
+        }
         if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
             //tao order
             $ord = new Order();
-            $ord->customer_id = session()->get('customer')->id;
+            if(session()->get('customer')){
+                $ord->customer_id = session()->get('customer')->id;
+            } else{
+                 $ord->customer_id = $countCus;
+            }
+               
+            
             $ord->grand_total = $total;
             $ord->item_count = $quantity;
             $ord->first_name = $fname;
             $ord->last_name = $lname;
-            // $ord->email = $email;
+            $ord->email = $email;
             $ord->phone_number = $phone;
             $ord->address = $add;
             $ord->order_date = \Carbon\Carbon::now();
@@ -181,7 +191,12 @@ class HomeController extends Controller
                 $detail->product_id = $item->id;
                 $detail->quantity = $item->quantity;
                 $detail->price = $item->price;
-                $detail->customer_id = session()->get('customer')->id;
+                if(session()->get('customer')){
+                    $detail->customer_id = session()->get('customer')->id;
+                } else{
+                    $detail->customer_id = $countCus;
+                }
+                
                 $detail->save();
                 //decrease quantity in product table
                 $product = Product::find($item->id);
@@ -201,6 +216,12 @@ class HomeController extends Controller
             $cust->save();
         }
         session()->forget('cart');
+        // if(isset($request->codPayment)){
+        //     return redirect()->route('thankyou');
+        // }
+        // if(isset($request->paypalPayment)){
+        //     return redirect()->route('payment');
+        // }
         return redirect()->route('payment');
     }
 
@@ -261,6 +282,9 @@ class HomeController extends Controller
             return view('frontend.policy');
         }
 
+    }
+    public function thankyou(){
+        return view('frontend.thank-you');
     }
 
 }

@@ -287,4 +287,18 @@ class HomeController extends Controller
         return view('frontend.thank-you');
     }
 
+    public function faq()
+    {
+            return view('frontend.FAQ');
+    }
+
+    public function warranty()
+    {
+            return view('frontend.warranty');
+    }
+
+    public function exwarranty()
+    {
+            return view('frontend.exwarranty');
+    }
 }

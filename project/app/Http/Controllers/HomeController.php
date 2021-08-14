@@ -296,4 +296,9 @@ class HomeController extends Controller
     {
             return view('frontend.warranty');
     }
+
+    public function exwarranty()
+    {
+            return view('frontend.exwarranty');
+    }
 }

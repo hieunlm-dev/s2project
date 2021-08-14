@@ -61,6 +61,7 @@ Route::get('/policy','HomeController@policy')->name('policy');
 Route::get('/contactus','HomeController@contactus')->name('contactus');
 Route::get('/FAQ','HomeController@FAQ')->name('FAQ');
 Route::get('/warranty','HomeController@warranty')->name('warranty');
+Route::get('/exwarranty','HomeController@exwarranty')->name('exwarranty');
 
 
 ////////////////////////////////////////////

@@ -48,7 +48,10 @@ class ContactController extends Controller
                   $message->to('phanhien5634@gmail.com');
                });
 
-          return back()->with('success', 'Thank you for contact us!');
+               $alert='Your contact email has been sent!';
+               return redirect()->back()->with('alert',$alert);   
+
+        //   return back()->with('success', 'Thank you for contact us!');
 
     }
 }

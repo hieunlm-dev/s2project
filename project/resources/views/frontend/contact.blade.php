@@ -20,6 +20,11 @@
                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                     <div class="contact-box contact-form">
                         <h2 class="box-title">Leave a Message</h2>
+                        <div>
+                            @if(session('alert'))
+                                <section class='alert alert-success'>{{session('alert')}}</section>
+                            @endif  
+                        </div>
                         <form action="{{route('save-contact')}}" method="post" name="frm-contact">
                             @csrf
                             <label for="name">Name<span>*</span></label>

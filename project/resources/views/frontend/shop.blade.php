@@ -11,9 +11,7 @@
 				</ul>
 			</div>
 			<div class="row">
-
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
-
 					<div class="banner-shop">
 						<a href="#" class="banner-link">
 							<figure><img src="assets/images/shop-banner.jpg" alt=""></figure>
@@ -25,14 +23,10 @@
 						<h1 class="shop-title">Mobile Store</h1>
 
 						<div class="wrap-right">
-							
-							{{-- <a href="route('sortProduct')" class="btn btn-primary" role="button">Sort product ascending</a> --}}
-
 							<button type="submit" class="btn btn-primary" method="GET" >Sort product</button>
 							<div class="sort-item orderby ">
 								<select name="orderby" class="use-chosen" >
-									<option value="menu_order" selected="selected">Default sorting</option>									
-									<option value="date"  >Sort by newness</option>
+									<option value="date"  selected="selected" >Sort by newness</option>
 									<option value="price">Sort by price: low to high</option>
 									<option value="price-desc">Sort by price: high to low</option>
 								</select>

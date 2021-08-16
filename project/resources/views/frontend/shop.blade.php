@@ -26,6 +26,8 @@
 
 						<div class="wrap-right">
 							
+							{{-- <a href="route('sortProduct')" class="btn btn-primary" role="button">Sort product ascending</a> --}}
+
 							<button type="submit" class="btn btn-primary" method="GET" >Sort product</button>
 							<div class="sort-item orderby ">
 								<select name="orderby" class="use-chosen" >
@@ -48,10 +50,7 @@
 								</select>
 							</div> -->
 
-							<div class="change-display-mode">
-								<a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-								<a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-							</div>
+							
 
 						</div>
 

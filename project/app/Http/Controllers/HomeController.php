@@ -215,14 +215,18 @@ class HomeController extends Controller
             $cust->address = $add;
             $cust->save();
         }
-        session()->forget('cart');
-        // if(isset($request->codPayment)){
-        //     return redirect()->route('thankyou');
-        // }
-        // if(isset($request->paypalPayment)){
-        //     return redirect()->route('payment');
-        // }
-        return redirect()->route('payment');
+        //kiem tra payment method
+        $payment = $request->input('payment-method');
+
+        if($payment == "cod"){
+            session()->forget('cart');
+            return redirect()->route('thankyou');
+        }
+        if($payment == "paypal"){
+            session()->forget('cart');
+            return redirect()->route('payment');
+        }
+        
     }
 
     public function registerSuccess()

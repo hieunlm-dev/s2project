@@ -19,15 +19,14 @@
 							<figure><img src="assets/images/shop-banner.jpg" alt=""></figure>
 						</a>
 					</div>
-
-					<div class="wrap-shop-control">
+					<form action="{{route('sort')}}">
+						<div class="wrap-shop-control">	
 
 						<h1 class="shop-title">Mobile Store</h1>
 
 						<div class="wrap-right">
 							
-							<a href="route('sortProduct')" class="btn btn-primary" role="button">Sort product ascending</a>
-
+							<button type="submit" class="btn btn-primary" method="GET" >Sort product</button>
 							<div class="sort-item orderby ">
 								<select name="orderby" class="use-chosen" >
 									<option value="menu_order" selected="selected">Default sorting</option>									
@@ -57,6 +56,9 @@
 						</div>
 
 					</div><!--end wrap shop control-->
+
+					</form>
+					
 
 					<div class="row">
 						<ul class="product-list grid-products equal-container" id="id01">

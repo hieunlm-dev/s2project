@@ -67,7 +67,7 @@ Route::get('/exwarranty','HomeController@exwarranty')->name('exwarranty');
 ////////////////////////////////////////////
 Route::get('/search', 'HomeController@search')->name('search');
 // Route::get('/shop/search', 'HomeController@search')->name('search');
-Route::get('/shop/{id}', 'ShopController@sortAsc');
+Route::get('/sort', 'ShopController@sortProduct')->name('sort');
 
 ////////////////////////////////////////////
 

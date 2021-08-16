@@ -26,7 +26,7 @@
 
 						<div class="wrap-right">
 							
-							<a href="route('sortProduct')" class="btn btn-primary" role="button">Sort product ascending</a>
+							{{-- <a href="route('sortProduct')" class="btn btn-primary" role="button">Sort product ascending</a> --}}
 
 							<div class="sort-item orderby ">
 								<select name="orderby" class="use-chosen" >
@@ -49,10 +49,7 @@
 								</select>
 							</div> -->
 
-							<div class="change-display-mode">
-								<a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-								<a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-							</div>
+							
 
 						</div>
 
@@ -130,10 +127,7 @@
 					</div>
 
 					<div class="wrap-pagination-info">
-<<<<<<< HEAD
 			
-=======
->>>>>>> dd628b916ea27fe6d6554f07591b3ba49e56f008
 						<div class="d-flex justify-content-center">
 							{!! $products->links() !!}
 						</div>

@@ -36,22 +36,28 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <form action="{{ route('admin.brand.store') }}" method="POST" >
+        <form action="{{ route('admin.post-category.store') }}" method="POST" >
             @csrf
             <div class="container">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-5">
                 <div class="form-group">
-                    <label for="name">ID</label>
-                    <input type="text" id="id" name="id" class="form-control"/>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control"/>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-5">
                   <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" id="name" name="name" class="form-control"/>
+                      <label for="name">Slug</label>
+                      <input type="text" id="slug" name="slug" class="form-control"/>
                   </div>
               </div>
+              <div class="col-sm-5">
+                <div class="form-group">
+                    <label for="name">Sort</label>
+                    <input type="text" id="sort" name="sort" class="form-control"/>
+                </div>
+            </div>
           </div>
 
           <div class="form-group">

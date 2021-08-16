@@ -15,7 +15,8 @@ class PostCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $postCategories = PostCategory::all();
+        return view('admin.post-category.index',compact('postCategories'));
     }
 
     /**
@@ -25,7 +26,7 @@ class PostCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.post-category.create');
     }
 
     /**
@@ -36,7 +37,9 @@ class PostCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $postCategory = $request->all();
+        PostCategory::create($postCategory);
+        return redirect()->route('admin.post-category.index');
     }
 
     /**
@@ -81,6 +84,9 @@ class PostCategoryController extends Controller
      */
     public function destroy(PostCategory $postCategory)
     {
-        //
+        $postCategory->delete();
+     
+        return redirect()->route('admin.post-category.index')
+                        ->with('success','Post category deleted successfully');
     }
 }

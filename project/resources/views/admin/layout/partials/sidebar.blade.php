@@ -137,7 +137,7 @@
             
           </ul>
         </li>
-
+        {{-- Post --}}
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fab fa-product-hunt"></i>
@@ -165,9 +165,33 @@
                 <p>Create Post</p>
               </a>
             </li>
-            
           </ul>
         </li>
+        {{-- Post category --}}
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Post Category
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('admin.post-category.index') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Post Category Index</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('admin.post-category.create') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Create Post Category</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

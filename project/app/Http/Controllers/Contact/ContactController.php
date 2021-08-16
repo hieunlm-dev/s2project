@@ -45,7 +45,7 @@ class ContactController extends Controller
              ), function($message) use ($request)
                {
                   $message->from($request->email);
-                  $message->to('phanhien5634@gmail.com');
+                  $message->to('tularus94@gmail.com');
                });
 
                $alert='Your contact email has been sent!';

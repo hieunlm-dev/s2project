@@ -54,17 +54,18 @@
                     <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
                     <div class="choose-payment-methods">
                         <label class="payment-method">
-                            <input id="payment-method-cod" name="codPayment" value="1" type="radio">
+                            <input id="payment-method-cod" name="payment" value="cod" type="radio">
                             <span>Cash On Delivery(COD)</span>
                             <span class="payment-desc">Customer pays for a good at the time of delivery</span>
                         </label>
                         <label class="payment-method">
-                            <input id="payment-method-paypal" name="paypalPayment" value="1" type="radio">
+                            <input id="payment-method-paypal" name="payment" value="paypal" type="radio">
                             <span>Paypal</span>
                             <span class="payment-desc">You can pay with your credit</span>
                             <span class="payment-desc">card if you don't have a paypal account</span>
                         </label>
                     </div>
+                    
                      @php
                         $total = 0;
                     @endphp

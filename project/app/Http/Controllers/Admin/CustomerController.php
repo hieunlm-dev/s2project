@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Models\Order;
+
 
 class CustomerController extends Controller
 {
@@ -82,6 +84,15 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
+        $order = Order::all();
+        foreach ($order as $item){
+            if ($customer->id ==$item -> customer_id){
+                $alert='You can not delete this customer because he has at least one order!';
+                return redirect()->back()->with('alert',$alert);  
+                // return back();
+                break;
+            }
+        } 
         $customer->delete();
         return redirect()->route('admin.customer.index');   
     }

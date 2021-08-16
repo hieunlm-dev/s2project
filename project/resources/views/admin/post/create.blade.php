@@ -115,7 +115,13 @@
     <script src="{{asset('dist/ckeditor/ckeditor.js')}}"></script>
 
     <script>
-      var options = [];
+      // let prefix_url = {{route('home')}};
+      var options = {
+        filebrowserImageBrowseUrl:  'http://localhost:8000/storage/photos/',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+      };
       CKEDITOR.replace('contents',options)
     </script>
     <script>

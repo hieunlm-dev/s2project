@@ -11,7 +11,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Product</li>
+            <li class="breadcrumb-item active">Blog Post</li>
           </ol>
         </div>
       </div>
@@ -24,7 +24,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Product List</h3>
+        <h3 class="card-title">Post List</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -49,7 +49,7 @@
               </tr>
           </thead>
           <tbody>
-            @foreach($products as $item)
+            @foreach($posts as $item)
             <tr>
               <td>
                 @if ($item->image != null)

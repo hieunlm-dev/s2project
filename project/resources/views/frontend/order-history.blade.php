@@ -12,7 +12,7 @@
       <section class='alert alert-success'>{{session('alert')}}</section>
   
   @endif  
-  </div>
+</div>
 <div class="card-body p-0">
     <table class="table table-striped projects">
       <thead>

@@ -40,11 +40,10 @@
           <thead>
               <tr>
                 <th>Image</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Brand</th>
+                <th>Title</th>
                 <th>Featured</th>
+                <th>Category</th>
+                <th>Sort</th>
                 <th>Actions</th>
               </tr>
           </thead>
@@ -56,15 +55,14 @@
                 <img src="{{ asset('/images/' . $item->image) }}" alt="{{ $item->image }}" style="width: 150px; height:100px;">
                 @endif
               </td>
-              <td>{{ $item->name }}</td>
-              <td>{{ $item->quantity }}</td>
-              <td>{{ $item->price }}</td>
-              <td>{{ $item->brand['name']}}</td>
+              <td>{{ $item->title }}</td>
               <td>
                 @if ($item->featured)
                 <span class="badge badge-success">Featured</span>
                 @endif
               </td>
+              <td>{{ $item->category->name }}</td>
+              <td>{{ $item->sort }}</td>
               <td>
                 <a href="{{ route('admin.product.edit', $item->id) }}" class="btn btn-primary">Update</a>
                 <form style="display:inline-block" action="{{ route('admin.product.destroy', $item->id) }}" method="POST">

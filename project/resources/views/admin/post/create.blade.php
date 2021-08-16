@@ -36,14 +36,14 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container">
             <div class="row">
                 <div class="col-sm-7">
                     <div class="form-group">
                         <label for="name">Title</label>
-                        <input type="text" id="name" name="name" class="form-control"/>
+                        <input type="text" id="title" name="title" class="form-control"/>
                     </div>
                 </div>
 
@@ -117,13 +117,14 @@
     <script>
       // let prefix_url = {{route('home')}};
       var options = {
-        filebrowserImageBrowseUrl:  'http://localhost:8000/storage/photos/',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl:  '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl:  '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl:  '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl:  '/laravel-filemanager/upload?type=Files&_token='
       };
       CKEDITOR.replace('contents',options)
     </script>
+
     <script>
       $(document).on("click", ".browse", function() {
         var file = $(this).parents().find(".file");

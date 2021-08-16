@@ -159,7 +159,7 @@ class HomeController extends Controller
             $quantity += $item->quantity;
         }
         $ocust = Customer::select('id')->get();
-        $countCus = 0;
+        $countCus = 1;
         foreach($ocust as $it){
             $countCus++;
         }
@@ -295,5 +295,10 @@ class HomeController extends Controller
     public function warranty()
     {
             return view('frontend.warranty');
+    }
+
+    public function exwarranty()
+    {
+            return view('frontend.exwarranty');
     }
 }

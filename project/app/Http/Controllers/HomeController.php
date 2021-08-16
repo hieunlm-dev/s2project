@@ -53,8 +53,8 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $key = $request->search;
-        $products = Product::where('name', 'like', '%' . $key . '%')->get();
-        return view('frontend.shop', compact('products'));
+        $products = Product::where('name', 'like', '%' . $key . '%')->paginate(6);
+        return view('frontend.search', compact('products'));
     }
 
     public function viewCart()

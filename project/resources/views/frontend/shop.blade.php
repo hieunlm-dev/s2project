@@ -137,9 +137,14 @@
 							<li><a class="page-number-item next-link" href="#" >Next</a></li>
 						</ul>
 						<p class="result-count">Showing 1-8 of 12 result</p> --}}
+
+
 						<div class="d-flex justify-content-center">
 							{!! $products->links() !!}
 						</div>
+
+
+
 					</div>
 				</div><!--end main products area-->
 

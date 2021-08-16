@@ -132,10 +132,7 @@
 					</div>
 
 					<div class="wrap-pagination-info">
-<<<<<<< HEAD
 			
-=======
->>>>>>> dd628b916ea27fe6d6554f07591b3ba49e56f008
 						<div class="d-flex justify-content-center">
 							{!! $products->links() !!}
 						</div>

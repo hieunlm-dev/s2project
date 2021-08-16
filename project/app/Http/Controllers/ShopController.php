@@ -21,13 +21,20 @@ class ShopController extends Controller
         }
         
     }
-
-    public function sortAsc($id, Request $request)
+    public function sortProduct(Request $request)
     {
-        $query = Product::query();
-        if ($request->sort) {
-            $query = $query->orderBy('price', $request->sort);
+        $sort = $request->orderby;
+
+        if ($sort == 'date') {
+            $products = Product::orderBy('created_at', 'desc')->paginate(6);
+            return view('frontend.shop', compact('products'));
+        } else if($sort == 'price'){
+            $products = Product::orderBy('price', 'asc')->paginate(6);
+            return view('frontend.shop', compact('products'));
+        } else if($sort == 'price-desc'){
+            $products = Product::orderBy('price', 'desc')->paginate(6);
+            return view('frontend.shop', compact('products'));
         }
-        $query = $query->get();
+        
     }
 }

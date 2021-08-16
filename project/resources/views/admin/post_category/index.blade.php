@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Product</h1>
+          <h1>Brand</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Product</li>
+            <li class="breadcrumb-item active">Brand</li>
           </ol>
         </div>
       </div>
@@ -24,7 +24,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Product List</h3>
+        <h3 class="card-title">Brand List</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -39,35 +39,18 @@
         <table class="table table-striped projects">
           <thead>
               <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Brand</th>
-                <th>Featured</th>
+                <th>Brand ID</th>
+                <th>Brand Name</th>
                 <th>Actions</th>
               </tr>
           </thead>
           <tbody>
-            @foreach($products as $item)
+            @foreach($brands as $item)
             <tr>
-              <td>
-                @if ($item->image != null)
-                <img src="{{ asset('/images/' . $item->image) }}" alt="{{ $item->image }}" style="width: 150px; height:100px;">
-                @endif
-              </td>
+              <td>{{ $item->id }}</td>
               <td>{{ $item->name }}</td>
-              <td>{{ $item->quantity }}</td>
-              <td>{{ $item->price }}</td>
-              <td>{{ $item->brand['name']}}</td>
               <td>
-                @if ($item->featured)
-                <span class="badge badge-success">Featured</span>
-                @endif
-              </td>
-              <td>
-                <a href="{{ route('admin.product.edit', $item->id) }}" class="btn btn-primary">Update</a>
-                <form style="display:inline-block" action="{{ route('admin.product.destroy', $item->id) }}" method="POST">
+                <form style="display:inline-block" action="{{ route('admin.brand.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf
                   <button class="btn btn-danger">Delete</button>

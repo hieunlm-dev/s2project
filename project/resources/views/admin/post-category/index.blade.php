@@ -39,18 +39,22 @@
         <table class="table table-striped projects">
           <thead>
               <tr>
-                <th>Brand ID</th>
-                <th>Brand Name</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>Sort</th>
+
                 <th>Actions</th>
               </tr>
           </thead>
           <tbody>
-            @foreach($brands as $item)
+            @foreach($postCategories as $item)
             <tr>
-              <td>{{ $item->id }}</td>
               <td>{{ $item->name }}</td>
+              <td>{{ $item->slug }}</td>
+              <td>{{ $item->sort }}</td>
+
               <td>
-                <form style="display:inline-block" action="{{ route('admin.brand.destroy', $item->id) }}" method="POST">
+                <form style="display:inline-block" action="{{ route('admin.post-category.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf
                   <button class="btn btn-danger">Delete</button>

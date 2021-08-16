@@ -18,7 +18,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('admin.post.index',compact('posts'));
     }
 
     /**
@@ -40,7 +41,25 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // kiểm tra file có tồn tại hay không?
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            // lấy phần mở rộng (extension) của file để kiểm tra xem
+            // đây có phải là file hình
+            $extension = $file->getClientOriginalExtension();
+            if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
+                return redirect()->route('admin.post.create');
+            }
+
+            $imgName = $file->getClientOriginalName();
+            // copy file vào thư mục public/images
+            $file->move('images', $imgName);
+            // tạo phần tử image trong mảng $account
+            $data['image'] = $imgName;
+        }    
+        Post::create($data);
+        return redirect()->route('admin.post.index');
     }
 
     /**

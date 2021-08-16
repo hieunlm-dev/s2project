@@ -125,3 +125,6 @@ Route::get('/pay/list', 'PaypalController@paymentList');
 Route::get('/pay/{id}/details', 'PaypalController@paymentDetail');
 
 /////////
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});

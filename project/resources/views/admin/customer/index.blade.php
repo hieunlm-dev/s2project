@@ -7,6 +7,7 @@
                 <div class="col-sm-6">
                     <h1>Admin Management</h1>
                 </div>
+                
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
@@ -24,7 +25,11 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title"> Customer Management</h3>
-
+                <div>
+                    @if(session('alert'))              
+                        <section class='alert alert-info'>{{session('alert')}}</section>
+                    @endif  
+                </div>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>

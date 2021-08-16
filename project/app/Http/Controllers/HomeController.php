@@ -208,7 +208,6 @@ class HomeController extends Controller
             $cust = new Customer();
             $cust->firstname = $fname;
             $cust->lastname = $lname;
-            $cust->username = $email;
             $cust->password = \md5('123456');
             $cust->email = $email;
             $cust->phone = $phone;

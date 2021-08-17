@@ -127,7 +127,7 @@
 					<div class="wrap-pagination-info">
 			
 						<div class="d-flex justify-content-center">
-							{!! $products->links() !!}
+							{{-- {!! $products->links() !!} --}}
 						</div>
 
 					</div>
@@ -140,7 +140,12 @@
 						<div class="widget-content">
 							<ul class="list-style vertical-list list-limited" data-show="6">
 								{{-- Nhờ Ân làm phần này bằng nút bấm --}}
-								<li class="list-item"><a class="filter-link " href="#">Brand</a></li> 
+								<form action="{{route('shop')}}" >
+									
+									<div><input type="submit" value="Iphone" name="brand"></div>
+									<div><input type="submit" value="Samsung" name="brand"></div>
+								</form>
+								{{-- <li class="list-item"><a class="filter-link " href="#">Brand</a></li>  --}}
 							
 							</ul>
 						</div>

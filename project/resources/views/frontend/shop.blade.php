@@ -29,6 +29,9 @@
 									<option value="date"  selected="selected" >Sort by newness</option>
 									<option value="price">Sort by price: low to high</option>
 									<option value="price-desc">Sort by price: high to low</option>
+									<option value="5000000">Under 5M</option>
+									<option value="10000000">From 5M to 10M</option>
+									<option value="20000000">From 10M to 20M</option>
 								</select>
 							</div>
 

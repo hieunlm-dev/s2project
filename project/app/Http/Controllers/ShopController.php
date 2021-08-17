@@ -34,17 +34,19 @@ class ShopController extends Controller
     }
     public function sortProduct(Request $request)
     {
+        $brands = Brand::all();
+        
         $sort = $request->orderby;
 
         if ($sort == 'date') {
             $products = Product::orderBy('created_at', 'desc')->paginate(6);
-            return view('frontend.shop', compact('products'));
+            return view('frontend.shop', compact('products','brands'));
         } else if($sort == 'price'){
             $products = Product::orderBy('price', 'asc')->paginate(6);
-            return view('frontend.shop', compact('products'));
+            return view('frontend.shop', compact('products','brands'));
         } else if($sort == 'price-desc'){
             $products = Product::orderBy('price', 'desc')->paginate(6);
-            return view('frontend.shop', compact('products'));
+            return view('frontend.shop', compact('products','brands'));
         }
         
     }

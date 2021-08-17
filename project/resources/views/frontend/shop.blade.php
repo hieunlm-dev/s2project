@@ -142,7 +142,7 @@
 								{{-- Nhờ Ân làm phần này bằng nút bấm --}}
 								<form action="{{route('shop')}}" >
 									@foreach($brands as $item)
-									<div><input type="submit" value="{{$item->name}}" name="brand"></div>
+									<div><input type="submit" class="btn btn-secondary" style="width: 90px; margin:2px" value="{{$item->name}}" name="brand"></div>
 									@endforeach
 								</form>
 								{{-- <li class="list-item"><a class="filter-link " href="#">Brand</a></li>  --}}

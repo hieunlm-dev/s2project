@@ -19,8 +19,8 @@ class ShopController extends Controller
             // dd($brand);
             // $products = Product::where('name','like','%'.$brand.'%')->get();
             $products = Product::select('products.*','brands.name')
-            ->join('products', 'products.brand_id','=','brands.id')
-            ->where('brands.name', '=', $brand)
+            ->join('brands', 'products.brand_id','=','brands.id')
+            ->where('brands.name', $brand)
             ->get();
         }
         if (session()->get('customer')){

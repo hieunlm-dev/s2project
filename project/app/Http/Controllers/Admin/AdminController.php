@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Account;
+use App\Models\Order;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -34,7 +36,10 @@ class AdminController extends Controller
 
 
     public function dashboard() {
-        return view('admin.dashboard');
+        $accounts = Account::all();
+        $customers = Customer::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) <= 7')->get();
+        $orders = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) <= 7')->get();
+        return view('admin.dashboard',compact('orders','customers','accounts'));
     }
 
     public function logout(Request $request) {

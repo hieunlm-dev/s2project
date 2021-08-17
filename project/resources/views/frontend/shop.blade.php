@@ -141,9 +141,9 @@
 							<ul class="list-style vertical-list list-limited" data-show="6">
 								{{-- Nhờ Ân làm phần này bằng nút bấm --}}
 								<form action="{{route('shop')}}" >
-									
-									<div><input type="submit" value="Iphone" name="brand"></div>
-									<div><input type="submit" value="Samsung" name="brand"></div>
+									@foreach($brands as $item)
+									<div><input type="submit" value="{{$item->name}}" name="brand"></div>
+									@endforeach
 								</form>
 								{{-- <li class="list-item"><a class="filter-link " href="#">Brand</a></li>  --}}
 							

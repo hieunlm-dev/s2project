@@ -4,24 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Wishlist;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
     public function index(Request $request)
     {
+        $brands = Brand::all();
         $products = Product::orderBy('created_at', 'desc')->get();
         $products= Product::paginate(6);
         if (isset($request->brand)){
             $brand = $request->brand;
             // dd($brand);
-            $products = Product::where('name','like','%'.$brand.'%')->get();
+            // $products = Product::where('name','like','%'.$brand.'%')->get();
+            $products = Product::select('products.*','brands.name')
+            ->join('products', 'products.brand_id','=','brands.id')
+            ->where('brands.name', '=', $brand)
+            ->get();
         }
         if (session()->get('customer')){
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
             return view('frontend.shop', compact('products','lists'));
         } else {
-            return view('frontend.shop', compact('products'));
+            return view('frontend.shop', compact('products' ,'brands'));
 
         }
         

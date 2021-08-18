@@ -23,7 +23,7 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $orderDetail= Order::select('orders.*', 'order_details.*','products.name')
+        $orderDetail= Order::select('orders.*', 'order_details.*','products.name','products.image')
         ->join('order_details', 'order_details.order_id', '=', 'orders.id')
         ->join('products','products.id','=','order_details.product_id')
         ->where('order_id',$id)

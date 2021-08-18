@@ -66,8 +66,8 @@
               <td>{{ $item->author }}</td>
               <td>{{ $item->sort }}</td>
               <td>
-                <a href="{{ route('admin.product.edit', $item->id) }}" class="btn btn-primary">Update</a>
-                <form style="display:inline-block" action="{{ route('admin.product.destroy', $item->id) }}" method="POST">
+                <a href="{{ route('admin.post.edit', $item->id) }}" class="btn btn-primary">Update</a>
+                <form style="display:inline-block" action="{{ route('admin.post.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf
                   <button class="btn btn-danger">Delete</button>

@@ -81,7 +81,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = PostCategory::all();
+        return view('admin.post.edit',compact('post','categories'));
     }
 
     /**
@@ -93,7 +94,23 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $input = $request->all();
+        $categories = PostCategory::all();
+
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        $post->update($input);
+    
+        return redirect()->route('admin.post.index');
+            
     }
 
     /**
@@ -104,6 +121,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+     
+        return redirect()->route('admin.post.index')
+                        ->with('success','Product deleted successfully');
     }
 }

@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Product</h1>
+          <h1>Post</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Product</li>
+            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
+            <li class="breadcrumb-item active">Post</li>
           </ol>
         </div>
       </div>
@@ -24,7 +24,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Update Product</h3>
+        <h3 class="card-title">Create Post</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -36,111 +36,75 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <form action="{{ route('admin.product.update',$product->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.post.update',$post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" value="{{ $product->name }}" class="form-control"/>
+                        <label for="name">Title</label>
+                        <input type="text" id="title" name="title" value="{{ $post->title }}" class="form-control"/>
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                   <div class="form-group">
-                    <label for="brand">Brand </label> <br>
-                    <select class="form-control" name="brand_id" id="brand_id" >         
-                      @foreach ( $brands as $item )
-                        <option value="{{ $item->id}}"> {{ $item->name}} </option>
+                    <label for="brand">Category </label> <br>
+                    <select class="form-control" name="category_id" id="category">         
+                      @foreach ($categories as $item)
+                        <option value=" {{$item->id}} "> {{$item->name}} </option>
                       @endforeach
+                      
                     </select>     
                   </div>
                 </div>
-
+                
                 <div class="col-sm-2">
                     <div class="form-group" style="text-align: center">
                         <label for="featured">Featured</label>
-                        <input type="checkbox" id="featured" name="featured" value="1" class="form-control" @if (isset($product->featured)) checked @endif/>
+                        <input type="hidden" value="0" name="featured">   
+                        <input type="checkbox" id="featured" name="featured" value="1" @if (isset($post->featured)) checked @endif class="form-control"/>
+                        
                     </div>
                 </div>
             </div>
             
             <div class="form-group">
-                <label for="desc">Description</label>
-                <textarea id="desc" name="desc"  value="{{ $product->desc }}" class="form-control"></textarea>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <input type="text" id="quantity" name="quantity"  value="{{ $product->quantity }}" class="form-control"/>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="price">Price</label>
-                        <input type="text" id="price" name="price"  value="{{ $product->price }}" class="form-control"/>
-                    </div>
-                </div>
+                <label for="desc">Content</label>
+                <textarea id="contents" name="contents" class="form-control" value="{{ $post->contents }}"></textarea>
             </div>
             
             <div class="row">
               <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="quantity">System</label>
-                      <input type="text" id="system" name="system" class="form-control"/>
-                  </div>
+                <div class="form-group">
+                  <label for="desc">Author</label>
+                  <input type="text" id="author" name="author" value="{{ $post->author }}" class="form-control"/>
+                </div>
               </div>
               <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="price">Ram</label>
-                      <input type="text" id="ram" name="ram" class="form-control"/>
-                  </div>
+                <div class="form-group">
+                  <label for="desc">Sort</label>
+                  <input type="text" id="sort" name="sort" value="{{ $post->sort }}" class="form-control"/>
+                </div>
               </div>
-            </div>  
+            </div>
+            <div style="max-width: 30%">
+              <div id="msg"></div>
+                <input type="file" name="image" class="file" >
+                <div class="input-group my-3">
+                  <input type="text" class="form-control" value="{{ $post->image }}" disabled placeholder="Upload File" id="file">
+                  <div class="input-group-append">
+                    <button type="button" class="browse btn btn-primary">Upload Image</button>
+                  </div>
+                </div>
+            </div>
+            <div style="max-width: 30%">
+              <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" >
+            </div>
 
-            <div class="row">
-              <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="quantity">Storage</label>
-                      <input type="text" id="storage" name="storage" class="form-control"/>
-                  </div>
-              </div>
-              <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="price">Battery</label>
-                      <input type="text" id="battery" name="battery" class="form-control"/>
-                  </div>
-              </div>
-            </div> 
-             
-            
-            <div id="img">
-              <span class="btn btn-default btn-file">
-                Upload Image<input type="file" id="image" name="image" >
-              </span> 
-  
-              <span class="btn btn-default btn-file">
-                Upload Image 1<input type="file" id="image" name="img1" >
-              </span> 
-  
-              <span class="btn btn-default btn-file">
-                Upload Image 2<input type="file" id="image" name="img2" >
-              </span> 
-  
-              <span class="btn btn-default btn-file">
-                Upload Image 3<input type="file" id="image" name="img3" >
-              </span> 
-
-              <span class="btn btn-default btn-file">
-                Upload Image 4<input type="file" id="image" name="img4" >
-              </span> 
-            </div> <br>
-           
             <div class="form-group">
-                <input type="submit" name="btnCreate" value="Update" class="btn btn-primary float-right"/>
+                <input type="submit" name="btnCreate" value="Create" class="btn btn-primary float-right"/>
             </div> <br>
           </div>
         </form>
@@ -153,11 +117,46 @@
   <!-- /.content -->
 @endsection
 
+@section('admin-scripts')
+
+    <script src="{{asset('dist/ckeditor/ckeditor.js')}}"></script>
+
+    <script>
+      // let prefix_url = {{route('home')}};
+      var options = {
+        filebrowserImageBrowseUrl:  '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl:  '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl:  '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl:  '/laravel-filemanager/upload?type=Files&_token='
+      };
+      CKEDITOR.replace('contents',options)
+    </script>
+
+    <script>
+      $(document).on("click", ".browse", function() {
+        var file = $(this).parents().find(".file");
+        file.trigger("click");
+      });
+      $('input[type="file"]').change(function(e) {
+        var fileName = e.target.files[0].name;
+        $("#file").val(fileName);
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          // get loaded data and render thumbnail.
+          document.getElementById("preview").src = e.target.result;
+        };
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+      });
+    </script>
+@endsection
+
 @section('admin-css')
     <style>
-      #img{
-        display: flex;
-        justify-content:space-between; 
+      .file {
+        visibility: hidden;
+        position: absolute;
       }
     </style>
 @endsection

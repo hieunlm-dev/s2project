@@ -46,6 +46,7 @@ class AdminController extends Controller
         $incomes5 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 3')->where('status','=','completed')->sum('grand_total');
         $incomes6 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 2')->where('status','=','completed')->sum('grand_total');
         $incomes7 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 1')->where('status','=','completed')->sum('grand_total');
+      
         return view('admin.dashboard',compact(
             'orders',
             'customers',

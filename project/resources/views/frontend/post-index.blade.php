@@ -26,7 +26,7 @@
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <div style="display:flex;justify-content:center" ><a href="#" class="product-name" ><span> <b>{{ $item->title }} </b></span></a></div>
+                                        <div style="display:flex;justify-content:center" ><a href="{{ route('post-detail', $item->id) }}" class="product-name" ><span> <b>{{ $item->title }} </b></span></a></div>
                                         <div class="wrap-price" style="text-align: right"><span  > By <i>{{$item->author}} </i></span>
                                         <div class="wrap-price" style="text-align: right"><span>Post day: {{ $item->created_at -> format('d/m/Y')}} </span>
 

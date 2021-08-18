@@ -14,29 +14,31 @@
                 <div class="row">
                     <ul class="product-list grid-products equal-container" id="id01">
                         @forelse ($posts as $item)
-                            @php                             
+                            {{-- @php                             
                                 dd($item->created_at->format('d/m/Y'));
-                            @endphp
+                            @endphp --}}
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                 <div class="product product-style-3 equal-elem ">
-                                    <div class="product-thumnail">
-                                        <a href="{{ route('product-details', $item->id) }}" title="{{ $item->name }}">
+                                    <div class="product-thumnail" style="display:flex;justify-content:center">
+                                        <a href="{{ route('post-detail', $item->id) }}" title="{{ $item->name }}">
                                             <figure><img src="{{ asset('images/' . $item->image) }}"
                                                     style="width: auto; height:166px;" alt="img"></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>{{ $item->title }}</span></a>
-                                        <div class="wrap-price"><span class="product-price">{{ $item->author }} </span>
+                                        <div style="display:flex;justify-content:center" ><a href="#" class="product-name" ><span> <b>{{ $item->title }} </b></span></a></div>
+                                        <div class="wrap-price" style="text-align: right"><span  > By <i>{{$item->author}} </i></span>
+                                        <div class="wrap-price" style="text-align: right"><span>Post day: {{ $item->created_at -> format('d/m/Y')}} </span>
+
                                         </div>
 
-                                        <a href="#" class="btn add-to-cart">Read more</a>
+                                        <a href="{{ route('post-detail', $item->id) }}" class="btn add-to-cart">Read more</a>
                                     </div>
                                 </div>
                             </li>
                         @empty
                             <div class="product product-style-3  equal-elem">
-                                <h3 align="center">Cannot find your product </h3>
+                                <h3 align="left">Waiting for new post </h3>
                             </div>
                         @endforelse
                     </ul>

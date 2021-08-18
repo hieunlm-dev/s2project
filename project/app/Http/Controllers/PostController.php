@@ -12,4 +12,9 @@ class PostController extends Controller
         $posts = Post::all();
         return view('frontend.post-index', compact('posts'));
     }
+
+    public function postDetail($id){
+        $post = Post::find($id);
+        return view('frontend.post-detail', compact('post'));
+    }
 }

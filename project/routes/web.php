@@ -95,17 +95,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin', 'as' => 'admin.
     Route::resource('post-category', 'Admin\PostCategoryController');
     Route::resource('post', 'Admin\PostController');
 
-
-
 });
 
 ////////////////////////////////////////////////////
 Route::resource('customer','Customer\CustomerController');
 Route::resource('wish-list','WishListController');
-
-// Route::get('/customer/{customer}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
 Route::resource('history','OrderHistoryController');
 
+////////////////////////////////////////////////////
+Route::get('post-index','PostController@postIndex')->name('post-index');
+Route::get('post-detail','PostController@postDetail')->name('post-detail');
 
 ////////////////////////////////////////////////////
 Route::get('/contact','Contact\ContactController@index')->name('contact');

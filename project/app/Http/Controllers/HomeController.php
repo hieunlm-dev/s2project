@@ -46,7 +46,6 @@ class HomeController extends Controller
                 'product',
                 'relatedProducts',
             ));
-
         }
     }
 

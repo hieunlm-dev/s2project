@@ -85,7 +85,6 @@
                                         <h3>
                                           {{number_format($total,0,'','.')}}
                                           <sup style="font-size: 20px">đ</sup></h3>
-
                                         <p>Incoming this week</p>
                                     </div>
                                     <div class="icon">

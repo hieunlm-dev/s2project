@@ -34,50 +34,12 @@
 									<option value="20000000">From 10M to 20M</option>
 								</select>
 							</div>
-
-							<!-- <div class="sort-item product-per-page">
-								<select name="post-per-page" class="use-chosen" >
-									<option value="12" selected="selected">12 per page</option>
-									<option value="16">16 per page</option>
-									<option value="18">18 per page</option>
-									<option value="21">21 per page</option>
-									<option value="24">24 per page</option>
-									<option value="30">30 per page</option>
-									<option value="32">32 per page</option>
-								</select>
-							</div> -->
-
-							
-
 						</div>
-
 					</div><!--end wrap shop control-->
-
 					</form>
-					
 
 					<div class="row">
 						<ul class="product-list grid-products equal-container" id="id01">
-							{{-- @forelse($products as $item)
-							<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-								<div class="product product-style-3 equal-elem ">
-									<div class="product-thumnail">
-										<a href="{{route('product-details',$item->id)}}" title="{{$item->name}}">
-											<figure><img src="{{asset('images/'.$item->image)}}" style="width: 250px; height:166px;" alt="img"></figure>
-										</a>
-									</div>
-									<div class="product-info">
-										<a href="{{route('product-details',$item->id)}}" class="product-name"><span>{{$item->name}}</span></a>
-										<div class="wrap-price"><span class="product-price">{{ number_format($item->price,0,'','.')}} ₫</span></div>
-										<a href="#" class="btn add-to-cart">Add To Cart</a>
-									</div>
-								</div>
-							</li>
-							@empty
-							 <div class="product product-style-3  equal-elem">
-                                <h3 align="center">Cannot find your product </h3>
-                            </div>
-							@endforelse --}}
 							@forelse ($products as $item)
 								<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
 								<div class="product product-style-3 equal-elem ">
@@ -93,7 +55,6 @@
 										<a href="#" class="btn add-to-cart" data-id="{{$item->id}}">Add To Cart</a>
 									</div>
 									<div class="product-info">
-
 										<form action="{{route('wish-list.store')}}" method="post">
 											@csrf
 											<input type="hidden" value="{{$item->id}}" name="product_id" >
@@ -126,13 +87,10 @@
 							@endforelse
 						</ul>
 					</div>
-
 					<div class="wrap-pagination-info">
-			
 						<div class="d-flex justify-content-center">
-							{{-- {!! $products->links() !!} --}}
+							{!!$products->links()!!}
 						</div>
-
 					</div>
 				</div><!--end main products area-->
 

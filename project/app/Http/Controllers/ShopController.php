@@ -21,7 +21,7 @@ class ShopController extends Controller
             $products = Product::select('products.*', 'brands.name')
                 ->join('brands', 'products.brand_id', '=', 'brands.id')
                 ->where('brands.name', $brand)
-                ->get();
+                ->paginate(6);
         }
         if (session()->get('customer')) {
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();

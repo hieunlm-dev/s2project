@@ -79,7 +79,7 @@
                                             $total = 0;
                                         @endphp
                                         @foreach ($orders as $item)
-                                            @if (isset($item)&& $item->status == 'completed')
+                                            @if (isset($item) && $item->status == 'completed')
                                                 @php
                                                     $total += $item->grand_total;
                                                 @endphp
@@ -186,19 +186,15 @@
         //     style: 'currency',
         //     currency: 'VNĐ',
         // }).format('{{ $incomes1 }}'); // '€ 10,000.00' ;
-        const format = new Intl.NumberFormat('vi-VN',{
-            style: 'currency',
-            currency: 'VND',
-        });
+        const format = new Intl.NumberFormat('en');
         var max = format.format(1000000000);
-        var valueArr = ['{{ $incomes1 }}', '{{ $incomes2 }}', '{{ $incomes3 }}', '{{ $incomes4 }}',
-            '{{ $incomes5 }}', '{{ $incomes6 }}', '{{ $incomes7 }}'
-        ];
-        // for (var i = 0; i < valueArr.length; i++){
-        //     valueArr[i] = format.format(valueArr[i]);
-        // }
+      
+ 
+    console.log(valueArr);
         var xValues = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'];
-        var yValues = [ valueArr[0],  valueArr[1],  valueArr[2],  valueArr[3],  valueArr[4],  valueArr[5],  valueArr[6]];
+          var valueArr = ['{{ $incomes1 }}', '{{ $incomes2 }}', '{{ $incomes3 }}', '{{ $incomes4 }}',
+        '{{ $incomes5 }}', '{{ $incomes6 }}', '{{ $incomes7 }}'
+    ];
         new Chart("myChart", {
             type: "line",
             data: {
@@ -208,7 +204,7 @@
                     lineTension: 0,
                     backgroundColor: "rgba(0,0,255,1.0)",
                     borderColor: "rgba(0,0,255,0.1)",
-                    data: valueArr
+                    data: valueArr,
                 }]
             },
             options: {
@@ -218,9 +214,16 @@
                 scales: {
                     yAxes: [{
                         ticks: {
-                            min: 0,
-                            max: 100000000,
-
+                            // min: 0,
+                            // max: 100000000,
+                            beginAtZero: true,
+                            callback: function(value, index, values) {
+                                if (parseInt(value) >= 1000) {
+                                    return 'đ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                } else {
+                                    return 'đ' + value;
+                                }
+                            }
                         }
                     }],
                 }
@@ -228,6 +231,3 @@
         });
     </script>
 @endsection
-
-
-

@@ -1,6 +1,9 @@
 @extends('admin.layout.layout')
 
 @section('contents')
+    {{-- @php
+        dd($incomes);
+    @endphp --}}
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
@@ -45,18 +48,18 @@
                                 <!-- small box -->
                                 <div class="small-box bg-info">
                                     <div class="inner">
-                                      @php
-                                        $count =0;
-                                      @endphp
-                                      @foreach($orders as $item)
-                                      @if (isset($item))
-                                          @php
-                                              $count++;
-                                          @endphp
-                                      @endif
-                                      @endforeach
+                                        @php
+                                            $count = 0;
+                                        @endphp
+                                        @foreach ($orders as $item)
+                                            @if (isset($item))
+                                                @php
+                                                    $count++;
+                                                @endphp
+                                            @endif
+                                        @endforeach
                                         <h3>
-                                          {{$count}}
+                                            {{ $count }}
                                         </h3>
                                         <p>New Orders this week</p>
                                     </div>
@@ -72,19 +75,20 @@
                                 <!-- small box -->
                                 <div class="small-box bg-success">
                                     <div class="inner">
-                                      @php
-                                          $total=0;
-                                      @endphp
-                                      @foreach ($orders as $item)
-                                          @if (isset($item))
-                                          @php                                             
-                                              $total += $item->grand_total;
-                                          @endphp
-                                          @endif
-                                      @endforeach
+                                        @php
+                                            $total = 0;
+                                        @endphp
+                                        @foreach ($orders as $item)
+                                            @if (isset($item)&& $item->status == 'completed')
+                                                @php
+                                                    $total += $item->grand_total;
+                                                @endphp
+                                            @endif
+                                        @endforeach
                                         <h3>
-                                          {{number_format($total,0,'','.')}}
-                                          <sup style="font-size: 20px">đ</sup></h3>
+                                            {{ number_format($total, 0, '', '.') }}
+                                            <sup style="font-size: 20px">đ</sup>
+                                        </h3>
                                         <p>Incoming this week</p>
                                     </div>
                                     <div class="icon">
@@ -99,17 +103,17 @@
                                 <!-- small box -->
                                 <div class="small-box bg-warning">
                                     <div class="inner">
-                                       @php
-                                        $count =0;
-                                      @endphp
-                                      @foreach($customers as $item)
-                                      @if (isset($item))
-                                          @php
-                                              $count++;
-                                          @endphp
-                                      @endif
-                                      @endforeach
-                                        <h3>{{$count}}</h3>
+                                        @php
+                                            $count = 0;
+                                        @endphp
+                                        @foreach ($customers as $item)
+                                            @if (isset($item))
+                                                @php
+                                                    $count++;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        <h3>{{ $count }}</h3>
 
                                         <p>Customers Registrations this week</p>
                                     </div>
@@ -125,17 +129,17 @@
                                 <!-- small box -->
                                 <div class="small-box bg-danger">
                                     <div class="inner">
-                                       @php
-                                        $count =0;
-                                      @endphp
-                                      @foreach($accounts as $item)
-                                      @if (isset($item))
-                                          @php
-                                              $count++;
-                                          @endphp
-                                      @endif
-                                      @endforeach
-                                        <h3>{{$count}}</h3>
+                                        @php
+                                            $count = 0;
+                                        @endphp
+                                        @foreach ($accounts as $item)
+                                            @if (isset($item))
+                                                @php
+                                                    $count++;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        <h3>{{ $count }}</h3>
 
                                         <p>Staff and management</p>
                                     </div>
@@ -153,6 +157,22 @@
                     </div><!-- /.container-fluid -->
                 </section>
             </div>
+            <div class="card-body p-0">
+                <section class="content">
+                    <div class="container-fluid">
+                    </div>
+                    <div class="container">
+                        <h3>Income in 7 days</h3>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
@@ -160,10 +180,54 @@
     </section>
     <!-- /.content -->
 @endsection
-
 @section('admin-scripts')
     <script>
-      var a = '{{$a}}';
-      
+        // var values1 = new Intl.NumberFormat('vi-VN', {
+        //     style: 'currency',
+        //     currency: 'VNĐ',
+        // }).format('{{ $incomes1 }}'); // '€ 10,000.00' ;
+        const format = new Intl.NumberFormat('vi-VN',{
+            style: 'currency',
+            currency: 'VND',
+        });
+        var max = format.format(1000000000);
+        var valueArr = ['{{ $incomes1 }}', '{{ $incomes2 }}', '{{ $incomes3 }}', '{{ $incomes4 }}',
+            '{{ $incomes5 }}', '{{ $incomes6 }}', '{{ $incomes7 }}'
+        ];
+        // for (var i = 0; i < valueArr.length; i++){
+        //     valueArr[i] = format.format(valueArr[i]);
+        // }
+        var xValues = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'];
+        var yValues = [ valueArr[0],  valueArr[1],  valueArr[2],  valueArr[3],  valueArr[4],  valueArr[5],  valueArr[6]];
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: valueArr
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 100000000,
+
+                        }
+                    }],
+                }
+            }
+        });
     </script>
 @endsection
+
+
+

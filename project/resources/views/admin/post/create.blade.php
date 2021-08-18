@@ -74,11 +74,20 @@
                 <textarea id="contents" name="contents" class="form-control"></textarea>
             </div>
             
-              <div class="form-group">
-                <label for="desc">Sort</label>
-                <input type="text" id="sort" name="sort" class="form-control"/>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="desc">Author</label>
+                  <input type="text" id="author" name="author" class="form-control"/>
+                </div>
               </div>
-            
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="desc">Sort</label>
+                  <input type="text" id="sort" name="sort" class="form-control"/>
+                </div>
+              </div>
+            </div>
             <div style="max-width: 30%">
               <div id="msg"></div>
                 <input type="file" name="image" class="file" >

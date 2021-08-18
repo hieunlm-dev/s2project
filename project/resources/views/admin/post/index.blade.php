@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Product</h1>
+          <h1>Blog Post</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -43,6 +43,7 @@
                 <th>Title</th>
                 <th>Featured</th>
                 <th>Category</th>
+                <th>Author</th>
                 <th>Sort</th>
                 <th>Actions</th>
               </tr>
@@ -62,6 +63,7 @@
                 @endif
               </td>
               <td>{{ $item->category->name }}</td>
+              <td>{{ $item->author }}</td>
               <td>{{ $item->sort }}</td>
               <td>
                 <a href="{{ route('admin.product.edit', $item->id) }}" class="btn btn-primary">Update</a>

@@ -25,7 +25,7 @@ class ShopController extends Controller
         }
         if (session()->get('customer')) {
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
-            return view('frontend.shop', compact('products', 'lists'));
+            return view('frontend.shop', compact('products', 'lists','brands'));
         } else {
             return view('frontend.shop', compact('products', 'brands'));
 

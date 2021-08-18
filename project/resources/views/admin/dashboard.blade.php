@@ -160,3 +160,10 @@
     </section>
     <!-- /.content -->
 @endsection
+
+@section('admin-scripts')
+    <script>
+      var a = '{{$a}}';
+      
+    </script>
+@endsection

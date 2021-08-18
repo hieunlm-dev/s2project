@@ -32,6 +32,7 @@ class ShopController extends Controller
         }
 
     }
+    
     public function sortProduct(Request $request)
     {
         $brands = Brand::all();
@@ -55,6 +56,5 @@ class ShopController extends Controller
             $products = Product::where('price', '>=', 10000000)->where('price', '<', $sort)->paginate(6);
             return view('frontend.shop', compact('products', 'brands'));
         }
-
     }
 }

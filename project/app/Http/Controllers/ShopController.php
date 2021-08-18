@@ -25,7 +25,7 @@ class ShopController extends Controller
         }
         if (session()->get('customer')) {
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
-            return view('frontend.shop', compact('products', 'lists'));
+            return view('frontend.shop', compact('products', 'lists','brands'));
         } else {
             return view('frontend.shop', compact('products', 'brands'));
 
@@ -49,10 +49,10 @@ class ShopController extends Controller
             $products = Product::where('price', '<', $sort)->paginate(6);
             return view('frontend.shop', compact('products', 'brands'));
         } else if ($sort == 10000000) {
-            $products = Product::where('price', '>', 5000000)->where('price', '<', $sort)->paginate(6);
+            $products = Product::where('price', '>=', 5000000)->where('price', '<', $sort)->paginate(6);
             return view('frontend.shop', compact('products', 'brands'));
         } else if ($sort == 20000000) {
-            $products = Product::where('price', '>', 10000000)->where('price', '<', $sort)->paginate(6);
+            $products = Product::where('price', '>=', 10000000)->where('price', '<', $sort)->paginate(6);
             return view('frontend.shop', compact('products', 'brands'));
         }
 

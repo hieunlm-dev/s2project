@@ -24,18 +24,6 @@ class PaypalController extends Controller
                 'quantity' => 1,
                 'price' => 1.5,
                 'sku' => '1'
-            ],
-            [
-                'name' => 'Marlboro',
-                'quantity' => 1,
-                'price' => 1.6,
-                'sku' => '2'
-            ],
-            [
-                'name' => 'Esse',
-                'quantity' => 1,
-                'price' => 1.8,
-                'sku' => '3'
             ]
         ];
         $transactionDescription = "Payment 2HATStore";

@@ -53,13 +53,18 @@ class HomeController extends Controller
         }
     }
     public function store(Request $request){
+        if (session()->get('customer')) {
         $comment = new Comment();
         $comment->pid = $request->pid;
         $comment->rate = $request->rating;
         $comment->name = session()->get('customer')->email;
         $comment->contents = $request->contents;
-        $comment->save();
-        return redirect()->route('product-details',$request->pid);
+
+            $comment->save();
+            return redirect()->route('product-details',$request->pid);
+        } else {
+            return redirect()->route('login')->with('alert' , 'You have to login first');
+        }
     }
     public function search(Request $request)
     {

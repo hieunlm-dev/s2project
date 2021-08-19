@@ -17,4 +17,7 @@ class Product extends Model
     public function wishList(){
         return $this->hasMany(WishList::class);
     }
+    public function cmt(){
+        return $this->hasMany(Comment::class);
+    }
 }

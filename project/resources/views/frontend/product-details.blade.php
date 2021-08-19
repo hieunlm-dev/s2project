@@ -1,7 +1,6 @@
 @extends('frontend.layout.layout')
 
 @section('contents')
-
 <div class="container">
 
 			<div class="wrap-breadcrumb">
@@ -106,26 +105,32 @@
 									<div class="wrap-review-form">
 										
 										<div id="comments">
-											<h2 class="woocommerce-Reviews-title">01 review for <span>Radiant-360 R6 Chainsaw Omnidirectional [Orage]</span></h2>
+											<h2 class="woocommerce-Reviews-title">01 review for <span>{{$product->name}}</span></h2>
 											<ol class="commentlist">
+												@forelse($cmts as $item)
 												<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
 													<div id="comment-20" class="comment_container"> 
-														<img alt="" src="assets/images/author-avata.jpg" height="80" width="80">
+														<img alt="" src="{{asset('assets/images/author-avata.jpg')}}" height="80" width="80">
 														<div class="comment-text">
-															<div class="star-rating">
-																<span class="width-80-percent">Rated <strong class="rating">5</strong> out of 5</span>
-															</div>
+															@php
+																for ($rate = 0 ; $rate<$item->rate ; $rate++){
+																echo '<span><i class="fa fa-star"></i></span>';
+																}
+															@endphp
 															<p class="meta"> 
-																<strong class="woocommerce-review__author">admin</strong> 
+																<strong class="woocommerce-review__author">{{$item->name}}</strong> 
 																<span class="woocommerce-review__dash">–</span>
-																<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >Tue, Aug 15,  2017</time>
+																<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >{{$item->created_at -> format('d/m/Y')}}</time>
 															</p>
 															<div class="description">
-																<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+																<p>{{$item->contents}}</p>
 															</div>
 														</div>
 													</div>
 												</li>
+												@empty
+												<h3>Don't have any reviews yet , please come back soon</h3>
+												@endforelse
 											</ol>
 										</div><!-- #comments -->
 
@@ -133,7 +138,9 @@
 											<div id="review_form">
 												<div id="respond" class="comment-respond"> 
 
-													<form action="#" method="post" id="commentform" class="comment-form" novalidate="">
+													<form action="{{route('cmt')}}"  id="commentform" class="comment-form" novalidate="">
+														@csrf	
+														<input type="hidden" name="pid" value="{{$product->id}}">
 														<p class="comment-notes">
 															<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
 														</p>
@@ -153,18 +160,10 @@
 																<input type="radio" id="rated-5" name="rating" value="5" checked="checked">
 															</p>
 														</div>
-														<p class="comment-form-author">
-															<label for="author">Name <span class="required">*</span></label> 
-															<input id="author" name="author" type="text" value="">
-														</p>
-														<p class="comment-form-email">
-															<label for="email">Email <span class="required">*</span></label> 
-															<input id="email" name="email" type="email" value="" >
-														</p>
 														<p class="comment-form-comment">
 															<label for="comment">Your review <span class="required">*</span>
 															</label>
-															<textarea id="comment" name="comment" cols="45" rows="8"></textarea>
+															<textarea id="comment" name="contents" cols="45" rows="8"></textarea>
 														</p>
 														<p class="form-submit">
 															<input name="submit" type="submit" id="submit" class="submit" value="Submit">

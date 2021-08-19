@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\WishList;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
@@ -32,6 +33,7 @@ class HomeController extends Controller
     }
     public function productDetails($id)
     {
+        $cmts = Comment::where('pid', '=', $id)->get();
         $product = Product::find($id);
         $relatedProducts = Product::where('id', '!=', $id)->orderBy('updated_at', 'desc')->limit(8)->get();
         if (session()->get('customer')) {
@@ -39,16 +41,26 @@ class HomeController extends Controller
             return view('frontend.product-details', compact(
                 'product',
                 'relatedProducts',
-                'lists'
+                'lists' ,
+                'cmts',
             ));
         } else {
             return view('frontend.product-details', compact(
                 'product',
                 'relatedProducts',
+                'cmts',
             ));
         }
     }
-
+    public function store(Request $request){
+        $comment = new Comment();
+        $comment->pid = $request->pid;
+        $comment->rate = $request->rating;
+        $comment->name = session()->get('customer')->email;
+        $comment->contents = $request->contents;
+        $comment->save();
+        return redirect()->route('product-details',$request->pid);
+    }
     public function search(Request $request)
     {
         $key = $request->search;

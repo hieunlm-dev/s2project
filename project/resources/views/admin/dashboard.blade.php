@@ -161,13 +161,90 @@
                 <section class="content">
                     <div class="container-fluid">
                     </div>
-                    <div class="container">
-                        <h3>Income in 7 days</h3>
-                    </div>
                     <div>
                         <div class="row">
                             <div class="col-lg-6 col-12">
+                                <div class="container">
+                                    <h3 align="center">Income in 7 days</h3>
+                                </div>
                                 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="container">
+                                    <h3 align="center">Statistics of Orders</h3>
+                                </div>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <td>Status</td>
+                                        <td>Quantity</td>
+                                        <td>Percent</td>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $count1 = 0;
+                                            $count2 = 0;
+                                            $count3 = 0;
+                                            $count4 = 0;                                        
+                                        @endphp
+                                        @foreach ($orders as $item)
+                                            @if (isset($item) && $item->status == 'pending')
+                                                @php
+                                                    $count1++;
+                                                @endphp
+                                            @endif
+                                            @if (isset($item) && $item->status == 'completed')
+                                                @php
+                                                    $count2++;
+                                                @endphp
+                                            @endif
+                                            @if (isset($item) && $item->status == 'decline')
+                                                @php
+                                                    $count3++;
+                                                @endphp
+                                            @endif
+                                            @if (isset($item) && $item->status == 'processing')
+                                                @php
+                                                    $count4++;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        @php
+                                              $total = $count1 + $count2 + $count3+$count4;
+                                        @endphp
+                                        <tr>
+                                            <th>
+                                                Pending
+                                            <td>
+                                                {{$count1}}
+                                            </td>
+                                            <td>{{number_format($count1/$total,2)*100}}%</td>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Processing
+                                            <td>
+                                                {{$count4}}
+                                            </td>
+                                            <td>{{number_format($count4/$total,2)*100}}%</td>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Completed
+                                            <td> {{$count2}}</td>
+                                            <td>{{number_format($count2/$total,2)*100}}%</td>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Decline
+                                            <td>{{$count3}}</td>
+                                            <td>{{number_format($count3/$total,2)*100}}%</td>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -188,13 +265,13 @@
         // }).format('{{ $incomes1 }}'); // '€ 10,000.00' ;
         const format = new Intl.NumberFormat('en');
         var max = format.format(1000000000);
-      
- 
-    console.log(valueArr);
+
+
+        console.log(valueArr);
         var xValues = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'];
-          var valueArr = ['{{ $incomes1 }}', '{{ $incomes2 }}', '{{ $incomes3 }}', '{{ $incomes4 }}',
-        '{{ $incomes5 }}', '{{ $incomes6 }}', '{{ $incomes7 }}'
-    ];
+        var valueArr = ['{{ $incomes7 }}', '{{ $incomes6 }}', '{{ $incomes5 }}', '{{ $incomes4 }}',
+            '{{ $incomes3 }}', '{{ $incomes2 }}', '{{ $incomes1 }}'
+        ];
         new Chart("myChart", {
             type: "line",
             data: {

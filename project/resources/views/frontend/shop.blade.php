@@ -23,10 +23,10 @@
 						<h1 class="shop-title">Mobile Store</h1>
 
 						<div class="wrap-right">
-							<button type="submit" class="btn btn-primary" method="GET" >Sort product</button>
+							{{-- <button type="submit" class="btn btn-primary" method="GET" >Sort product</button> --}}
 							<div class="sort-item orderby ">
-								<select name="orderby" class="use-chosen" >
-									<option value="date"  selected="selected" >Sort by newness</option>
+								<select name="orderby" class="use-chosen" onchange="this.form.submit()">
+									<option value="date"   >Sort by date</option>
 									<option value="price">Sort by price: low to high</option>
 									<option value="price-desc">Sort by price: high to low</option>
 									<option value="5000000">Under 5M</option>
@@ -39,7 +39,9 @@
 					</form>
 
 					<div class="row">
+					
 						<ul class="product-list grid-products equal-container" id="id01">
+							
 							@forelse ($products as $item)
 								<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
 								<div class="product product-style-3 equal-elem ">

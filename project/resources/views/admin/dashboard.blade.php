@@ -217,7 +217,15 @@
                                             <td>
                                                 {{$count1}}
                                             </td>
-                                            <td>{{number_format($count1/$total,2)*100}}%</td>
+                                            <td>
+                                                @if ($total == 0) 
+                                                    @php
+                                                        echo 'N/A';
+                                                    @endphp
+                                                @elseif ($total>0)
+                                                    {{number_format($count1/$total,2)*100}}%
+                                                @endif
+                                            </td>
                                             </th>
                                         </tr>
                                         <tr>
@@ -226,21 +234,46 @@
                                             <td>
                                                 {{$count4}}
                                             </td>
-                                            <td>{{number_format($count4/$total,2)*100}}%</td>
+                                            <td>
+                                                @if ($total == 0) 
+                                                    @php
+                                                        echo 'N/A';
+                                                    @endphp
+                                                @elseif ($total>0)
+                                                    {{number_format($count4/$total,2)*100}}%
+                                                @endif
+                                            
+                                            </td>
                                             </th>
                                         </tr>
                                         <tr>
                                             <th>
                                                 Completed
                                             <td> {{$count2}}</td>
-                                            <td>{{number_format($count2/$total,2)*100}}%</td>
+                                            <td>
+                                                @if ($total == 0) 
+                                                    @php
+                                                        echo 'N/A';
+                                                    @endphp
+                                                @elseif ($total>0)
+                                                    {{number_format($count2/$total,2)*100}}%
+                                                @endif
+                                            </td>
                                             </th>
                                         </tr>
                                         <tr>
                                             <th>
                                                 Decline
                                             <td>{{$count3}}</td>
-                                            <td>{{number_format($count3/$total,2)*100}}%</td>
+                                            <td>
+                                                @if ($total == 0) 
+                                                    @php
+                                                        echo 'N/A';
+                                                    @endphp
+                                                @elseif ($total>0)
+                                                    {{number_format($count3/$total,2)*100}}%
+                                                @endif
+                                            </td>
                                             </th>
                                         </tr>
                                     </tbody>

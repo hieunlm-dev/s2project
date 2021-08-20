@@ -80,14 +80,9 @@
                 </div>
                 <div class="summary-item shipping-method">
                     <h4 class="title-box f-title">Shipping method</h4>
-                    <p class="summary-info"><span class="title">Flat Rate</span></p>
-                    <p class="summary-info"><span class="title">Fixed $50.00</span></p>
-                    <h4 class="title-box">Discount Codes</h4>
-                    <p class="row-in-form">
-                        <label for="coupon-code">Enter Your Coupon code:</label>
-                        <input id="coupon-code" type="text" name="coupon-code" value="" placeholder="">	
-                    </p>
-                    <a href="#" class="btn btn-small">Apply</a>
+                    <p class="summary-info"><span class="title">Free Shipping</span></p>
+                    <p class="summary-info"><span class="title">Fixed $0.00</span></p>
+                    
                 </div>
             </div>
         </form>

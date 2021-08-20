@@ -131,7 +131,7 @@
 						</div>
 					</div><!-- brand widget-->
 
-					<div class="widget mercado-widget filter-widget price-filter">
+					{{-- <div class="widget mercado-widget filter-widget price-filter">
 						<h2 class="widget-title">Price</h2>
 						<div class="widget-content">
 							<div id="slider-range"></div>
@@ -141,7 +141,7 @@
 								<button class="filter-submit">Filter</button>
 							</p>
 						</div>
-					</div><!-- Price-->
+					</div><!-- Price--> --}}
 
 				</div><!--end sitebar-->
 

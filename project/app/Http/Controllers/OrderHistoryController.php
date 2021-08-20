@@ -12,7 +12,7 @@ class OrderHistoryController extends Controller
     public function index()
     {   
         if(Session::has('customer') || !empty(Session::get('customer'))){
-            $orders= Order::where('customer_id',session()->get('customer')->id)->get();
+            $orders= Order::where('customer_id',session()->get('customer')->id)->orderBy('created_at','DESC')->get();
         return view('frontend.order-history',
             compact('orders'));
         } else{

@@ -80,7 +80,6 @@
                         <div class="wrap-butons">
                             <a href="#" class="btn add-to-cart">Add to Cart</a>
                             <div class="wrap-btn">
-                                <a href="#" class="btn btn-compare">Add Compare</a>
                                 <a href="#" class="btn btn-wishlist">Add Wishlist</a>
                             </div>
                         </div>
@@ -235,105 +234,37 @@
                                     <i class="fa fa-truck" aria-hidden="true"></i>
                                     <div class="right-content">
                                         <b class="title">Free Shipping</b>
-                                        <span class="subtitle">On Oder Over $99</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <span class="subtitle">Free shipping in VietNam</span>
                                     </div>
                                 </a>
                             </li>
 
-                            <li class="service">
-                                <a class="link-to-service" href="#">
-                                    <i class="fa fa-gift" aria-hidden="true"></i>
-                                    <div class="right-content">
-                                        <b class="title">Special Offer</b>
-                                        <span class="subtitle">Get a gift!</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="service">
-                                <a class="link-to-service" href="#">
-                                    <i class="fa fa-reply" aria-hidden="true"></i>
-                                    <div class="right-content">
-                                        <b class="title">Order Return</b>
-                                        <span class="subtitle">Return within 7 days</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div><!-- Categories widget-->
 
                 <div class="widget mercado-widget widget-product">
-                    <h2 class="widget-title">Popular Products</h2>
+                    <h2 class="widget-title">Featured Products</h2>
                     <div class="widget-content">
                         <ul class="products">
+                            @foreach($featuredProducts as $item)
                             <li class="product-item">
                                 <div class="product product-widget-style">
                                     <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="assets/images/products/digital_01.jpg" alt=""></figure>
+                                        <a href="{{ route('product-details', $item->id) }}"
+                                            title="{{ $item->name }}">
+                                            <figure><img src="{{ asset('images/' . $item->image) }}" width="214"
+                                                height="214" alt=""></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
+                                        <a href="{{ route('product-details', $item->id) }}" class="product-name"><span>{{ $item->name }}</span></a>
+                                        <div class="wrap-price"><span class="product-price">{{ number_format($item->price, 0, '', '.') }}
+                                            ₫</span></div>
                                     </div>
                                 </div>
                             </li>
-
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="assets/images/products/digital_17.jpg" alt=""></figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="assets/images/products/digital_18.jpg" alt=""></figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="assets/images/products/digital_20.jpg" alt=""></figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                                    </div>
-                                </div>
-                            </li>
-
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -353,7 +284,7 @@
                                     <div class="product-thumnail">
                                         <a href="{{ route('product-details', $item->id) }}" title="{{ $item->name }}">
                                             <figure><img src="{{ asset('images/' . $item->image) }}" width="214"
-                                                    height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim">
+                                                    height="214" alt="">
                                             </figure>
                                         </a>
                                         <div class="group-flash">
@@ -366,7 +297,7 @@
                                     <div class="product-info">
                                         <a href="#" class="product-name"><span>{{ $item->name }}</span></a>
                                         <div class="wrap-price"><span
-                                                class="product-price">{{ number_format($product->price, 0, '', '.') }}
+                                                class="product-price">{{ number_format($item->price, 0, '', '.') }}
                                                 ₫</span>
                                         </div>
                                     </div>

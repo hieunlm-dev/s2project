@@ -66,8 +66,7 @@ class HomeController extends Controller
 
             $comment->save();
             return redirect()->route('product-details', $request->pid);
-        } else {
-            if (session()->get('customer')) {
+        } else { 
                 $comment = new Comment();
                 $comment->pid = $request->pid;
                 $comment->rate = $request->rating;
@@ -77,7 +76,7 @@ class HomeController extends Controller
                 return redirect()->route('product-details', $request->pid);
             }
         }
-    }
+    
     public function search(Request $request)
     {
         $key = $request->search;

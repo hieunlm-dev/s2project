@@ -116,21 +116,34 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        $input = $request->all();
+        $account->username = $request->username;
+        $account->email = $request->email;
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-        } else {
-            unset($input['image']);
-        }
-        if (isset($input['password'])) {
+        
+        // if (isset($input['password'])) {
 
-            $account['password'] = md5($input['password']);
+        //     $account['password'] = md5($input['password']);
+        // }
+        if (isset($request->password)) {
+            $account->password = md5($request->password);
         }
-        $account->update($input);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            // lấy phần mở rộng (extension) của file để kiểm tra xem
+            // đây có phải là file hình
+            $extension = $file->getClientOriginalExtension();
+            if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
+                return redirect()->route('admin.account.create');
+            }
+
+            $imgName = $file->getClientOriginalName();
+            // copy file vào thư mục public/images
+            $file->move('images', $imgName);
+            // tạo phần tử image trong mảng $account
+            $account['image'] = $imgName;
+        }
+        $account->save();
+        // $account->update($input);
 
         return redirect()->route('admin.account.index');
         // ->with('success','Product updated successfully');

@@ -69,14 +69,11 @@
 					</div>
 					<div class="checkout-info" style="width: 259px; padding-right: 10px;
 					display: table-cell; vertical-align: middle;">
-						<label class="checkbox-field">
-							<input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-						</label>
 						<a class="btn btn-checkout" href="{{route('checkout')}}">Check out</a>
 						<a class="link-to-shop" href="{{route('home')}}">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 					</div>
 					<div class="update-clear" style="display: table-cell; vertical-align: middle;">
-						<a class="btn btn-clear" href="#">Clear Shopping Cart</a>
+						{{-- <a class="btn btn-clear" href="#">Clear Shopping Cart</a> --}}
 					</div>
 				</div>
 

@@ -37,23 +37,23 @@
       </div>
       <div class="card-body p-0">
         <form action="{{ route('admin.brand.store') }}" method="POST" >
-            @csrf
-            <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="name">ID</label>
-                    <input type="text" id="id" name="id" class="form-control"/>
-                </div>
+          @csrf
+          <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                  <label for="name">ID *</label>
+                  <input type="text" id="id" name="id" class="form-control" required />
               </div>
-              <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" id="name" name="name" class="form-control"/>
-                  </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                  <label for="name">Name *</label>
+                  <input type="text" id="name" name="name" required class="form-control"/>
               </div>
+            </div>
           </div>
-
+          <div><p><i>Field with * requires information</i></p></div>
           <div class="form-group">
             <input type="submit" name="btnCreate" value="Create" class="btn btn-primary float-right"/>
           </div> <br>

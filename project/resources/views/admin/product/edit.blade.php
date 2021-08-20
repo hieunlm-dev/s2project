@@ -43,8 +43,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" value="{{ $product->name }}" class="form-control"/>
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required value="{{ $product->name }}" class="form-control"/>
                     </div>
                 </div>
 
@@ -68,20 +68,20 @@
             </div>
             
             <div class="form-group">
-                <label for="desc">Description</label>
-                <textarea id="desc" name="desc"  value="" class="form-control">{{ $product->desc }}</textarea>
+                <label for="desc">Description *</label>
+                <textarea id="desc" name="desc" required value="" class="form-control">{{ $product->desc }}</textarea>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <input type="text" id="quantity" name="quantity"  value="{{ $product->quantity }}" class="form-control"/>
+                        <label for="quantity">Quantity *</label>
+                        <input type="text" id="quantity" name="quantity" required value="{{ $product->quantity }}" class="form-control"/>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="price">Price</label>
-                        <input type="text" id="price" name="price"  value="{{ $product->price }}" class="form-control"/>
+                        <label for="price">Price *</label>
+                        <input type="text" id="price" name="price" required value="{{ $product->price }}" class="form-control"/>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,9 @@
             <div style="max-width: 30%">
               <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" >
             </div>
-           
+            
+            <div><p><i>Field with * requires information</i></p></div>
+            
             <div class="form-group">
                 <input type="submit" name="btnCreate" value="Update" class="btn btn-primary float-right"/>
             </div> <br>

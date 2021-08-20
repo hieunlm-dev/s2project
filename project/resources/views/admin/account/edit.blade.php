@@ -61,11 +61,11 @@
                 @else
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" id="username" name="username" value="{{ $account->username }}" class="form-control"/>
+                  <input type="text" id="username" name="username"  class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" id="password" name="password" value="{{ $account->password }}" class="form-control"/>
+                  <input type="password" id="password" name="password" class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label for="confirm">Confirm</label>

@@ -30,7 +30,7 @@
             <figure><img src="{{asset('images/' . $item -> image) }}" alt="{{$item->name}}"></figure>
           </div>
           <div class="product-name">
-            <a class="link-to-product" href="{{ route('product-details',$item->id)}}">{{$item->name}}</a>
+            <a class="link-to-product" href="{{ route('product-details',$item->product_id)}}">{{$item->name}}</a>
           </div>
           <div class="price-field produtc-price"><p class="price">{{ number_format($item->price,0,'','.')}} ₫</p></div>
           <div class="quantity" >

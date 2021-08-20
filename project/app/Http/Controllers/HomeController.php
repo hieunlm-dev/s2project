@@ -246,7 +246,7 @@ class HomeController extends Controller
             return redirect()->route('thankyou');
         }
         if($payment == "paypal"){
-            session()->forget('cart');
+            // session()->forget('cart');
             return redirect()->route('payment');
         }
         

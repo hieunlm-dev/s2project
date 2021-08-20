@@ -34,14 +34,14 @@
                 </p>
                 <p class="row-in-form">
                     <label for="add">Address:<span>*</span></label>
-                    <input id="add" type="text" name="add" required  placeholder="Street at apartment number"  @if(Session::has('customer') ) value="{{session()->get('customer')->address}}"@endif>
+                    <input id="add" type="text" name="add" required  placeholder="Type your address"  @if(Session::has('customer') ) value="{{session()->get('customer')->address}}"@endif>
                 </p>
 
                 @if (!session()->has('customer'))
                 <p class="row-in-form fill-wife">
                     <label class="checkbox-field">
-                        <input name="createAccount" id="create-account" type="checkbox" checked  required>
-                        <span>Create an account?</span>
+                        <input name="createAccount" id="create-account" type="checkbox" checked required>
+                        <span>Create an account <span>*</span></span>
                     </label>
                 </p>
                 @endif  

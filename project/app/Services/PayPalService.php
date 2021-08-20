@@ -99,7 +99,7 @@ class PayPalService
             // Set tên của item
             $item->setName($data['name'])
                 ->setCurrency($this->paymentCurrency) // Đơn vị tiền của item
-                ->setSku($data['sku']) // ID của item
+                // ->setSku($data['sku']) // ID của item
                 ->setQuantity($data['quantity']) // Số lượng
                 ->setPrice($data['price']); // Giá
             // Thêm item vào danh sách

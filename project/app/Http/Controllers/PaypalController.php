@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\PayPalService;
 use Illuminate\Http\Request;
+use Session;
 
 class PaypalController extends Controller
 {
@@ -17,15 +18,35 @@ class PaypalController extends Controller
     }
 
     public function index()
-    {
+    {   
+        $cart = Session::get('cart');
+        $total = 0;
+        $quantity = 0;
+        foreach($cart as $item){
+            $total += $item->quantity * $item->price;
+            $quantity += $item->quantity;
+        }
+        $total2 = $total / 23000;
         $data = [
             [
-                'name' => 'Vinataba',
+                'name' => 'Payment for 2HATStore',
                 'quantity' => 1,
-                'price' => 1.5,
-                'sku' => '1'
+                'price' => $total2,
+                // 'sku' => '1'
             ]
         ];
+        session()->forget('cart');
+        // $data =[];
+        // $data['items'] = [];
+        // $cart = Session::get('cart');
+        // foreach($cart as $key=>$cart){
+        //     $itemDetail=[
+        //         'name' => $cart->name,
+        //         'quantity' => $cart->quantity,
+        //         'price' => ($cart->price)/23000,
+        //     ];
+        //     $data['items'] = $itemDetail;
+        // }
         $transactionDescription = "Payment 2HATStore";
 
         $paypalCheckoutUrl = $this->paypalSvc
@@ -65,5 +86,6 @@ class PaypalController extends Controller
         $paymentDetails = $this->paypalSvc->getPaymentDetails($paymentId);
 
         dd($paymentDetails);
+        echo('Test ');
     }
 }

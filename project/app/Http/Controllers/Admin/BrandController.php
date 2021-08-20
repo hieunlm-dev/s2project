@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Admin\ProductController;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Models\Product;
+
 
 class BrandController extends Controller
 {
@@ -87,6 +90,15 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        $products = Product::all();
+        foreach ($products as $item){
+            if ($brand->id ==$item -> brand_id){
+                $alert='You can not delete this Brand because he has at least product within!';
+                return redirect()->back()->with('alert',$alert);  
+                // return back();
+                break;
+            }
+        } 
         $brand->delete();
      
         return redirect()->route('admin.brand.index')

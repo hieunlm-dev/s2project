@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
-use Illuminate\Http\Request;
 use App\Models\Order;
-
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -18,7 +17,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view('admin.customer.index',compact('customers'));
+        return view('admin.customer.index', compact('customers'));
     }
 
     /**
@@ -61,7 +60,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        return view('admin.customer.detail',compact('customer'));
+        return view('admin.customer.detail', compact('customer'));
     }
 
     /**
@@ -73,7 +72,14 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $customer->status = $request->status;
+        if ($request->status==0){
+            $alert ="You have unblocked this customer ";
+        } else{
+            $alert = "You have blocked this customer ";
+        }
+        $customer->save();
+        return redirect()->route('admin.customer.index')->with('alert',$alert);
     }
 
     /**
@@ -85,16 +91,16 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         $order = Order::all();
-        foreach ($order as $item){
-            if ($customer->id ==$item -> customer_id){
-                $alert='You can not delete this customer because he has at least one order!';
-                return redirect()->back()->with('alert',$alert);  
+        foreach ($order as $item) {
+            if ($customer->id == $item->customer_id) {
+                $alert = 'You can not delete this customer because he has at least one order!';
+                return redirect()->back()->with('alert', $alert);
                 // return back();
                 break;
             }
-        } 
+        }
         $customer->delete();
-        return redirect()->route('admin.customer.index');   
+        return redirect()->route('admin.customer.index');
     }
-    
+
 }

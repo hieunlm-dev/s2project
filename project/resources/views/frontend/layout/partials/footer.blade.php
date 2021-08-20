@@ -7,7 +7,7 @@
                     <i class="fa fa-truck" aria-hidden="true"></i>
                     <div class="wrap-left-info">
                         <h4 class="fc-name">Free Shipping</h4>
-                        <p class="fc-desc">Free On Oder Over $99</p>
+                        <p class="fc-desc">Free Shipping in VietNam</p>
                     </div>
 
                 </li>

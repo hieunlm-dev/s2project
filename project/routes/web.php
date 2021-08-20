@@ -45,6 +45,7 @@ Route::get('/logout', 'HomeController@logout')->name('logout');
 ////////////////////////////////////////////
 Route::get('/view-cart', 'HomeController@viewCart')->name('view-cart');
 Route::get('/add-cart', 'HomeController@addCart')->name('add-cart');
+Route::get('/clear-cart', 'HomeController@clearCart')->name('clear-cart');
 Route::get('/delete-cart-item', 'HomeController@deleteCartItem')->name('delete-cart-item');
 Route::get('/change-cart-quantity', 'HomeController@changeCartQuantity')->name('change-cart-quantity');
 

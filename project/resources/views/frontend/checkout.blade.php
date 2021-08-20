@@ -25,15 +25,15 @@
                     <input id="lname" type="text" name="lname" required  placeholder="Your last name"  @if(Session::has('customer') ) value="{{session()->get('customer')->lastname}}"@endif>
                 </p>
                 <p class="row-in-form">
-                    <label for="email">Email Addreess:</label>
-                    <input id="email" type="email" name="email" required  placeholder="Type your email" @if(Session::has('customer') ) value="{{session()->get('customer')->email}}"@endif>
+                    <label for="email">Email Address</label>
+                    <input id="email" type="email" name="email" placeholder="Type your email" @if(Session::has('customer') ) value="{{session()->get('customer')->email}}"@endif>
                 </p>
                 <p class="row-in-form">
                     <label for="phone">Phone number<span>*</span></label>
                     <input id="phone" type="text" name="phone" required placeholder="10 digits format"  @if(Session::has('customer') ) value="{{session()->get('customer')->phone}}"@endif>
                 </p>
                 <p class="row-in-form">
-                    <label for="add">Address:</label>
+                    <label for="add">Address:<span>*</span></label>
                     <input id="add" type="text" name="add" required  placeholder="Street at apartment number"  @if(Session::has('customer') ) value="{{session()->get('customer')->address}}"@endif>
                 </p>
 
@@ -44,9 +44,11 @@
                         <span>Create an account?</span>
                     </label>
                 </p>
-                @endif
-                
+                @endif  
             </div>
+            <div class="row-in-form">
+                <b>Field with <span style="color:red">*</span> is required</b>  
+           </div>
             <div class="summary summary-checkout">
                 <div class="summary-item payment-method">
                     <h4 class="title-box">Payment Method</h4>
@@ -80,8 +82,7 @@
                 </div>
                 <div class="summary-item shipping-method">
                     <h4 class="title-box f-title">Shipping method</h4>
-                    <p class="summary-info"><span class="title">Free Shipping</span></p>
-                    <p class="summary-info"><span class="title">Fixed $0.00</span></p>
+                    <p class="summary-info"><span class="title"><b>Free Shipping</b></span></p>
                     
                 </div>
             </div>

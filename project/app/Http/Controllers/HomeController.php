@@ -36,11 +36,13 @@ class HomeController extends Controller
         $cmts = Comment::where('pid', '=', $id)->get();
         $product = Product::find($id);
         $relatedProducts = Product::where('id', '!=', $id)->orderBy('updated_at', 'desc')->limit(8)->get();
+        $featuredProducts = Product::where('featured', '1')->where('id', '!=', $id)->orderBy('updated_at', 'desc')->get();
         if (session()->get('customer')) {
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
             return view('frontend.product-details', compact(
                 'product',
                 'relatedProducts',
+                'featuredProducts',
                 'lists' ,
                 'cmts',
             ));
@@ -48,6 +50,7 @@ class HomeController extends Controller
             return view('frontend.product-details', compact(
                 'product',
                 'relatedProducts',
+                'featuredProducts',
                 'cmts',
             ));
         }
@@ -129,6 +132,11 @@ class HomeController extends Controller
             \array_splice($cart, $i, 1);
             $request->session()->put('cart', $cart);
         }
+    }
+
+    public function clearCart(){
+        session()->forget('cart');
+        return view('frontend.viewcart'); 
     }
 
     public function changeCartQuantity(Request $request)

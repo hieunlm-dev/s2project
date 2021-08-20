@@ -37,10 +37,10 @@
                         <h2 class="product-name">{{ $product->name }}</h2>
                         <div class="short-desc">
                             <!-- <ul>
-                                            <li>7,9-inch LED-backlit, 130Gb</li>
-                                            <li>Dual-core A7 with quad-core graphics</li>
-                                            <li>FaceTime HD Camera 7.0 MP Photos</li>
-                                        </ul> -->
+                                                <li>7,9-inch LED-backlit, 130Gb</li>
+                                                <li>Dual-core A7 with quad-core graphics</li>
+                                                <li>FaceTime HD Camera 7.0 MP Photos</li>
+                                            </ul> -->
                         </div>
                         <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="{{ asset('assets/images/social-list.png') }}"
@@ -111,6 +111,7 @@
                             <div class="tab-content-item " id="review">
 
                                 <div class="wrap-review-form">
+
                                     @php
                                         $count = 0;
                                     @endphp
@@ -121,7 +122,9 @@
                                             @endphp
                                         @endif
                                     @empty
-									$count =0;
+                                        @php
+                                            $count = 0;
+                                        @endphp
                                     @endforelse
                                     <div id="comments">
                                         <h2 class="woocommerce-Reviews-title">{{ $count }} review for
@@ -132,7 +135,9 @@
                                                 <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
                                                     id="li-comment-20">
                                                     <div id="comment-20" class="comment_container">
-                                                        <img alt="" src="{{ asset('assets/images/author-avata.jpg') }}"
+                                                        {{-- public\assets\images\3-slide-banner-2.jpg --}}
+                                                        {{-- public\assets\images\2189569-middle.png --}}
+                                                        <img alt="" src="{{ asset('assets/images/2189569-middle.png') }}"
                                                             height="80" width="80">
                                                         <div class="comment-text">
                                                             @php

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartItem;
+use App\Models\Comment;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\WishList;
-use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
@@ -43,7 +43,7 @@ class HomeController extends Controller
                 'product',
                 'relatedProducts',
                 'featuredProducts',
-                'lists' ,
+                'lists',
                 'cmts',
             ));
         } else {
@@ -55,18 +55,27 @@ class HomeController extends Controller
             ));
         }
     }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         if (session()->get('customer')) {
-        $comment = new Comment();
-        $comment->pid = $request->pid;
-        $comment->rate = $request->rating;
-        $comment->name = session()->get('customer')->email;
-        $comment->contents = $request->contents;
+            $comment = new Comment();
+            $comment->pid = $request->pid;
+            $comment->rate = $request->rating;
+            $comment->name = session()->get('customer')->email;
+            $comment->contents = $request->contents;
 
             $comment->save();
-            return redirect()->route('product-details',$request->pid);
+            return redirect()->route('product-details', $request->pid);
         } else {
-            return redirect()->route('login')->with('alert' , 'You have to login first');
+            if (session()->get('customer')) {
+                $comment = new Comment();
+                $comment->pid = $request->pid;
+                $comment->rate = $request->rating;
+                $comment->name = 'Guess';
+                $comment->contents = $request->contents;
+                $comment->save();
+                return redirect()->route('product-details', $request->pid);
+            }
         }
     }
     public function search(Request $request)
@@ -134,9 +143,10 @@ class HomeController extends Controller
         }
     }
 
-    public function clearCart(){
+    public function clearCart()
+    {
         session()->forget('cart');
-        return view('frontend.viewcart'); 
+        return view('frontend.viewcart');
     }
 
     public function changeCartQuantity(Request $request)
@@ -184,20 +194,19 @@ class HomeController extends Controller
         }
         $ocust = Customer::select('id')->get();
         $countCus = 1;
-        foreach($ocust as $it){
+        foreach ($ocust as $it) {
             $countCus++;
         }
         if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
             //tao order
             $ord = new Order();
-            if(session()->get('customer')){
+            if (session()->get('customer')) {
                 $ord->customer_id = session()->get('customer')->id;
-            } else{
-                 $ord->customer_id = $countCus;
+            } else {
+                $ord->customer_id = $countCus;
             }
-               
-            
+
             $ord->grand_total = $total;
             $ord->item_count = $quantity;
             $ord->first_name = $fname;
@@ -215,12 +224,12 @@ class HomeController extends Controller
                 $detail->product_id = $item->id;
                 $detail->quantity = $item->quantity;
                 $detail->price = $item->price;
-                if(session()->get('customer')){
+                if (session()->get('customer')) {
                     $detail->customer_id = session()->get('customer')->id;
-                } else{
+                } else {
                     $detail->customer_id = $countCus;
                 }
-                
+
                 $detail->save();
                 //decrease quantity in product table
                 $product = Product::find($item->id);
@@ -241,15 +250,15 @@ class HomeController extends Controller
         //kiem tra payment method
         $payment = $request->input('payment-method');
 
-        if($payment == "cod"){
+        if ($payment == "cod") {
             session()->forget('cart');
             return redirect()->route('thankyou');
         }
-        if($payment == "paypal"){
+        if ($payment == "paypal") {
             // session()->forget('cart');
             return redirect()->route('payment');
         }
-        
+
     }
 
     public function registerSuccess()
@@ -275,8 +284,8 @@ class HomeController extends Controller
         if ($p !== $customer->password) {
             return redirect()->route('login');
         }
-        if ($customer->status ==1){
-            return redirect()->route('login')->with('alert','Your account has been blocked ');
+        if ($customer->status == 1) {
+            return redirect()->route('login')->with('alert', 'Your account has been blocked ');
         }
         // lưu thông tin đăng nhập vào session
         $request->session()->put('customer', $customer);
@@ -313,22 +322,23 @@ class HomeController extends Controller
         }
 
     }
-    public function thankyou(){
+    public function thankyou()
+    {
         return view('frontend.thank-you');
     }
 
     public function faq()
     {
-            return view('frontend.FAQ');
+        return view('frontend.FAQ');
     }
 
     public function warranty()
     {
-            return view('frontend.warranty');
+        return view('frontend.warranty');
     }
 
     public function exwarranty()
     {
-            return view('frontend.exwarranty');
+        return view('frontend.exwarranty');
     }
 }

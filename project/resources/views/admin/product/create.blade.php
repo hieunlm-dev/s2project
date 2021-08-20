@@ -129,9 +129,9 @@
                 </div>
             </div>
 
-            <div style="max-width: 30%">
+            {{-- <div style="max-width: 30%">
               <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" >
-            </div>
+            </div> --}}
             <div><p><i>Field with * requires information</i></p></div>
             <div class="form-group">
                 <input type="submit" name="btnCreate" value="Create" class="btn btn-primary float-right"/>

@@ -135,7 +135,9 @@
                                                 <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
                                                     id="li-comment-20">
                                                     <div id="comment-20" class="comment_container">
-                                                        <img alt="" src="{{ asset('assets/images/author-avata.jpg') }}"
+                                                        {{-- public\assets\images\3-slide-banner-2.jpg --}}
+                                                        {{-- public\assets\images\2189569-middle.png --}}
+                                                        <img alt="" src="{{ asset('assets/images/2189569-middle.png') }}"
                                                             height="80" width="80">
                                                         <div class="comment-text">
                                                             @php

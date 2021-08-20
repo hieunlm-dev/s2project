@@ -58,7 +58,7 @@
               </td>
               <td>{{ $item->name }}</td>
               <td>{{ $item->quantity }}</td>
-              <td>{{ $item->price }}</td>
+              <td>{{ number_format($item->price, 0, '', '.') }}đ</td>
               <td>{{ $item->brand['name']}}</td>
               <td>
                 @if ($item->featured)

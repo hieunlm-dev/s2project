@@ -19,18 +19,6 @@
                                 <li data-thumb="{{ asset('images/' . $product->image) }}">
                                     <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->image }}" />
                                 </li>
-                                <li data-thumb="{{ asset('images/' . $product->img1) }}">
-                                    <img src="{{ asset('images/' . $product->img1) }}" alt="{{ $product->img1 }}" />
-                                </li>
-                                <li data-thumb="{{ asset('images/' . $product->img2) }}">
-                                    <img src="{{ asset('images/' . $product->img2) }}" alt="{{ $product->img2 }}" />
-                                </li>
-                                <li data-thumb="{{ asset('images/' . $product->img3) }}">
-                                    <img src="{{ asset('images/' . $product->img3) }}" alt="{{ $product->img3 }}" />
-                                </li>
-                                <li data-thumb="{{ asset('images/' . $product->img4) }}">
-                                    <img src="{{ asset('images/' . $product->img4) }}" alt="{{ $product->img4 }}" />
-                                </li>
                             </ul>
                         </div>
                     </div>

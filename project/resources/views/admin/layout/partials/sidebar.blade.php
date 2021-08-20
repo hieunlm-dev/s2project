@@ -1,7 +1,7 @@
 <!-- Brand Logo -->
 <a href="{{ route('admin.dashboard') }}" class="brand-link">
-    <img src="{{ asset('/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <img src="{{asset('images/logo.jpg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">2HAT STORE</span>
   </a>
 
   <!-- Sidebar -->
@@ -12,7 +12,7 @@
         <img src="{{asset('images/'.Session::get('user')->image)}}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block"> {{Session::get('user')->username}} </a>
+        <a href="{{ route('admin.account.edit',session()->get('user')->id ) }}" class="d-block"> {{Session::get('user')->username}} </a>
       </div>
     </div>
 

@@ -75,11 +75,15 @@ class CustomerController extends Controller
         $customer->status = $request->status;
         if ($request->status==0){
             $alert ="You have unblocked this customer ";
+            $customer->save();
+            return redirect()->route('admin.customer.index')->with('success',$alert);
         } else{
             $alert = "You have blocked this customer ";
+            $customer->save();
+            return redirect()->route('admin.customer.index')->with('alert',$alert);
         }
-        $customer->save();
-        return redirect()->route('admin.customer.index')->with('alert',$alert);
+        
+        // return redirect()->route('admin.customer.index')->with('alert',$alert);
     }
 
     /**

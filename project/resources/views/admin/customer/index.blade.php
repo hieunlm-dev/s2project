@@ -25,11 +25,7 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title"> Customer Management</h3>
-                <div>
-                    @if(session('alert'))              
-                        <section class='alert alert-warning'>{{session('alert')}}</section>
-                    @endif  
-                </div>
+                
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -39,7 +35,16 @@
                     </button>
                 </div>
             </div>
+            
             <div class="card-body p-0">
+                <div>
+                    @if(session('alert'))              
+                        <section class='alert alert-danger'>{{session('alert')}}</section>
+                    @endif  
+                    @if(session('success'))              
+                        <section class='alert alert-success'>{{session('success')}}</section>
+                    @endif  
+                </div>
                 <table class="table table-striped projects">
                     <thead>
                         <tr>
@@ -62,12 +67,19 @@
                                 <td>
                                     <a href="{{ route('admin.customer.edit', $item->id) }}"
                                         class="btn btn-primary">Details</a>
-                                    <form style="display:inline-block"
-                                        action="{{ route('admin.customer.destroy', $item->id) }}" method="POST" onsubmit="return confirmDelete();">
-                                        @method("DELETE")
-                                        @csrf
-                                        <button class="btn btn-danger " type="submit" >Delete</button>
-                                    </form>
+                                        <form action="{{ route('admin.customer.update', $item->id) }}" method="POST">
+                                            @method('put')
+                                            @csrf
+                                            <div class="form-group">
+                                                @if ($item->status == 0)
+                                                    <input type="hidden" value="1" name="status">
+                                                    <input type="submit" class="btn btn-danger" value="Block">
+                                                @else
+                                                    <input type="hidden" value="0" name="status">
+                                                    <input type="submit" class="btn btn-success" value="Unblock">
+                                                @endif
+                                            </div>
+                                        </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -60,19 +60,7 @@
                     <input type="text" id="email" name="email" value="{{ $customer->address }}" class="form-control"
                         readonly />
                 </div>
-                <form action="{{ route('admin.customer.update', $customer->id) }}" method="POST">
-                    @method('put')
-                    @csrf
-                    <div class="form-group">
-                        @if ($customer->status == 0)
-                            <input type="hidden" value="1" name="status">
-                            <input type="submit" class="btn btn-danger" value="Block">
-                        @else
-                            <input type="hidden" value="0" name="status">
-                            <input type="submit" class="btn btn-primary" value="Unblock">
-                        @endif
-                    </div>
-                </form>
+                
             </div>
         </div>
         </div>

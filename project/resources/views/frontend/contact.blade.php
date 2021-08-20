@@ -28,7 +28,7 @@
                         <form action="{{route('save-contact')}}" method="post" name="frm-contact">
                             @csrf
                             <label for="name">Name<span>*</span></label>
-                            <input type="text" value="" id="name" name="name" class="@error('name') is-invalid @enderror">
+                            <input type="text" value="" id="name" name="name" required class="@error('name') is-invalid @enderror">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -36,7 +36,7 @@
                             @enderror
 
                             <label for="email">Email<span>*</span></label>
-                            <input type="text" value="" id="email" name="email" class="@error('email') is-invalid @enderror">
+                            <input type="text" value="" id="email" name="email" required class="@error('email') is-invalid @enderror">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -44,28 +44,30 @@
                             @enderror
 
                             <label for="phone">Number Phone</label>
-                            <input type="text" value="" id="phone" name="phone" class="@error('phone') is-invalid @enderror">
-                            @error('phone')
+                            <input type="text" value="" id="phone" name="phone" >
+                            {{-- @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                            @enderror --}}
                             
-                            <label for="phone">Subject</label>
-                            <input type="text" value="" id="subject" name="subject" class="@error('subject') is-invalid @enderror">
-                            @error('subject')
+                            <label for="phone">Subject<span>*</span></label>
+                            <input type="text" value="" id="subject" name="subject" required class="@error('subject') is-invalid @enderror">
+                            {{-- @error('subject')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                            @enderror --}}
 
-                            <label for="comment">Message</label>
-                            <textarea name="message" id="message" class="textarea @error('message') is-invalid @enderror"></textarea>
+                            <label for="comment">Message<span>*</span></label>
+                            <textarea name="message" id="message" class="textarea"  required class="@error('message') is-invalid @enderror"></textarea>
                             @error('message')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+
+                            <div><p><i>Field with * require information</i></p></div>
                             
                             <input type="submit" name="ok" value="Submit" >
                             
@@ -103,7 +105,7 @@
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <div class="right-info">
                                     <b>Email</b>
-                                    <p>vntuanhuynh@gmail.com</p>
+                                    <p>hieunguyen@gmail.com</p>
                                 </div>
                             </div>
 
@@ -119,7 +121,7 @@
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <div class="right-info">
                                     <b>Mail Office</b>
-                                    <p>Sed ut perspiciatis unde omnis<br />Street Name, Ho Chi Minh city</p>
+                                    <p>Saigon Central Post Office<br />2, Cong Xa Paris, Ho Chi Minh City</p>
                                 </div>
                             </div>
 

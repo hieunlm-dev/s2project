@@ -70,7 +70,7 @@ class HomeController extends Controller
                 $comment = new Comment();
                 $comment->pid = $request->pid;
                 $comment->rate = $request->rating;
-                $comment->name = 'Guess';
+                $comment->name = 'Guest';
                 $comment->contents = $request->contents;
                 $comment->save();
                 return redirect()->route('product-details', $request->pid);

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Projects</title>
+  <title>2HAT STORE | Shop Managment</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
+  <link rel="icon" href="{{asset('images/logo.jpg')}}" type="image/gif" sizes="16x16">
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->

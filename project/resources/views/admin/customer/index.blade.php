@@ -27,7 +27,7 @@
                 <h3 class="card-title"> Customer Management</h3>
                 <div>
                     @if(session('alert'))              
-                        <section class='alert alert-info'>{{session('alert')}}</section>
+                        <section class='alert alert-warning'>{{session('alert')}}</section>
                     @endif  
                 </div>
                 <div class="card-tools">

@@ -275,6 +275,9 @@ class HomeController extends Controller
         if ($p !== $customer->password) {
             return redirect()->route('login');
         }
+        if ($customer->status ==1){
+            return redirect()->route('login')->with('alert','Your account has been blocked ');
+        }
         // lưu thông tin đăng nhập vào session
         $request->session()->put('customer', $customer);
         return redirect()->route('home');

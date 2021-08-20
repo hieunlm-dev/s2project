@@ -15,21 +15,17 @@
                 <div class="wrap-product-detail">
                     <div class="detail-media">
                         <div class="product-gallery">
-                            <ul class="slides">
-                                <li data-thumb="{{ asset('images/' . $product->image) }}">
-                                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->image }}" />
-                                </li>
-                            </ul>
+                            <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->image }}" />
                         </div>
                     </div>
                     <div class="detail-info">
                         <div class="product-rating">
+                            {{-- <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <a href="#" class="count-review">(05 review)</a>
+                            <i class="fa fa-star" aria-hidden="true"></i> --}}
+                            {{-- <a href="#" class="count-review">(05 review)</a> --}}
                         </div>
                         <h2 class="product-name">{{ $product->name }}</h2>
                         <div class="short-desc">
@@ -39,10 +35,10 @@
                                                 <li>FaceTime HD Camera 7.0 MP Photos</li>
                                             </ul> -->
                         </div>
-                        <div class="wrap-social">
+                        {{-- <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="{{ asset('assets/images/social-list.png') }}"
                                     alt=""></a>
-                        </div>
+                        </div> --}}
                         <div class="wrap-price"><span
                                 class="product-price">{{ number_format($product->price, 0, '', '.') }}
                                 ₫</span></div>

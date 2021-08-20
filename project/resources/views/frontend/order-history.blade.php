@@ -36,9 +36,10 @@
           <td>
             <a  href="{{ route('history.show', $item->id) }}"
             class="btn btn-primary">Detail</a>
+            @if($item->status == "pending")
             <a onclick="return confirm('Are you sure to cancel order?')" href="{{ route('history.edit', $item->id) }}"
             class="btn btn-danger">Cancel</a>
-
+              @endif
           </td>
         </tr>
         @endforeach

@@ -33,8 +33,8 @@ Route::get('/product/{id}','HomeController@productDetails')->name('product-detai
 
 
 ////////////////////////////////////////////
-// Route::get('/register','HomeController@register')->name('register');
-// Route::get('/process-register','HomeController@processRegister')->name('process-register');
+Route::get('/register','HomeController@register')->name('register');
+Route::get('/process-register','HomeController@processRegister')->name('process-register');
 Route::get('/register-success','HomeController@registerSuccess')->name('register-success');
 
 Route::get('/login','HomeController@login')->name('login');

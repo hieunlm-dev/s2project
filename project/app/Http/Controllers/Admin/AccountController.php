@@ -118,15 +118,10 @@ class AccountController extends Controller
     {
         $account->username = $request->username;
         $account->email = $request->email;
-
-        
-        // if (isset($input['password'])) {
-
-        //     $account['password'] = md5($input['password']);
-        // }
         if (isset($request->password)) {
             $account->password = md5($request->password);
         }
+        
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             // lấy phần mở rộng (extension) của file để kiểm tra xem

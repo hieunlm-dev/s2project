@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
+
 
 class PostCategoryController extends Controller
 {
@@ -84,8 +86,16 @@ class PostCategoryController extends Controller
      */
     public function destroy(PostCategory $postCategory)
     {
+        
+        $posts = Post::all();
+        foreach ($posts as $item){
+            if ($postCategory->id ==$item -> category_id){
+                $alert='You can not delete this Post Category because this contains at least one post!';
+                return redirect()->back()->with('alert',$alert);  
+                break;
+            }
+        } 
         $postCategory->delete();
-     
         return redirect()->route('admin.post-category.index')
                         ->with('success','Post category deleted successfully');
     }

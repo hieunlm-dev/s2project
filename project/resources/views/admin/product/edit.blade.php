@@ -69,7 +69,7 @@
             
             <div class="form-group">
                 <label for="desc">Description</label>
-                <textarea id="desc" name="desc"  value="{{ $product->desc }}" class="form-control"></textarea>
+                <textarea id="desc" name="desc"  value="" class="form-control">{{ $product->desc }}</textarea>
             </div>
             <div class="row">
                 <div class="col-sm-6">
@@ -90,13 +90,13 @@
               <div class="col-sm-6">
                   <div class="form-group">
                       <label for="quantity">System</label>
-                      <input type="text" id="system" name="system" class="form-control"/>
+                      <input type="text" id="system" name="system" value="{{ $product->system }}" class="form-control"/>
                   </div>
               </div>
               <div class="col-sm-6">
                   <div class="form-group">
                       <label for="price">Ram</label>
-                      <input type="text" id="ram" name="ram" class="form-control"/>
+                      <input type="text" id="ram" name="ram" value="{{ $product->ram }}" class="form-control"/>
                   </div>
               </div>
             </div>  
@@ -105,39 +105,32 @@
               <div class="col-sm-6">
                   <div class="form-group">
                       <label for="quantity">Storage</label>
-                      <input type="text" id="storage" name="storage" class="form-control"/>
+                      <input type="text" id="storage" name="storage" value="{{ $product->storage }}" class="form-control"/>
                   </div>
               </div>
               <div class="col-sm-6">
                   <div class="form-group">
                       <label for="price">Battery</label>
-                      <input type="text" id="battery" name="battery" class="form-control"/>
+                      <input type="text" id="battery" name="battery" value="{{ $product->battery }}" class="form-control"/>
                   </div>
               </div>
             </div> 
              
             
-            <div id="img">
-              <span class="btn btn-default btn-file">
-                Upload Image<input type="file" id="image" name="image" >
-              </span> 
-  
-              <span class="btn btn-default btn-file">
-                Upload Image 1<input type="file" id="image" name="img1" >
-              </span> 
-  
-              <span class="btn btn-default btn-file">
-                Upload Image 2<input type="file" id="image" name="img2" >
-              </span> 
-  
-              <span class="btn btn-default btn-file">
-                Upload Image 3<input type="file" id="image" name="img3" >
-              </span> 
+            <div style="max-width: 30%">
+              <div id="msg"></div>
+                <input type="file" name="image" class="file" >
+                <div class="input-group my-3">
+                  <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
+                  <div class="input-group-append">
+                    <button type="button" class="browse btn btn-primary">Upload Image</button>
+                  </div>
+                </div>
+            </div>
 
-              <span class="btn btn-default btn-file">
-                Upload Image 4<input type="file" id="image" name="img4" >
-              </span> 
-            </div> <br>
+            <div style="max-width: 30%">
+              <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" >
+            </div>
            
             <div class="form-group">
                 <input type="submit" name="btnCreate" value="Update" class="btn btn-primary float-right"/>
@@ -160,4 +153,25 @@
         justify-content:space-between; 
       }
     </style>
+@endsection
+
+@section('admin-scripts')
+  <script>
+    $(document).on("click", ".browse", function() {
+      var file = $(this).parents().find(".file");
+      file.trigger("click");
+    });
+    $('input[type="file"]').change(function(e) {
+      var fileName = e.target.files[0].name;
+      $("#file").val(fileName);
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("preview").src = e.target.result;
+      };
+      // read the image file as a data URL.
+      reader.readAsDataURL(this.files[0]);
+    });
+  </script>
 @endsection

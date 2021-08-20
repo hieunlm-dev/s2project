@@ -44,9 +44,13 @@ class WishListController extends Controller
         $list->product_id = $request->product_id;
         if (!$alreadyList){           
             $list->save();
-            return redirect()->route('wish-list.index')->with('success', 'Your item was successfully moved to your wish-list');;
+            $alert1='This item has been already stored in your wish lists!';
+            return redirect()->back()->with('alert1',$alert1);  
+            // return redirect()->route('wish-list.index')->with('success', 'Your item was successfully moved to your wish-list');;
         } else {
-            return redirect()->route('shop')->with('error','This item has been already stored in your wish lists');
+            // return redirect()->route('shop')->with('error','This item has been already stored in your wish lists');
+            $alert='This item has been already stored in your wish lists!';
+            return redirect()->back()->with('alert',$alert);   
         }
     }
 

@@ -17,6 +17,21 @@
 							<figure><img src="assets/images/shop-banner.jpg" alt=""></figure>
 						</a>
 					</div>
+					<div>
+						  @if(session('alert'))
+						
+						    <section class='alert alert-warning'>{{session('alert')}}</section>
+						
+						@endif  
+					  </div>
+					  <div>
+						  @if(session('alert1'))
+						
+						    <section class='alert alert-success'>{{session('alert1')}}</section>
+						
+						@endif  
+					</div>
+					
 					<form action="{{route('sort')}}">
 						<div class="wrap-shop-control">	
 
@@ -39,6 +54,7 @@
 					</form>
 
 					<div class="row">
+						
 					
 						<ul class="product-list grid-products equal-container" id="id01">
 							

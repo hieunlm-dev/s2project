@@ -36,6 +36,13 @@
         </div>
       </div>
       <div class="card-body p-0">
+        <div>
+            @if(session('alert'))
+          
+              <section class='alert alert-warning'>{{session('alert')}}</section>
+          
+          @endif  
+        </div>
         <table class="table table-striped projects">
           <thead>
               <tr>

@@ -73,6 +73,7 @@
                     <option value="user">User</option>
                   </select>
                 </div>
+                
                 <div style="max-width: 30%">
                   <div id="msg"></div>
                     <input type="file" name="image" class="file" >
@@ -100,9 +101,6 @@
 @endsection
 
 @section('admin-scripts')
-    
-    
-    
     <script>
       $(document).on("click", ".browse", function() {
         var file = $(this).parents().find(".file");

@@ -58,70 +58,6 @@ class ProductController extends Controller
             // tạo phần tử image trong mảng $product
             $product['image'] = $imgName;
         }
-
-        if ($request->hasFile('img1')) {
-            $file = $request->file('img1');
-            // lấy phần mở rộng (extension) của file để kiểm tra xem 
-            // đây có phải là file hình
-            $extension = $file->getClientOriginalExtension();            
-            if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
-                return redirect()->route('admin.product.create');
-            }
-            
-            $imgName = $file->getClientOriginalName();
-            // copy file vào thư mục public/images
-            $file->move('images', $imgName);
-            // tạo phần tử image trong mảng $product
-            $product['img1'] = $imgName;
-        }
-
-        if ($request->hasFile('img2')) {
-            $file = $request->file('img2');
-            // lấy phần mở rộng (extension) của file để kiểm tra xem 
-            // đây có phải là file hình
-            $extension = $file->getClientOriginalExtension();            
-            if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
-                return redirect()->route('admin.product.create');
-            }
-            
-            $imgName = $file->getClientOriginalName();
-            // copy file vào thư mục public/images
-            $file->move('images', $imgName);
-            // tạo phần tử image trong mảng $product
-            $product['img2'] = $imgName;
-        }
-
-        if ($request->hasFile('img3')) {
-            $file = $request->file('img3');
-            // lấy phần mở rộng (extension) của file để kiểm tra xem 
-            // đây có phải là file hình
-            $extension = $file->getClientOriginalExtension();            
-            if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
-                return redirect()->route('admin.product.create');
-            }
-            
-            $imgName = $file->getClientOriginalName();
-            // copy file vào thư mục public/images
-            $file->move('images', $imgName);
-            // tạo phần tử image trong mảng $product
-            $product['img3'] = $imgName;
-        }
-
-        if ($request->hasFile('img4')) {
-            $file = $request->file('img4');
-            // lấy phần mở rộng (extension) của file để kiểm tra xem 
-            // đây có phải là file hình
-            $extension = $file->getClientOriginalExtension();            
-            if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
-                return redirect()->route('admin.product.create');
-            }
-            
-            $imgName = $file->getClientOriginalName();
-            // copy file vào thư mục public/images
-            $file->move('images', $imgName);
-            // tạo phần tử image trong mảng $product
-            $product['img4'] = $imgName;
-        }
     
         Product::create($product);
         return redirect()->route('admin.product.index');
@@ -169,43 +105,6 @@ class ProductController extends Controller
             $input['image'] = "$profileImage";
         }else{
             unset($input['image']);
-        }
-
-        if ($img1 = $request->file('img1')) {
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['img1'] = "$profileImage";
-        }else{
-            unset($input['img1']);
-        }
-
-        if ($request->hasFile('img2')) {
-            $image=$request->file('img2');
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['img2'] = "$profileImage";
-        }else{
-            unset($input['img2']);
-        }
-
-        if ($image = $request->file('img3')) {
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['img3'] = "$profileImage";
-        }else{
-            unset($input['img3']);
-        }
-
-        if ($image = $request->file('img4')) {
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['img4'] = "$profileImage";
-        }else{
-            unset($input['img4']);
         }
 
         $product->update($input);

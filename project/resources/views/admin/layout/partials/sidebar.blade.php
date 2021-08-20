@@ -64,7 +64,7 @@
         </li>
         <li class="nav-item">
           <a href="{{route('admin.customer.index')}}" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon fas fa-users"></i>
             <p>
               Customer Management
             </p>
@@ -97,7 +97,7 @@
 
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon far fa-copyright"></i>
             <p>
               Brand
               <i class="right fas fa-angle-left"></i>
@@ -121,7 +121,7 @@
         {{-- order --}}
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon fas fa-file-invoice-dollar"></i>
             <p>
               Order
               <i class="right fas fa-angle-left"></i>
@@ -140,7 +140,7 @@
         {{-- Post --}}
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fab fa-product-hunt"></i>
+            <i class="nav-icon fab fa-blogger"></i>
             <p>
               Blog Post
               <i class="right fas fa-angle-left"></i>
@@ -164,7 +164,7 @@
         {{-- Post category --}}
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon fab fa-blogger-b"></i>
             <p>
               Post Category
               <i class="right fas fa-angle-left"></i>

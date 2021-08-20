@@ -62,16 +62,13 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->role }}</td>
                                 {{-- Nếu đang đăng nhập vào account admin nào thì chỉ chỉnh sửa được account của admin đó --}}
-                                @if (session()->get('user')->id == $item->id)
-                                    <td>
+                                <td>
+                                        @if (session()->get('user')->id == $item->id)
                                         <a href="{{ route('admin.account.edit', $item->id) }}"
                                             class="btn btn-primary">Update</a>
-                                    </td>
-                                @endif
-                                {{-- Tài khoản admin chỉ được xóa hoặc update role cho tài khoản user , --}}
-                                <td>
+                                            @endif
+                                  
                                     @if (session()->get('user')->role == 'admin' && session()->get('user')->username != $item->username &&$item->role == 'user')
-
                                         <a href="{{ route('admin.account.edit', $item->id) }}"
                                             class="btn btn-primary">Update Role</a>
                                         <form style="display:inline-block"

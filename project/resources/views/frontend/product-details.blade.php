@@ -176,7 +176,6 @@
                                     <div id="review_form_wrapper">
                                         <div id="review_form">
                                             <div id="respond" class="comment-respond">
-
                                                 <form action="{{ route('cmt') }}" id="commentform" class="comment-form"
                                                     novalidate="">
                                                     @csrf
@@ -214,7 +213,6 @@
                                                             value="Submit">
                                                     </p>
                                                 </form>
-
                                             </div><!-- .comment-respond-->
                                         </div><!-- #review_form -->
                                     </div><!-- #review_form_wrapper -->

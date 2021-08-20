@@ -171,7 +171,7 @@ class ProductController extends Controller
             unset($input['image']);
         }
 
-        if ($image = $request->file('img1')) {
+        if ($img1 = $request->file('img1')) {
             $destinationPath = 'images/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
@@ -180,7 +180,8 @@ class ProductController extends Controller
             unset($input['img1']);
         }
 
-        if ($image = $request->file('img2')) {
+        if ($request->hasFile('img2')) {
+            $image=$request->file('img2');
             $destinationPath = 'images/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);

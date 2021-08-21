@@ -313,7 +313,7 @@
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="container">
-                                    <h3 align="center">Shop System</h3>
+                                    <h3 align="center">Chain Stores</h3>
                                     <table class="table table-striped">
                                         <tr>
                                             <th style="text-align: center"><span align="center">Store</span></th>

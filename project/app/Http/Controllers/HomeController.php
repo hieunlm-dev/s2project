@@ -61,7 +61,7 @@ class HomeController extends Controller
             $comment = new Comment();
             $comment->pid = $request->pid;
             $comment->rate = $request->rating;
-            $comment->name = session()->get('customer')->email;
+            $comment->username = session()->get('customer')->email;
             $comment->contents = $request->contents;
 
             $comment->save();
@@ -70,7 +70,7 @@ class HomeController extends Controller
                 $comment = new Comment();
                 $comment->pid = $request->pid;
                 $comment->rate = $request->rating;
-                $comment->name = 'Guest';
+                $comment->username = 'Guest';
                 $comment->contents = $request->contents;
                 $comment->save();
                 return redirect()->route('product-details', $request->pid);

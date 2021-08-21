@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-    protected $fillable =['name','contents','rate','pid'];
+    protected $fillable =['username','contents','rate','pid'];
     public function cmt(){
         return $this->belongsTo(Products::class);
     }

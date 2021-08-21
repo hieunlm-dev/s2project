@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
@@ -66,7 +66,7 @@
                                     <div class="icon">
                                         <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="{{route('admin.order.index')}}" class="small-box-footer">More info <i
+                                    <a href="{{ route('admin.order.index') }}" class="small-box-footer">More info <i
                                             class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
                                     </div>
-                                    <a href="{{route('admin.order.index')}}" class="small-box-footer">More info <i
+                                    <a href="{{ route('admin.order.index') }}" class="small-box-footer">More info <i
                                             class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
                                     </div>
-                                    <a href="{{route('admin.customer.index')}}" class="small-box-footer">More info <i
+                                    <a href="{{ route('admin.customer.index') }}" class="small-box-footer">More info <i
                                             class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                                             $count1 = 0;
                                             $count2 = 0;
                                             $count3 = 0;
-                                            $count4 = 0;                                        
+                                            $count4 = 0;
                                         @endphp
                                         @foreach ($orders as $item)
                                             @if (isset($item) && $item->status == 'pending')
@@ -209,21 +209,21 @@
                                             @endif
                                         @endforeach
                                         @php
-                                              $total = $count1 + $count2 + $count3+$count4;
+                                            $total = $count1 + $count2 + $count3 + $count4;
                                         @endphp
                                         <tr>
                                             <th>
                                                 Pending
                                             <td>
-                                                {{$count1}}
+                                                {{ $count1 }}
                                             </td>
                                             <td>
-                                                @if ($total == 0) 
+                                                @if ($total == 0)
                                                     @php
                                                         echo 'N/A';
                                                     @endphp
                                                 @elseif ($total>0)
-                                                    {{number_format($count1/$total,2)*100}}%
+                                                    {{ number_format($count1 / $total, 2) * 100 }}%
                                                 @endif
                                             </td>
                                             </th>
@@ -232,31 +232,31 @@
                                             <th>
                                                 Processing
                                             <td>
-                                                {{$count4}}
+                                                {{ $count4 }}
                                             </td>
                                             <td>
-                                                @if ($total == 0) 
+                                                @if ($total == 0)
                                                     @php
                                                         echo 'N/A';
                                                     @endphp
                                                 @elseif ($total>0)
-                                                    {{number_format($count4/$total,2)*100}}%
+                                                    {{ number_format($count4 / $total, 2) * 100 }}%
                                                 @endif
-                                            
+
                                             </td>
                                             </th>
                                         </tr>
                                         <tr>
                                             <th>
                                                 Completed
-                                            <td> {{$count2}}</td>
+                                            <td> {{ $count2 }}</td>
                                             <td>
-                                                @if ($total == 0) 
+                                                @if ($total == 0)
                                                     @php
                                                         echo 'N/A';
                                                     @endphp
                                                 @elseif ($total>0)
-                                                    {{number_format($count2/$total,2)*100}}%
+                                                    {{ number_format($count2 / $total, 2) * 100 }}%
                                                 @endif
                                             </td>
                                             </th>
@@ -264,14 +264,14 @@
                                         <tr>
                                             <th>
                                                 Decline
-                                            <td>{{$count3}}</td>
+                                            <td>{{ $count3 }}</td>
                                             <td>
-                                                @if ($total == 0) 
+                                                @if ($total == 0)
                                                     @php
                                                         echo 'N/A';
                                                     @endphp
                                                 @elseif ($total>0)
-                                                    {{number_format($count3/$total,2)*100}}%
+                                                    {{ number_format($count3 / $total, 2) * 100 }}%
                                                 @endif
                                             </td>
                                             </th>
@@ -280,12 +280,45 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <div class="container">
+                                    <h3 align="center">Customer Comment</h3>
+                                </div>
+                                <table class="table table-hover table-striped">
+                                    <td>Time</td>
+                                    <td>Action</td>
+                                    <td>Product</td>
+                                    <td>Contents</td>
+                                   
+                                    @forelse ($cmts as $item)
+                                        <tr>
+                                            <td>{{ $item->created_at->format('d/m/Y') }}</td>
+                                            <td>{{ $item->username }} has comment about</td>
+                                            <td> <a href="{{ route('product-details', $item->pid) }}">{{ $item->name }}
+                                                </a></td>
+                                            <td>
+                                                @if (strlen($item->contents) < 30)
+                                                    {{ $item->contents }} @else{{ substr($item->contents, 0, -15) }} ...
+                                                @endif
+                                            </td>
+                                            
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td>No comments</td>
+                                        </tr>
+                                    @endforelse
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </section>
             </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+    </section>
+    </div>
+    <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
 
     </section>
     <!-- /.content -->
@@ -339,5 +372,6 @@
                 }
             }
         });
+      
     </script>
 @endsection

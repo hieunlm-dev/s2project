@@ -12,4 +12,5 @@ class Comment extends Model
     public function cmt(){
         return $this->belongsTo(Products::class);
     }
+  
 }

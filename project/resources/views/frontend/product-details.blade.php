@@ -139,7 +139,7 @@
                                                             @endphp
                                                             <p class="meta">
                                                                 <strong
-                                                                    class="woocommerce-review__author">{{ $item->name }}</strong>
+                                                                    class="woocommerce-review__author">{{ $item->username }}</strong>
                                                                 <span class="woocommerce-review__dash">–</span>
                                                                 <time class="woocommerce-review__published-date"
                                                                     datetime="2008-02-14 20:00">{{ $item->created_at->format('d/m/Y') }}</time>

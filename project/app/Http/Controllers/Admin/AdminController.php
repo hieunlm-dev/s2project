@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\Order;
 use App\Models\Customer;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -36,6 +37,9 @@ class AdminController extends Controller
 
 
     public function dashboard() {
+        $cmts =Comment::select('comments.*','products.name', 'products.image')
+        ->join('products','products.id', '=','comments.pid')
+        ->orderBy('created_at','DESC')->limit(6)->get();
         $accounts = Account::all();
         $customers = Customer::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) <= 7')->get();
         $orders = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) <= 7')->get();
@@ -58,7 +62,7 @@ class AdminController extends Controller
             'incomes5',   
             'incomes6',   
             'incomes7',   
-          
+            'cmts',
     ));
     }
 

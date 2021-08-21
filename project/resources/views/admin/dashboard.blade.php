@@ -311,6 +311,18 @@
                                     @endforelse
                                 </table>
                             </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="container">
+                                    <h3 align="center">Shop System</h3>
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th style="text-align: center"><span align="center">Store</span></th>
+                                        </tr>
+                                       <tr> <td><span>590 Cách Mạng Tháng Tám, Phường 11, Quận 3, Thành phố Hồ Chí Minh</span></td></tr>
+                                       <tr> <td><span>Số 8A Tôn Thất Thuyết, Mỹ Đình, Nam Từ Liêm, Hà Nội 100000</span></td></tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
             </div>

@@ -10,7 +10,14 @@
             </ul>
         </div>
         <div class="row">
-
+            <div>
+                @if (session('alert'))
+                    <section class='alert alert-warning'>{{ session('alert') }}</section>
+                @endif  
+                @if (session('alert1'))
+                    <section class='alert alert-success'>{{ session('alert1') }}</section>
+                @endif  
+            </div>
             <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
@@ -30,10 +37,10 @@
                         <h2 class="product-name">{{ $product->name }}</h2>
                         <div class="short-desc">
                             <!-- <ul>
-                                                <li>7,9-inch LED-backlit, 130Gb</li>
-                                                <li>Dual-core A7 with quad-core graphics</li>
-                                                <li>FaceTime HD Camera 7.0 MP Photos</li>
-                                            </ul> -->
+                                                        <li>7,9-inch LED-backlit, 130Gb</li>
+                                                        <li>Dual-core A7 with quad-core graphics</li>
+                                                        <li>FaceTime HD Camera 7.0 MP Photos</li>
+                                                    </ul> -->
                         </div>
                         {{-- <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="{{ asset('assets/images/social-list.png') }}"
@@ -64,7 +71,26 @@
                         <div class="wrap-butons">
                             <a href="#" class="btn add-to-cart">Add to Cart</a>
                             <div class="wrap-btn">
-                                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
+                                <form action="{{ route('wish-list.store') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                    <input type="submit" class="btn btn-add-to-cart" class="form-control" style="display: inline-block;
+               width: 100%;
+               font-size: 14px;
+               line-height: 34px;
+               color: #888888;
+               background: #f5f5f5;
+               border: 1px solid #e6e6e6;
+               text-align: center;
+               font-weight: 600;
+               border-radius: 0;
+               padding: 2px 10px;
+               -webkit-transition: all 0.3s ease 0s;
+               -o-transition: all 0.3s ease 0s;
+               -moz-transition: all 0.3s ease 0s;
+               transition: all 0.3s ease 0s;
+               margin-top: 14px;" value="Add To Wishlist">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -231,23 +257,25 @@
                     <h2 class="widget-title">Featured Products</h2>
                     <div class="widget-content">
                         <ul class="products">
-                            @foreach($featuredProducts as $item)
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="{{ route('product-details', $item->id) }}"
-                                            title="{{ $item->name }}">
-                                            <figure><img src="{{ asset('images/' . $item->image) }}" width="214"
-                                                height="214" alt=""></figure>
-                                        </a>
+                            @foreach ($featuredProducts as $item)
+                                <li class="product-item">
+                                    <div class="product product-widget-style">
+                                        <div class="thumbnnail">
+                                            <a href="{{ route('product-details', $item->id) }}"
+                                                title="{{ $item->name }}">
+                                                <figure><img src="{{ asset('images/' . $item->image) }}" width="214"
+                                                        height="214" alt=""></figure>
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <a href="{{ route('product-details', $item->id) }}"
+                                                class="product-name"><span>{{ $item->name }}</span></a>
+                                            <div class="wrap-price"><span
+                                                    class="product-price">{{ number_format($item->price, 0, '', '.') }}
+                                                    ₫</span></div>
+                                        </div>
                                     </div>
-                                    <div class="product-info">
-                                        <a href="{{ route('product-details', $item->id) }}" class="product-name"><span>{{ $item->name }}</span></a>
-                                        <div class="wrap-price"><span class="product-price">{{ number_format($item->price, 0, '', '.') }}
-                                            ₫</span></div>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
                             @endforeach
                         </ul>
                     </div>

@@ -23,8 +23,7 @@
 						    <section class='alert alert-warning'>{{session('alert')}}</section>
 						
 						@endif  
-					  </div>
-					  <div>
+					 
 						  @if(session('alert1'))
 						
 						    <section class='alert alert-success'>{{session('alert1')}}</section>

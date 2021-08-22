@@ -15,6 +15,9 @@ class CreatePostCategoriesTable extends Migration
     {
         Schema::create('post_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('sort')->nullable();
             $table->timestamps();
         });
     }

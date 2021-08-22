@@ -63,7 +63,7 @@
                         <div class="quantity">
                             <span>Quantity:</span>
                             <div class="quantity-input">
-                                <input type="text" name="product-quatity" id="product-quantity" value="1" data-max="120"
+                                <input type="text" name="product-quatity" id="product-quantity" value="1" data-max="{{$product->quantity}}"
                                     pattern="[0-9]*">
 
                                 <a class="btn btn-reduce" href="#"></a>

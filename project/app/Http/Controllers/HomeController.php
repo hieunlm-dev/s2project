@@ -85,7 +85,7 @@ class HomeController extends Controller
     }
 
     public function viewCart()
-    {
+    { 
         if (session()->get('customer')) {
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();
             return view('frontend.viewcart', compact('lists'));
@@ -101,6 +101,7 @@ class HomeController extends Controller
         $product = Product::find($id);
         //lay cart tu session, neu chua co thi tao moi
         //cart la 1 mang cac CartItem
+        
         if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
         } else {

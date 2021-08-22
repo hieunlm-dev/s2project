@@ -113,7 +113,8 @@
 					</div>
 					<div class="wrap-pagination-info">
 						<div class="d-flex justify-content-center">
-							{!!$products->links()!!}
+							{!!$products->appends(request()->input())->links()!!}
+						
 						</div>
 					</div>
 				</div><!--end main products area-->

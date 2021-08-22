@@ -91,17 +91,17 @@
             </div>
             <div style="max-width: 30%">
               <div id="msg"></div>
-                <input type="file" name="image" class="file" >
+                <input type="file" name="image" class="file" style="display: none;">
                 <div class="input-group my-3">
-                  <input type="text" class="form-control" value="{{ $post->image }}" disabled placeholder="Upload File" id="file">
+                  <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
                   <div class="input-group-append">
                     <button type="button" class="browse btn btn-primary">Upload Image</button>
                   </div>
                 </div>
             </div>
-            <div style="max-width: 30%">
+            {{-- <div style="max-width: 30%">
               <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" >
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <input type="submit" name="btnCreate" value="Create" class="btn btn-primary float-right"/>

@@ -35,7 +35,7 @@ class HomeController extends Controller
     {
         $cmts = Comment::where('pid', '=', $id)->get();
         $product = Product::find($id);
-        $relatedProducts = Product::where('id', '!=', $id)->orderBy('updated_at', 'desc')->limit(8)->get();
+        $relatedProducts = Product::where('id', '!=', $id)->orderBy('updated_at', 'desc')->get();
         $featuredProducts = Product::where('featured', '1')->where('id', '!=', $id)->orderBy('updated_at', 'desc')->get();
         if (session()->get('customer')) {
             $lists = WishList::where('customer_id', session()->get('customer')->id)->get();

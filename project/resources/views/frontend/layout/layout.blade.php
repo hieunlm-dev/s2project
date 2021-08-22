@@ -53,7 +53,6 @@
 	<script src="{{asset('assets/js/functions.js') }}"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
 	@yield('my-scripts')
 	
 </body>

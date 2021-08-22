@@ -16,8 +16,6 @@ class ShopController extends Controller
         // $products = Product::paginate(6);
         if (isset($request->brand)) {
             $brand = $request->brand;
-            // dd($brand);
-            // $products = Product::where('name','like','%'.$brand.'%')->get();
             $products = Product::select('products.*', 'brands.name')
                 ->join('brands', 'products.brand_id', '=', 'brands.id')
                 ->where('brands.name', $brand)

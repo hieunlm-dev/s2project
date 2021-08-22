@@ -78,7 +78,7 @@
 					title: "Adding successfully",
 					text: "This product has been successfully added to your cart",
 					icon: "success",
-					button: "Aww yiss!",
+					button: "Okay!",
 				}).then(function(){
 					window.location.reload();
 				});

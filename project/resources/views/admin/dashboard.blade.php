@@ -61,7 +61,7 @@
                                         <h3>
                                             {{ $count }}
                                         </h3>
-                                        <p>New Orders this week</p>
+                                        <p>New Orders in 7 days</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-bag"></i>
@@ -89,7 +89,7 @@
                                             {{ number_format($total, 0, '', '.') }}
                                             <sup style="font-size: 20px">đ</sup>
                                         </h3>
-                                        <p>Incoming this week</p>
+                                        <p>Incoming in 7 days</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
@@ -115,7 +115,7 @@
                                         @endforeach
                                         <h3>{{ $count }}</h3>
 
-                                        <p>Customers Registrations this week</p>
+                                        <p>Customers Registrations in 7 days</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>
@@ -341,8 +341,8 @@
         //     style: 'currency',
         //     currency: 'VNĐ',
         // }).format('{{ $incomes1 }}'); // '€ 10,000.00' ;
-        const format = new Intl.NumberFormat('en');
-        var max = format.format(1000000000);
+        // const format = new Intl.NumberFormat('en');
+        // var max = format.format(1000000000);
 
 
         console.log(valueArr);

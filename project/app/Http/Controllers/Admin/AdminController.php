@@ -43,13 +43,14 @@ class AdminController extends Controller
         $accounts = Account::all();
         $customers = Customer::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) <= 7')->get();
         $orders = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) <= 7')->get();
-        $incomes1 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 7')->where('status','=','completed')->sum('grand_total');
-        $incomes2 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 6')->where('status','=','completed')->sum('grand_total');
-        $incomes3 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 5')->where('status','=','completed')->sum('grand_total');
-        $incomes4 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 4')->where('status','=','completed')->sum('grand_total');
-        $incomes5 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 3')->where('status','=','completed')->sum('grand_total');
-        $incomes6 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 2')->where('status','=','completed')->sum('grand_total');
-        $incomes7 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 1')->where('status','=','completed')->sum('grand_total');
+        $incomes1 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 6')->where('status','=','completed')->sum('grand_total');
+        $incomes2 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 5')->where('status','=','completed')->sum('grand_total');
+        $incomes3 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 4')->where('status','=','completed')->sum('grand_total');
+        $incomes4 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 3')->where('status','=','completed')->sum('grand_total');
+        $incomes5 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 2')->where('status','=','completed')->sum('grand_total');
+        $incomes6 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 1')->where('status','=','completed')->sum('grand_total');
+        $incomes7 = Order::whereRaw('DATEDIFF(CURDATE(),DATE_FORMAT(created_at,"%Y-%m-%d")) = 0')->where('status','=','completed')->sum('grand_total');
+       
       
         return view('admin.dashboard',compact(
             'orders',

@@ -51,24 +51,24 @@
             <form action="{{ route('admin.account.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" class="form-control"/>
+                    <label for="username">Username *</label>
+                    <input type="text" id="username" name="username" required class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control"/>
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" required class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="confirm">Confirm</label>
-                    <input type="password" id="confirm" name="confirm" class="form-control"/>
+                    <label for="confirm">Confirm Password *</label>
+                    <input type="password" id="confirm" name="confirm" required class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" class="form-control"/>
+                    <label for="email">Email *</label>
+                    <input type="text" id="email" name="email" required class="form-control"/>
                 </div>
                 <div class="form-group">
-                  <label for="role">Role</label>
-                  <select name="role" id="" class="form-control">
+                  <label for="role">Role *</label>
+                  <select name="role" id="" class="form-control" required >
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                   </select>
@@ -88,7 +88,7 @@
                 {{-- <div style="max-width: 30%">
                   <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail" >
                 </div> --}}
-
+                <div><p>Fields with * require information</p></div>
                 <div class="form-group">
                     <input type="submit" name="btnCreate" value="Create" class="btn btn-primary float-right"/>
                 </div> <br>

@@ -132,14 +132,14 @@
                             <a href="{{route('checkout')}}" class="link-term mercado-item-title" >Checkout</a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{route('contact')}}" class="link-term mercado-item-title" >Contact Us</a>
-                        </li>
-                        <li class="menu-item">
                             <a href="{{route('history.index')}}" class="link-term mercado-item-title" >Order History</a>
                         </li>	
                         <li class="menu-item">
                             <a href="{{route('post-index')}}" class="link-term mercado-item-title" >Blog</a>
-                        </li>																
+                        </li>		
+                        <li class="menu-item">
+                            <a href="{{route('contact')}}" class="link-term mercado-item-title" >Contact Us</a>
+                        </li>														
                     </ul>
                 </div>
             </div>

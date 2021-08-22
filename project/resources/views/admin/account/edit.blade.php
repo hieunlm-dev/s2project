@@ -61,26 +61,26 @@
                         </div>
                     @else
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" name="username" class="form-control" />
+                            <label for="username">Username *</label>
+                            <input type="text" id="username" name="username" value="{{ $account->email }}" required class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control" />
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" value="{{ $account->email }}" required name="password" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="confirm">Confirm</label>
-                            <input type="password" id="confirm" name="confirm" class="form-control" />
+                            <label for="confirm">Confirm Password *</label>
+                            <input type="password" id="confirm" value="{{ $account->email }}" required name="confirm" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="role">Role</label>
-                            <select name="role" class="form-control" id="role">
+                            <label for="role">Role *</label>
+                            <select name="role" class="form-control" id="role" required>
                                 <option value="{{ $account->role }}" selected>{{ $account->role }}</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" id="email" name="email" value="{{ $account->email }}"
+                            <label for="email">Email *</label>
+                            <input type="text" id="email" name="email" required value="{{ $account->email }}"
                                 class="form-control" />
                         </div>
                         <div style="max-width: 30%">
@@ -99,6 +99,8 @@
                                 style="width: 200px; height:100px; ">
                         @endif --}}
                     @endif
+
+                    <div><p>Fields with * require information</p></div>
                     <div class="form-group">
                         <input type="submit" name="btnCreate" value="Update" class="btn btn-primary float-right" />
                     </div> <br>

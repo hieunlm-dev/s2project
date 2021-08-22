@@ -6,7 +6,7 @@
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="#" class="link">Home</a></li>
+					<li class="item-link"><a href="{{route('home')}}" class="link">Home</a></li>
 					<li class="item-link"><span>Shop</span></li>
 				</ul>
 			</div>
@@ -16,7 +16,7 @@
 
 					<div class="banner-shop">
 						<a href="#" class="banner-link">
-							<figure><img src="assets/images/shop-banner.jpg" alt=""></figure>
+							<figure><img src="{{asset('assets/images/samsung.jpg')}}" alt="" width="100%" height="190"></figure>
 						</a>
 					</div>
 

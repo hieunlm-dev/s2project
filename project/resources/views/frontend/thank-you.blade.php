@@ -10,7 +10,7 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
+                <li class="item-link"><a href="{{route('home')}}" class="link">home</a></li>
                 <li class="item-link"><span>Thank You</span></li>
             </ul>
         </div>

@@ -121,8 +121,8 @@
                                         <li class="menu-item"><a href="{{route('contact')}}" class="link-term">Contact Us</a></li>
                                         <li class="menu-item"><a href="{{route('policy')}}" class="link-term">Policy</a></li>
                                         <li class="menu-item"><a href="{{route('FAQ')}}" class="link-term">FAQ</a></li>
-                                        <li class="menu-item"><a href="{{route('warranty')}}" class="link-term">Warranty Policy</a></li>
-                                        <li class="menu-item"><a href="{{route('exwarranty')}}" class="link-term">Extended Warranty</a></li>
+                                        
+                                        
                                         {{-- <li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
                                         <li class="menu-item"><a href="#" class="link-term">Specials</a></li>
                                         <li class="menu-item"><a href="#" class="link-term">Order History</a></li> --}}
@@ -195,8 +195,8 @@
                     <ul>
                         <li class="menu-item"><a href="{{route('about')}}" class="link-term">About us</a></li>								
                         <li class="menu-item"><a href="{{route('policy')}}" class="link-term">Policy</a></li>
-                        <li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-                        <li class="menu-item"><a href="return-policy.html" class="link-term">Exte Policy</a></li>								
+                        <li class="menu-item"><a href="{{route('warranty')}}" class="link-term">Warranty Policy</a></li>
+                        <li class="menu-item"><a href="{{route('exwarranty')}}" class="link-term">Extended Warranty</a></li>							
                     </ul>
                 </div>
             </div>

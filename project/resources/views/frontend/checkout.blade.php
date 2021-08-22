@@ -12,7 +12,7 @@
     {{-- @if( !Session::has('cart') || empty(Session::get('cart')) --}}
     @if(Session::has('cart') || !empty(Session::get('cart')))
     <div class=" main-content-area">
-        <form action="{{route('do-checkout')}}" method="post" name="frm-billing">
+        <form action="{{route('do-checkout')}}" method="post" name="frm-billing" onsubmit="if (this.createAccount.checked == false) { alert ('Please check create account to place order!'); return false; } else { return true; }">
             @csrf 
             <div class="wrap-address-billing" style="width: 100%" >
                 <h3 class="box-title">Billing Address</h3>   
@@ -24,10 +24,18 @@
                     <label for="lname">last name<span>*</span></label>
                     <input id="lname" type="text" name="lname" required  placeholder="Your last name"  @if(Session::has('customer') ) value="{{session()->get('customer')->lastname}}"@endif>
                 </p>
-                <p class="row-in-form">
+                @if (Session::has('customer'))
+                    <p class="row-in-form">
                     <label for="email">Email Address</label>
                     <input id="email" type="email" name="email" placeholder="Type your email" @if(Session::has('customer') ) value="{{session()->get('customer')->email}}"@endif>
                 </p>
+                @else
+                    <p class="row-in-form">
+                    <label for="email">Email Address<span>*</span></label>
+                    <input id="email" type="email" name="email" required placeholder="Type your email" @if(Session::has('customer') ) value="{{session()->get('customer')->email}}"@endif>
+                </p>
+                @endif
+                
                 <p class="row-in-form">
                     <label for="phone">Phone number<span>*</span></label>
                     <input id="phone" type="text" name="phone" required placeholder="10 digits format"  @if(Session::has('customer') ) value="{{session()->get('customer')->phone}}"@endif>
@@ -40,7 +48,7 @@
                 @if (!session()->has('customer'))
                 <p class="row-in-form fill-wife">
                     <label class="checkbox-field">
-                        <input name="createAccount" id="create-account" type="checkbox" checked required>
+                        <input name="createAccount" id="create-account" type="checkbox" checked >
                         <span>Create an account <span>*</span></span>
                     </label>
                 </p>

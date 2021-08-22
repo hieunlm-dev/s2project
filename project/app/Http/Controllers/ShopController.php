@@ -12,8 +12,8 @@ class ShopController extends Controller
     public function index(Request $request)
     {
         $brands = Brand::all();
-        $products = Product::orderBy('created_at', 'desc')->get();
-        $products = Product::paginate(6);
+        $products = Product::orderBy('created_at', 'desc')->paginate(6);
+        // $products = Product::paginate(6);
         if (isset($request->brand)) {
             $brand = $request->brand;
             // dd($brand);
@@ -28,7 +28,6 @@ class ShopController extends Controller
             return view('frontend.shop', compact('products', 'lists','brands'));
         } else {
             return view('frontend.shop', compact('products', 'brands'));
-
         }
 
     }

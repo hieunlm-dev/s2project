@@ -120,7 +120,7 @@
             
             <div style="max-width: 30%">
               <div id="msg"></div>
-                <input type="file" name="image" class="file" >
+                <input type="file" name="image" class="file" style="display: none;">
                 <div class="input-group my-3">
                   <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
                   <div class="input-group-append">

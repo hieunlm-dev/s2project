@@ -40,12 +40,12 @@
           @csrf
           <div class="container">
           <div class="row">
-            <div class="col-sm-6">
+            {{-- <div class="col-sm-6">
               <div class="form-group">
                   <label for="name">ID *</label>
                   <input type="text" id="id" name="id" class="form-control" required />
               </div>
-            </div>
+            </div> --}}
             <div class="col-sm-6">
               <div class="form-group">
                   <label for="name">Name *</label>

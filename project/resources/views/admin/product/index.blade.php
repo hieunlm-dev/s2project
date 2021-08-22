@@ -27,6 +27,7 @@
         <h3 class="card-title">Product List</h3>
 
         <div class="card-tools">
+          <a href="{{ route('admin.product.create') }}"><i class="fas fa-plus"></i></i></i></a>
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -36,6 +37,13 @@
         </div>
       </div>
       <div class="card-body p-0">
+        <div>
+            @if(session('alert'))
+          
+              <section class='alert alert-success'>{{session('alert')}}</section>
+          
+          @endif  
+        </div>
         <table class="table table-striped projects">
           <thead>
               <tr>
@@ -70,7 +78,7 @@
                 <form style="display:inline-block" action="{{ route('admin.product.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf
-                  <button class="btn btn-danger">Delete</button>
+                  <button class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</button>
                 </form>
               </td>
             </tr>

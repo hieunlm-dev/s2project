@@ -62,7 +62,8 @@
                 <div class="col-sm-2">
                     <div class="form-group" style="text-align: center">
                         <label for="featured">Featured</label>
-                        <input type="checkbox" id="featured" name="featured" value="1" class="form-control" @if (isset($product->featured)) checked @endif/>
+                        <input type="hidden" value="0" name="featured">  
+                        <input type="checkbox" id="featured" name="featured" value="1" class="form-control" @if (isset($product->featured)) checked @endif />
                     </div>
                 </div>
             </div>

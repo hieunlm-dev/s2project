@@ -27,6 +27,7 @@
         <h3 class="card-title">Brand List</h3>
 
         <div class="card-tools">
+          <a href="{{ route('admin.brand.create') }}"><i class="fas fa-plus"></i></i></i></a>
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -40,6 +41,13 @@
             @if(session('alert'))
           
               <section class='alert alert-warning'>{{session('alert')}}</section>
+          
+          @endif  
+        </div>
+        <div>
+            @if(session('success'))
+          
+              <section class='alert alert-success'>{{session('success')}}</section>
           
           @endif  
         </div>

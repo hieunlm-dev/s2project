@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -109,8 +110,8 @@ class ProductController extends Controller
 
         $product->update($input);
     
-        return redirect()->route('admin.product.index');
-            // ->with('success','Product updated successfully');
+        $alert ="The product has been updated successfully";
+        return redirect()->route('admin.product.index')->with('alert', $alert);
     }
 
     /**
@@ -121,10 +122,14 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        // $comments = Comment::all();
+        // if ($product->brand_id===$comments->id){
+        //     $alert()
+        // }
         $product->delete();
      
-        return redirect()->route('admin.product.index')
-                        ->with('success','Product deleted successfully');
+        $alert ="The product has been deleted successfully";
+        return redirect()->route('admin.product.index')->with('alert', $alert);
     }
 
 }

@@ -58,11 +58,16 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         if (session()->get('customer')) {
+            
             $comment = new Comment();
             $comment->pid = $request->pid;
             $comment->rate = $request->rating;
             $comment->username = session()->get('customer')->email;
             $comment->contents = $request->contents;
+            
+            $this->validate($request, [
+                'contents' => 'required',
+             ]);
 
             $comment->save();
             return redirect()->route('product-details', $request->pid);
@@ -72,6 +77,11 @@ class HomeController extends Controller
                 $comment->rate = $request->rating;
                 $comment->username = 'Guest';
                 $comment->contents = $request->contents;
+                
+                $this->validate($request, [
+                    'contents' => 'required',
+                 ]);
+
                 $comment->save();
                 return redirect()->route('product-details', $request->pid);
             }

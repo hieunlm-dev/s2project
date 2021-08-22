@@ -181,7 +181,7 @@
                                                     </div>
                                                 </li>
                                             @empty
-                                                <h3>Don't have any reviews yet , please come back soon</h3>
+                                                <p><b><i>Product has no reviews yet, please let us know what you think!</i></b></p>
                                             @endforelse
                                         </ol>
                                     </div><!-- #comments -->
@@ -194,9 +194,9 @@
                                                     @csrf
                                                     <input type="hidden" name="pid" value="{{ $product->id }}">
                                                     <p class="comment-notes">
-                                                        <span id="email-notes">Your email address will not be
+                                                        <span id="email-notes"><strong>Your email address will not be
                                                             published.</span>
-                                                        Required fields are marked <span class="required">*</span>
+                                                        Required fields are marked</strong> <span style="color:red">*</span>
                                                     </p>
                                                     <div class="comment-form-rating">
                                                         <span>Your rating</span>
@@ -216,10 +216,16 @@
                                                         </p>
                                                     </div>
                                                     <p class="comment-form-comment">
-                                                        <label for="comment">Your review <span class="required">*</span>
+                                                        <label for="comment">Your review <span style="color:red">*</span>
                                                         </label>
                                                         <textarea id="comment" name="contents" cols="45"
-                                                            rows="8"></textarea>
+                                                            rows="8" class="@error('contents') is-invalid @enderror" ></textarea>
+                                                            <br>
+                                                            @error('contents')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <i style="color:red">{{ $message }}</i>
+                                                                </span> 
+                                                            @enderror
                                                     </p>
                                                     <p class="form-submit">
                                                         <input name="submit" type="submit" id="submit" class="submit"
@@ -362,7 +368,7 @@
                         title: "Adding successfully",
                         text: "This product has been successfully added to your cart",
                         icon: "success",
-                        button: "Aww yiss!",
+                        button: "Okay!",
                     }).then(function() {
                         location.reload();
                     });

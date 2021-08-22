@@ -40,7 +40,7 @@
 							{{-- <button type="submit" class="btn btn-primary" method="GET" >Sort product</button> --}}
 							<div class="sort-item orderby ">
 								<select name="orderby" class="use-chosen" onchange="this.form.submit()">
-									<option value="date"   >Sort by date</option>
+									<option value="date" >Sort by date</option>
 									<option value="price">Sort by price: low to high</option>
 									<option value="price-desc">Sort by price: high to low</option>
 									<option value="5000000">Under 5M</option>
@@ -76,32 +76,7 @@
 										<a href="{{route('product-details',$item->id)}}" class="btn add-to-cart" >Not Available</a>
 										@endif
 									</div>
-									
-									
-									{{-- <div class="product-info">
-										<form action="{{route('wish-list.store')}}" method="post">
-											@csrf
-											<input type="hidden" value="{{$item->id}}" name="product_id" >
-											<input type="submit" class="btn btn-add-to-cart" class="form-control"
-											style="display: inline-block;
-											width: 100%;
-											font-size: 14px;
-											line-height: 34px;
-											color: #888888;
-											background: #f5f5f5;
-											border: 1px solid #e6e6e6;
-											text-align: center;
-											font-weight: 600;
-											border-radius: 0;
-											padding: 2px 10px;
-											-webkit-transition: all 0.3s ease 0s;
-											-o-transition: all 0.3s ease 0s;
-											-moz-transition: all 0.3s ease 0s;
-											transition: all 0.3s ease 0s;
-											margin-top: 14px;"
-											value="Add To Wishlist">
-										</form>
-									</div> --}}
+						
 								</div>
 							</li>
 							@empty
@@ -125,30 +100,18 @@
 						<h2 class="widget-title">Brand</h2>
 						<div class="widget-content">
 							<ul class="list-style vertical-list list-limited" data-show="6">
-								{{-- Nhờ Ân làm phần này bằng nút bấm --}}
+							
 								<form action="{{route('shop')}}" >
 									@foreach($brands as $item)
 									
 									<div><input type="submit" class="btn btn-secondary" style="width: 90px; margin:2px" value="{{$item->name}}" name="brand"></div>
 									@endforeach
 								</form>
-								{{-- <li class="list-item"><a class="filter-link " href="#">Brand</a></li>  --}}
+								
 							
 							</ul>
 						</div>
 					</div><!-- brand widget-->
-
-					{{-- <div class="widget mercado-widget filter-widget price-filter">
-						<h2 class="widget-title">Price</h2>
-						<div class="widget-content">
-							<div id="slider-range"></div>
-							<p>
-								<label for="amount">Price:</label>
-								<input type="text" id="amount" readonly>
-								<button class="filter-submit">Filter</button>
-							</p>
-						</div>
-					</div><!-- Price--> --}}
 
 				</div><!--end sitebar-->
 
@@ -184,7 +147,7 @@
 					title: "Adding successfully",
 					text: "This product has been successfully added to your cart",
 					icon: "success",
-					button: "Aww yiss!",
+					button: "Okay!",
 				}).then(function(){
 					window.location.reload();
 				});

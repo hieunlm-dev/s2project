@@ -34,6 +34,7 @@
                             <i class="fa fa-star" aria-hidden="true"></i> --}}
                             {{-- <a href="#" class="count-review">(05 review)</a> --}}
                         </div>
+                        @if ($product->quantity == 0) <h2 style="color: red"><B>PRODUCT NOT AVAILABLE</B></h2>  @endif
                         <h2 class="product-name">{{ $product->name }}</h2>
                         <div class="short-desc">
                             <!-- <ul>
@@ -58,6 +59,7 @@
                                 @endif
                             </p>
                         </div>
+                        @if ($product->quantity != 0)  
                         <div class="quantity">
                             <span>Quantity:</span>
                             <div class="quantity-input">
@@ -68,6 +70,7 @@
                                 <a class="btn btn-increase" href="#"></a>
                             </div>
                         </div>
+                        
                         <div class="wrap-butons">
                             <a href="#" class="btn add-to-cart">Add to Cart</a>
                             <div class="wrap-btn">
@@ -75,24 +78,25 @@
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="product_id">
                                     <input type="submit" class="btn btn-add-to-cart" class="form-control" style="display: inline-block;
-               width: 100%;
-               font-size: 14px;
-               line-height: 34px;
-               color: #888888;
-               background: #f5f5f5;
-               border: 1px solid #e6e6e6;
-               text-align: center;
-               font-weight: 600;
-               border-radius: 0;
-               padding: 2px 10px;
-               -webkit-transition: all 0.3s ease 0s;
-               -o-transition: all 0.3s ease 0s;
-               -moz-transition: all 0.3s ease 0s;
-               transition: all 0.3s ease 0s;
-               margin-top: 14px;" value="Add To Wishlist">
+                                    width: 100%;
+                                    font-size: 14px;
+                                    line-height: 34px;
+                                    color: #888888;
+                                    background: #f5f5f5;
+                                    border: 1px solid #e6e6e6;
+                                    text-align: center;
+                                    font-weight: 600;
+                                    border-radius: 0;
+                                    padding: 2px 10px;
+                                    -webkit-transition: all 0.3s ease 0s;
+                                    -o-transition: all 0.3s ease 0s;
+                                    -moz-transition: all 0.3s ease 0s;
+                                    transition: all 0.3s ease 0s;
+                                    margin-top: 14px;" value="Add To Wishlist">
                                 </form>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">

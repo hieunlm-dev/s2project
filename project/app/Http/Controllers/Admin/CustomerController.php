@@ -99,7 +99,6 @@ class CustomerController extends Controller
             if ($customer->id == $item->customer_id) {
                 $alert = 'You can not delete this customer because he has at least one order!';
                 return redirect()->back()->with('alert', $alert);
-                // return back();
                 break;
             }
         }

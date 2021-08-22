@@ -38,10 +38,13 @@
       </div>
       <div class="card-body p-0">
         <div>
-            @if(session('alert'))
-          
-              <section class='alert alert-success'>{{session('alert')}}</section>
-          
+          @if(session('alert'))
+            <section class='alert alert-success'>{{session('alert')}}</section>
+          @endif  
+        </div>
+        <div>
+          @if(session('warning'))
+            <section class='alert alert-warning'>{{session('warning')}}</section>
           @endif  
         </div>
         <table class="table table-striped projects">
@@ -53,6 +56,7 @@
                 <th>Price</th>
                 <th>Brand</th>
                 <th>Featured</th>
+                <th>Status</th>
                 <th>Actions</th>
               </tr>
           </thead>
@@ -73,13 +77,15 @@
                 <span class="badge badge-success">Featured</span>
                 @endif
               </td>
+              <td>@if ($item->quantity == 0) <span class="badge badge-danger">Not Available</span> @else <span class="badge badge-success">Available</span> @endif</td>
+
               <td>
                 <a href="{{ route('admin.product.edit', $item->id) }}" class="btn btn-primary">Update</a>
-                <form style="display:inline-block" action="{{ route('admin.product.destroy', $item->id) }}" method="POST">
+                {{-- <form style="display:inline-block" action="{{ route('admin.product.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf
                   <button class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</button>
-                </form>
+                </form> --}}
               </td>
             </tr>
             @endforeach

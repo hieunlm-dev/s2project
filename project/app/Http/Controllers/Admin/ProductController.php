@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Comment;
+use App\Models\WishList;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +21,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-
+        $orders = Order::all();
         return view('admin.product.index',compact('products'));
     }
 
@@ -122,14 +124,27 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        // $comments = Comment::all();
-        // if ($product->brand_id===$comments->id){
-        //     $alert()
+        // $comment= Comment::all();
+        // $wishlist= WishList::all();
+        // foreach ($comment as $item) {
+        //     if ($product->id == $item->pid) {
+        //         $item->delete(); 
+        //         $product->delete();
+        //         $alert ="The product has been deleted successfully";
+        //         return redirect()->route('admin.product.index')->with('alert', $alert);
+        //         break;
+        //     }
         // }
-        $product->delete();
-     
-        $alert ="The product has been deleted successfully";
-        return redirect()->route('admin.product.index')->with('alert', $alert);
+        // foreach ($wishlist as $it) {
+        //     if ($product->id  == $it->product_id) {
+        //         $warning = 'You can not delete this product because customers has put it into their wishlist!';
+        //         return redirect()->back()->with('warning', $warning);
+        //         break;
+        //     }
+        // }
+        // $product->delete();
+        // $alert ="The product has been deleted successfully";
+        // return redirect()->route('admin.product.index')->with('alert', $alert);
     }
 
 }

@@ -65,13 +65,20 @@
 											<figure><img src="{{asset('images/'.$item->image)}}" style="width: auto; height:166px;" alt="img"></figure>
 										</a>
 									</div>
+									
 									<div class="product-info">
 										<a href="{{route('product-details',$item->id)}}" class="product-name"><span>{{$item->name}}</span></a>
 										<div class="wrap-price"><span class="product-price">{{ number_format($item->price,0,'','.')}} ₫</span></div>
 										<input type="hidden" id="pid" value="{{$item->id}}">
+										@if ($item->quantity != 0)  
 										<a href="#" class="btn add-to-cart" data-id="{{$item->id}}">Add To Cart</a>
+										@else
+										<a href="{{route('product-details',$item->id)}}" class="btn add-to-cart" >Not Available</a>
+										@endif
 									</div>
-									<div class="product-info">
+									
+									
+									{{-- <div class="product-info">
 										<form action="{{route('wish-list.store')}}" method="post">
 											@csrf
 											<input type="hidden" value="{{$item->id}}" name="product_id" >
@@ -94,7 +101,7 @@
 											margin-top: 14px;"
 											value="Add To Wishlist">
 										</form>
-									</div>
+									</div> --}}
 								</div>
 							</li>
 							@empty

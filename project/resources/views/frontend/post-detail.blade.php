@@ -6,8 +6,8 @@
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="#" class="link">home</a></li>
-					<li class="item-link"><span>Post</span></li>
+					<li class="item-link"><a href="{{route('home')}}" class="link">home</a></li>
+					<li class="item-link"><span><a href="{{route('post-index')}}" class="link">Post</a></span></li>
 				</ul>
 			</div>
 			<div class="row">

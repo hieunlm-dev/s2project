@@ -7,7 +7,7 @@
 			<div class="wrap-breadcrumb">
 				<ul>
 					<li class="item-link"><a href="#" class="link">home</a></li>
-					<li class="item-link"><span>Digital & Electronics</span></li>
+					<li class="item-link"><span>Search product</span></li>
 				</ul>
 			</div>
 			<div class="row">
@@ -22,7 +22,7 @@
 
 					<div class="wrap-shop-control">
 
-						<h1 class="shop-title">Digital & Electronics</h1>
+						<h1 class="shop-title">Phones</h1>
 
 						<div class="wrap-right">
 
@@ -57,7 +57,7 @@
 									</div>
 									<div class="product-info">
 										<a href="{{route('product-details',$item->id)}}" class="product-name"><span>{{$item->name}}</span></a>
-										<div class="wrap-price"><span class="product-price">{{$item->price}}</span></div>
+										<div class="wrap-price"><span class="product-price">{{ number_format($item->price, 0, '', '.') }} ₫</span></div>
 										
 									</div>
 								</div>
@@ -89,7 +89,7 @@
 					</div>
 				</div><!--end main products area-->
 
-				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
+				{{-- <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
 					<div class="widget mercado-widget categories-widget">
 						<h2 class="widget-title">All Categories</h2>
 						<div class="widget-content">
@@ -258,7 +258,7 @@
 						</div>
 					</div><!-- brand widget-->
 
-				</div><!--end sitebar-->
+				</div><!--end sitebar--> --}}
 
 			</div><!--end row-->
 

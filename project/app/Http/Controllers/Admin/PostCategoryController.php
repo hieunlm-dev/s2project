@@ -85,8 +85,7 @@ class PostCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(PostCategory $postCategory)
-    {
-        
+    {    
         $posts = Post::all();
         foreach ($posts as $item){
             if ($postCategory->id ==$item -> category_id){

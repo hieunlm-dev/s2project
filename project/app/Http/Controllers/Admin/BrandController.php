@@ -94,7 +94,7 @@ class BrandController extends Controller
         $products = Product::all();
         foreach ($products as $item){
             if ($brand->id ==$item -> brand_id){
-                $alert='You can not delete this Brand because he has at least product within!';
+                $alert='You can not delete this Brand because this has at least product within!';
                 return redirect()->back()->with('alert',$alert);  
                 // return back();
                 break;

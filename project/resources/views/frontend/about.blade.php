@@ -116,11 +116,11 @@
                 <div class="team-member equal-elem">
                     <div class="media">
                         <a href="#" title="LEONA">
-                            <figure><img src="assets/images/member-leona.jpg" alt="LEONA"></figure>
+                            <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">An Nguyen</b>
+                        <b class="name">Hieu Nguyen</b>
                         <span class="title">Director</span>
                         <p class="desc">Managing director of all branches of the company.</p>
                     </div>
@@ -129,13 +129,13 @@
                 <div class="team-member equal-elem">
                     <div class="media">
                         <a href="#" title="LUCIA">
-                            <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
+                            <figure><img src="assets/images/member-leona.jpg" alt="LEONA"></figure>
                         </a>
                     </div>
                     <div class="info">
-                        <b class="name">Hieu Nguyen</b>
+                        <b class="name">An Nguyen</b>
                         <span class="title">Manager</span>
-                        <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                        <p class="desc">Managing all projects of company</p>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
                     <div class="info">
                         <b class="name">Hien Nguyen</b>
                         <span class="title">Marketer</span>
-                        <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                        <p class="desc">Working with other social companies to promote for company</p>
                     </div>
                 </div>
 
@@ -161,33 +161,7 @@
                     <div class="info">
                         <b class="name">Tuan Huynh</b>
                         <span class="title">Member</span>
-                        <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
-                    </div>
-                </div>
-
-                <div class="team-member equal-elem">
-                    <div class="media">
-                        <a href="#" title="LUCIA">
-                            <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
-                        </a>
-                    </div>
-                    <div class="info">
-                        <b class="name">Hieu Nguyen</b>
-                        <span class="title">Manager</span>
-                        <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
-                    </div>
-                </div>
-
-                <div class="team-member equal-elem">
-                    <div class="media">
-                        <a href="#" title="NANA">
-                            <figure><img src="assets/images/member-nana.jpg" alt="NANA"></figure>
-                        </a>
-                    </div>
-                    <div class="info">
-                        <b class="name">An Nguyen</b>
-                        <span class="title">Marketer</span>
-                        <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                        <p class="desc">Labour is honour!</p>
                     </div>
                 </div>
 

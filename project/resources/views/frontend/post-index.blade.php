@@ -66,7 +66,7 @@
                 </div>
                 <div class="wrap-pagination-info">
                     <div class="d-flex justify-content-center">
-                        {!!$products->appends(request()->input())->links()!!}
+                        {!!$posts->appends(request()->input())->links()!!}
                     
                     </div>
                 </div>

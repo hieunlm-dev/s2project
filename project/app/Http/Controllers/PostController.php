@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function postIndex(){
         $categories = PostCategory::all();
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(9);
         
         return view('frontend.post-index', compact('posts','categories'));
     }

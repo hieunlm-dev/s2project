@@ -16,11 +16,10 @@ class PostController extends Controller
         return view('frontend.post-index', compact('posts','categories'));
     }
     public function postSort(Request $request){
-        $sort = $request->orderby;
-        $posts = Post::where('category_id', $sort)->paginate(9);
-        return view('frontend.post-index', compact('posts', 'categories'));
-
-        
+        $categories = PostCategory::all();
+       $sort = $request->orderby;
+       $posts = Post::where('category_id', $sort)->orderBy('updated_at', 'desc')->paginate(9);
+       return view('frontend.post-index', compact('posts','categories'));
     }
     public function postDetail($id){
         $post = Post::find($id);

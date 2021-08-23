@@ -116,12 +116,20 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        $account->username = $request->username;
-        $account->email = $request->email;
+        if (isset($request->username)) {
+
+            $account->username = $request->username;
+        }
+        if (isset($request->email)) {
+
+            $account->email = $request->email;
+        }
         if (isset($request->password)) {
             $account->password = md5($request->password);
         }
-        
+        if (isset($request->role)){
+            $account->role = $request->role;
+        }
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             // lấy phần mở rộng (extension) của file để kiểm tra xem

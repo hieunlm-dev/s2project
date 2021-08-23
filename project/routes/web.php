@@ -106,6 +106,7 @@ Route::resource('history','OrderHistoryController');
 
 ////////////////////////////////////////////////////
 Route::get('post-index','PostController@postIndex')->name('post-index');
+Route::get('post-index/sort','PostController@postSort')->name('post-sort');
 Route::get('post-detail/{id}','PostController@postDetail')->name('post-detail');
 
 ////////////////////////////////////////////////////

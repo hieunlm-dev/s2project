@@ -9,8 +9,10 @@ use Carbon\Carbon;
 class PostController extends Controller
 {
     public function postIndex(){
+        $categories = Post::all();
         $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('frontend.post-index', compact('posts'));
+        
+        return view('frontend.post-index', compact('posts','categories'));
     }
 
     public function postDetail($id){

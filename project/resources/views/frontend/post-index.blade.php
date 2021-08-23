@@ -20,7 +20,9 @@
 							{{-- <button type="submit" class="btn btn-primary" method="GET" >Sort product</button> --}}
 							<div class="sort-item orderby ">
 								<select name="orderby" class="use-chosen" onchange="this.form.submit()">
-									<option value="1" >Categories</option>
+                                    @foreach($categories as $item)
+									<option value="{{$item->id}}" >{{$item->name}}</option>
+                                    @endforeach
                                     {{-- @foreach ($categories as $item)
                                         <option value="{{$item->name}}">{{$item->name}}</option>
                                     @endforeach --}}

@@ -239,7 +239,6 @@ class HomeController extends Controller
                 } else {
                     $detail->customer_id = $countCus;
                 }
-
                 $detail->save();
                 //decrease quantity in product table
                 $product = Product::find($item->id);

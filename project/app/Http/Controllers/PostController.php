@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\PostCategory;
 use Carbon\Carbon;
 
 class PostController extends Controller
 {
     public function postIndex(){
-        $categories = Post::all();
+        $categories = PostCategory::all();
         $posts = Post::orderBy('created_at', 'desc')->get();
         
         return view('frontend.post-index', compact('posts','categories'));

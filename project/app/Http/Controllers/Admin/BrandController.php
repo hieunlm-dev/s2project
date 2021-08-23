@@ -79,7 +79,8 @@ class BrandController extends Controller
         $input = $request->all();
         $brand->update($input);
     
-        return redirect()->route('admin.brand.index');
+        $success ="The brand has been updated successfully";
+        return redirect()->route('admin.brand.index')->with('success', $success);
     }
 
     /**

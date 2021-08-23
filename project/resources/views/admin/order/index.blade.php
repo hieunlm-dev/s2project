@@ -64,6 +64,12 @@
       </table>
       </div>
       <!-- /.card-body -->
+      <div class="wrap-pagination-info">
+        <div class="d-flex justify-content-center">
+          {!!$orders->appends(request()->input())->links()!!}
+        
+        </div>
+      </div>
     </div>
     <!-- /.card -->
 

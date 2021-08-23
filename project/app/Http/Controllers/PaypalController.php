@@ -51,8 +51,8 @@ class PaypalController extends Controller
 
         $paypalCheckoutUrl = $this->paypalSvc
             // ->setCurrency('eur')
-            ->setReturnUrl(url('pay/status'))
-            // ->setCancelUrl(url('paypal/status'))
+            ->setReturnUrl(url('thankyou'))
+            ->setCancelUrl(url('/'))
             ->setItem($data)
             // ->setItem($data[0])
             // ->setItem($data[1])
@@ -69,6 +69,7 @@ class PaypalController extends Controller
     {
         $paymentStatus = $this->paypalSvc->getPaymentStatus();
         dd($paymentStatus);
+        // return redirect()->route('thankyou');
     }
 
     public function paymentList()
@@ -86,6 +87,6 @@ class PaypalController extends Controller
         $paymentDetails = $this->paypalSvc->getPaymentDetails($paymentId);
 
         dd($paymentDetails);
-        echo('Test ');
+        // echo('Test ');
     }
 }

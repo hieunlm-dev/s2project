@@ -47,6 +47,10 @@
   </table>
   
   </div>
+  <div class="d-flex justify-content-center">
+    {!!$orders->appends(request()->input())->links()!!}
+  
+  </div>
 
 </div><!--end container-->
 

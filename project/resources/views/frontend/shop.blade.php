@@ -19,15 +19,10 @@
 					</div>
 					<div>
 						  @if(session('alert'))
-						
 						    <section class='alert alert-warning'>{{session('alert')}}</section>
-						
 						@endif  
-					 
 						  @if(session('alert1'))
-						
 						    <section class='alert alert-success'>{{session('alert1')}}</section>
-						
 						@endif  
 					</div>
 					

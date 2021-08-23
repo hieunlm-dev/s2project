@@ -36,20 +36,21 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <form action="{{ route('admin.brand.store') }}" method="POST" >
+        <form action="{{ route('admin.brand.update',$brand->id) }}" method="POST" >
           @csrf
+          @method('PUT')
           <div class="container">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                   <label for="name">Name *</label>
-                  <input type="text" id="name" name="name" required class="form-control"/>
+                  <input type="text" id="name" name="name" value="{{ $brand->name }}" required class="form-control"/>
               </div>
             </div>
           </div>
           <div><p><i>Field with * requires information</i></p></div>
           <div class="form-group">
-            <input type="submit" name="btnCreate" value="Create" class="btn btn-primary float-right"/>
+            <input type="submit" name="btnCreate" value="Update" class="btn btn-primary float-right"/>
           </div> <br>
         </form>
       </div>

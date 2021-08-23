@@ -44,6 +44,7 @@
           
           @endif  
         </div>
+        
         <div>
             @if(session('success'))
           
@@ -65,10 +66,11 @@
               <td>{{ $item->id }}</td>
               <td>{{ $item->name }}</td>
               <td>
+                <a href="{{ route('admin.brand.edit', $item->id) }}" class="btn btn-primary">Update</a>
                 <form style="display:inline-block" action="{{ route('admin.brand.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf
-                  <button class="btn btn-danger">Delete</button>
+                  <button class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</button>
                 </form>
               </td>
             </tr>

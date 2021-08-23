@@ -104,7 +104,7 @@
             </div> --}}
 
             <div class="form-group">
-                <input type="submit" name="btnCreate" value="Create" class="btn btn-primary float-right"/>
+                <input type="submit" name="btnCreate" value="Update" class="btn btn-primary float-right"/>
             </div> <br>
           </div>
         </form>

@@ -35,6 +35,7 @@
 							{{-- <button type="submit" class="btn btn-primary" method="GET" >Sort product</button> --}}
 							<div class="sort-item orderby ">
 								<select name="orderby" class="use-chosen" onchange="this.form.submit()">
+									<option value="1" >--Sort--</option>
 									<option value="date" >Sort by date</option>
 									<option value="price">Sort by price: low to high</option>
 									<option value="price-desc">Sort by price: high to low</option>

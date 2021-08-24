@@ -66,11 +66,11 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Password *</label>
-                            <input type="password" id="password"  required name="password" class="form-control" />
+                            <input type="password" id="password"   name="password" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="confirm">Confirm Password *</label>
-                            <input type="password" id="confirm" required name="confirm" class="form-control" />
+                            <input type="password" id="confirm"  name="confirm" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="role">Role *</label>

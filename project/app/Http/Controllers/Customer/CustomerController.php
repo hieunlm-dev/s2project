@@ -88,7 +88,8 @@ class CustomerController extends Controller
         // }
         // $customer->update($input);
         if (isset($request->password)) {
-            return redirect()->route('login');
+            session()->forget('customer');
+            return redirect()->route('login')->with('alert','Please login again when you change password');
         } else {
             return redirect()->route('home');
         }

@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      {{-- <form action="{{route('product-sort')}}">
+      <form action="{{route('product-sort')}}">
         <div class="wrap-shop-control">	
             <div class="wrap-right">
                 <div class="sort-item orderby">
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div><!--end wrap shop control-->
-      </form> --}}
+      </form>
 
       <div class="card-body p-0">
         <div>

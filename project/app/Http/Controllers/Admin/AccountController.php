@@ -147,8 +147,12 @@ class AccountController extends Controller
         }
         $account->save();
         // $account->update($input);
+        if (isset($request->password)){
+            return redirect()->route('admin.login');
+        } else {
 
-        return redirect()->route('admin.account.index');
+            return redirect()->route('admin.account.index');
+        }
         // ->with('success','Product updated successfully');
     }
 

@@ -62,7 +62,7 @@
                     @else
                         <div class="form-group">
                             <label for="username">Username *</label>
-                            <input type="text" id="username" name="username" value="{{ $account->email }}" required class="form-control" />
+                            <input type="text" id="username" name="username" value="{{ $account->username }}" required class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="password">Password *</label>

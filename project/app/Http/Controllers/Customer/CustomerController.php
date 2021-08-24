@@ -76,10 +76,10 @@ class CustomerController extends Controller
     {
         $customer->firstname = $request->firstname;
         $customer->lastname = $request->lastname;
+        $customer->phone = $request->phone;
         if (isset($request->password)) {
             $customer->password = md5($request->password);
         }
-        $customer->phone = $request->phone;
         $customer->address = $request->address;
         $customer->save();
         // $input = $request->all();
@@ -87,8 +87,11 @@ class CustomerController extends Controller
         //     $customer['password'] = md5($customer['password']);
         // }
         // $customer->update($input);
-
-        return redirect()->route('home');
+        if (isset($request->password)) {
+            return redirect()->route('login');
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**

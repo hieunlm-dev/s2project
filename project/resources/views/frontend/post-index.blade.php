@@ -12,28 +12,23 @@
         <div class="row">
             <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
                 <div class="row">
+
                     <form action="{{route('post-sort')}}">
-						<div class="wrap-shop-control">	
-
-						<h1 class="shop-title">Blog Post</h1>
-                        <div class="wrap-right">
-							{{-- <button type="submit" class="btn btn-primary" method="GET" >Sort product</button> --}}
-							<div class="sort-item orderby ">
-								<select name="orderby" class="use-chosen" onchange="this.form.submit()">
-                                    <option value="" >Sort</option>
-                                    @foreach($categories as $item)
-									<option value="{{$item->id}}" >{{$item->name}}</option>
-                                    @endforeach
-                                    {{-- @foreach ($categories as $item)
-                                        <option value="{{$item->name}}">{{$item->name}}</option>
-                                    @endforeach --}}
-								</select>
-							</div>
-						</div>
-
-						
-					</div><!--end wrap shop control-->
+                        <div class="wrap-shop-control">	
+                            <h1 class="shop-title">Blog Post</h1>
+                            <div class="wrap-right">
+                                <div class="sort-item orderby ">
+                                    <select name="orderby" class="use-chosen" onchange="this.form.submit()">
+                                        <option value="" >Sort</option>
+                                        @foreach($categories as $item)
+                                        <option value="{{$item->id}}" >{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div><!--end wrap shop control-->
 					</form>
+                    
                     <ul class="product-list grid-products equal-container" id="id01">
                         @forelse ($posts as $item)
                             {{-- @php                             

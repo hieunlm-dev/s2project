@@ -25,8 +25,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Product List</h3>
-
-        <div class="card-tools">
+        <div class="card-tools " >
           <a href="{{ route('admin.product.create') }}"><i class="fas fa-plus"></i></i></i></a>
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
@@ -36,6 +35,22 @@
           </button>
         </div>
       </div>
+
+      {{-- <form action="{{route('product-sort')}}">
+        <div class="wrap-shop-control">	
+            <div class="wrap-right">
+                <div class="sort-item orderby">
+                    <select name="orderby" class="use-chosen" onchange="this.form.submit()">
+                        <option value="1" >Sort</option>
+                        @foreach($brands as $item)
+                          <option value="{{$item->id}}" >{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div><!--end wrap shop control-->
+      </form> --}}
+
       <div class="card-body p-0">
         <div>
           @if(session('alert'))

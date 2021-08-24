@@ -70,7 +70,7 @@
                 <form style="display:inline-block" action="{{ route('admin.brand.destroy', $item->id) }}" method="POST">
                   @method("DELETE")
                   @csrf
-                  <button class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</button>
+                  <button class="btn btn-danger" onclick="return confirm('Are you sure to delete this Brand?')">Delete</button>
                 </form>
               </td>
             </tr>

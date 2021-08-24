@@ -28,25 +28,22 @@
 					
 					<form action="{{route('sort')}}">
 						<div class="wrap-shop-control">	
-
-						<h1 class="shop-title">Mobile Store</h1>
-
-						<div class="wrap-right">
-							{{-- <button type="submit" class="btn btn-primary" method="GET" >Sort product</button> --}}
-							<div class="sort-item orderby ">
-								<select name="orderby" class="use-chosen" onchange="this.form.submit()">
-									<option value="1" >--Sort--</option>
-									<option value="date" >Sort by date</option>
-									<option value="price">Sort by price: low to high</option>
-									<option value="price-desc">Sort by price: high to low</option>
-									<option value="5000000">Under 5M</option>
-									<option value="10000000">From 5M to 10M</option>
-									<option value="20000000">From 10M to 20M</option>
-									<option value="20000001">Over 20M</option>
-								</select>
+							<h1 class="shop-title">Mobile Store</h1>
+							<div class="wrap-right">
+								<div class="sort-item orderby ">
+									<select name="orderby" class="use-chosen" onchange="this.form.submit()">
+										<option value="1" >--Sort--</option>
+										<option value="date" >Sort by date</option>
+										<option value="price">Sort by price: low to high</option>
+										<option value="price-desc">Sort by price: high to low</option>
+										<option value="5000000">Under 5M</option>
+										<option value="10000000">From 5M to 10M</option>
+										<option value="20000000">From 10M to 20M</option>
+										<option value="20000001">Over 20M</option>
+									</select>
+								</div>
 							</div>
-						</div>
-					</div><!--end wrap shop control-->
+						</div><!--end wrap shop control-->
 					</form>
 
 					<div class="row">

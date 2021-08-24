@@ -147,4 +147,10 @@ class ProductController extends Controller
         // return redirect()->route('admin.product.index')->with('alert', $alert);
     }
 
+    // public function productSort(Request $request){
+    //     $brands = Brand::all();
+    //     $sort = $request->orderby;
+    //     $products = Product::where('brand_id', $sort)->orderBy('created_at', 'desc')->paginate(8);
+    //     return view('admin.product.index',compact('products','brands'));
+    // }
 }

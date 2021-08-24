@@ -36,21 +36,6 @@
         </div>
       </div>
 
-      <form action="{{route('admin.product.index')}}">
-        <div class="wrap-shop-control">	
-            <div class="wrap-right">
-                {{-- <div class="sort-item orderby">
-                    <select name="orderby" class="use-chosen" onchange="this.form.submit()">
-                        <option value="1" >Sort</option>
-                        @foreach($products as $item)
-                          <option value="{{$item->brand['name']}}" >{{$item->brand['name']}}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
-            </div>
-        </div><!--end wrap shop control-->
-      </form>
-
       <div class="card-body p-0">
         <div>
           @if(session('alert'))

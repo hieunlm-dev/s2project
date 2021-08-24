@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Brand;
-use App\Models\Order;
 use App\Models\Product;
+use App\Models\Brand;
+use App\Models\Comment;
+use App\Models\WishList;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -17,24 +20,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $brands = Brand::all();
-//     $sort = $request->orderby;
-//     $products = Product::select('products.*', 'brands.name')
-//         ->join('brands', 'products.brand_id', '=', 'brands.id')
-//         ->where('brands.name', $sort)
-//         ->orderBy('created_at', 'DESC')
-//         ->paginate(10);
-        $products = Product::orderBy('created_at', 'desc')->paginate(8);
+        $products = Product::orderBy('created_at','desc')->paginate(8);
         $orders = Order::all();
-        // if (isset($request->orderby)) {
-        //     $sort = $request->orderby;
-        //     $products = Product::select('products.*', 'brands.name')
-        //         ->join('brands', 'products.brand_id', '=', 'brands.id')
-        //         ->where('brands.name', $sort)
-        //         ->orderBy('created_at', 'DESC')
-        //         ->paginate(10);
-        // }
-        return view('admin.product.index', compact('products'));
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -45,7 +33,7 @@ class ProductController extends Controller
     public function create()
     {
         $brands = Brand::all();
-        return view('admin.product.create', compact('brands'));
+        return view('admin.product.create',compact('brands'));
     }
 
     /**
@@ -60,20 +48,20 @@ class ProductController extends Controller
         // kiểm tra file có tồn tại hay không?
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            // lấy phần mở rộng (extension) của file để kiểm tra xem
+            // lấy phần mở rộng (extension) của file để kiểm tra xem 
             // đây có phải là file hình
-            $extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalExtension();            
             if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
                 return redirect()->route('admin.product.create');
             }
-
+            
             $imgName = $file->getClientOriginalName();
             // copy file vào thư mục public/images
             $file->move('images', $imgName);
             // tạo phần tử image trong mảng $product
             $product['image'] = $imgName;
         }
-
+    
         Product::create($product);
         return redirect()->route('admin.product.index');
     }
@@ -98,7 +86,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $brands = Brand::all();
-        return view('admin.product.edit', compact('product', 'brands'));
+        return view('admin.product.edit',compact('product','brands'));
     }
 
     /**
@@ -118,13 +106,13 @@ class ProductController extends Controller
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
-        } else {
+        }else{
             unset($input['image']);
         }
 
         $product->update($input);
-
-        $alert = "The product has been updated successfully";
+    
+        $alert ="The product has been updated successfully";
         return redirect()->route('admin.product.index')->with('alert', $alert);
     }
 
@@ -140,7 +128,7 @@ class ProductController extends Controller
         // $wishlist= WishList::all();
         // foreach ($comment as $item) {
         //     if ($product->id == $item->pid) {
-        //         $item->delete();
+        //         $item->delete(); 
         //         $product->delete();
         //         $alert ="The product has been deleted successfully";
         //         return redirect()->route('admin.product.index')->with('alert', $alert);
@@ -159,16 +147,4 @@ class ProductController extends Controller
         // return redirect()->route('admin.product.index')->with('alert', $alert);
     }
 
-    // public function productSort(Request $request)
-    // {
-    //     $brands = Brand::all();
-    //     $sort = $request->orderby;
-    //     $products = Product::select('products.*', 'brands.name')
-    //         ->join('brands', 'products.brand_id', '=', 'brands.id')
-    //         ->where('brands.name', $sort)
-    //         ->orderBy('created_at', 'DESC')
-    //         ->paginate(10);
-
-    //     return view('admin.product.index', compact('products', 'brands'));
-    // }
 }

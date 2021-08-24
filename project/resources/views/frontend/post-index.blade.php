@@ -41,6 +41,11 @@
                                             <figure><img src="{{ asset('images/' . $item->image) }}"
                                                     style="width: auto; height:166px;" alt="img"></figure>
                                         </a>
+                                        @if ($item->featured==1)
+                                            <div class="group-flash">
+                                                <span class="flash-item sale-label">hot</span>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="product-info">
                                         <div style="display:flex;justify-content:center" ><a href="{{ route('post-detail', $item->id) }}" class="product-name" ><span> <b>{{ $item->title }} </b></span></a></div>

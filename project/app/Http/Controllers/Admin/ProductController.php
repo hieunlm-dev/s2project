@@ -26,14 +26,14 @@ class ProductController extends Controller
 //         ->paginate(10);
         $products = Product::orderBy('created_at', 'desc')->paginate(8);
         $orders = Order::all();
-        if (isset($request->orderby)) {
-            $sort = $request->orderby;
-            $products = Product::select('products.*', 'brands.name')
-                ->join('brands', 'products.brand_id', '=', 'brands.id')
-                ->where('brands.name', $sort)
-                ->orderBy('created_at', 'DESC')
-                ->paginate(10);
-        }
+        // if (isset($request->orderby)) {
+        //     $sort = $request->orderby;
+        //     $products = Product::select('products.*', 'brands.name')
+        //         ->join('brands', 'products.brand_id', '=', 'brands.id')
+        //         ->where('brands.name', $sort)
+        //         ->orderBy('created_at', 'DESC')
+        //         ->paginate(10);
+        // }
         return view('admin.product.index', compact('products'));
     }
 

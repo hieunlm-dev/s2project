@@ -13,7 +13,7 @@
         </div>
         <div>
             @if (session('alert'))
-                <section class='alert alert-info'>{{ session('alert') }}</section>
+                <section class='alert alert-warning'>{{ session('alert') }}</section>
             @endif  
         </div>
         <div class="row">

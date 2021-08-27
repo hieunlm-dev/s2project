@@ -288,10 +288,10 @@ class HomeController extends Controller
         $customer = Customer::where('email', $u)->first();
         // dd($account);
         if (!$customer) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('alert','Invalid username or password');
         }
         if ($p !== $customer->password) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('alert','Invalid username or password');
         }
         if ($customer->status == 1) {
             return redirect()->route('login')->with('alert', 'Your account has been blocked ');

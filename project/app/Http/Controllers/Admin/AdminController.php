@@ -24,10 +24,10 @@ class AdminController extends Controller
         $account = Account::where('username', $u)->first();
         // dd($account);
         if (!$account) {
-            return redirect()->route('admin.login');
+            return redirect()->route('admin.login')->with('alert','Invalid username or password');
         }
         if ($p !== $account->password) {
-            return redirect()->route('admin.login');
+            return redirect()->route('admin.login')->with('alert','Invalid username or password');
         }
         // lưu thông tin đăng nhập vào session
         $request->session()->put('user', $account);
